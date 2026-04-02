@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading... - Engineering Failures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ── Video embed ── */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+        .video-caption {
+            padding: 0.75rem 1.25rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        /* ── Page shell ── */
+        .disaster-page { background: var(--bg-dark); min-height: 100vh; }
+
+        /* ── Breadcrumb ── */
+        .breadcrumb {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.72rem;
+            font-family: 'Space Mono', monospace;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+        }
+        .breadcrumb a { color: var(--text-muted); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--text-primary); }
+        .breadcrumb-sep { opacity: 0.4; }
+        .breadcrumb-current { color: var(--text-secondary); }
+
+        /* ── Hero strip ── */
+        .ds-hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem 2.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .ds-hero-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .ds-id {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.85rem;
+            border-radius: 4px;
+            letter-spacing: 0.08em;
+        }
+        .ds-badge {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 0.3rem 0.85rem;
+            border-radius: 4px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .ds-badge-discipline { background: var(--text-primary); color: var(--bg-dark); }
+        .ds-badge-type { background: var(--bg-elevated); color: var(--text-secondary); border: 1px solid var(--border); }
+
+        .ds-title {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(1.75rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+        .ds-location-year {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .ds-year-large {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+        }
+
+        /* ── Two-column body ── */
+        .ds-body {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2.5rem;
+            display: grid;
+            grid-template-columns: 55fr 45fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        /* ── Left column: diagram ── */
+        .ds-left { display: flex; flex-direction: column; gap: 1.5rem; }
+
+        .diagram-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        .diagram-label {
+            padding: 0.75rem 1.25rem;
+            min-height: 38px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* Zoom hint — sits right in the label bar */
+        .diagram-zoom-hint {
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: opacity 0.2s;
+            pointer-events: none;
+        }
+        .diagram-card:hover .diagram-zoom-hint { opacity: 1; }
+
+        .diagram-area {
+            aspect-ratio: 16/11;
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-elevated);
+            gap: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: zoom-in;
+            transition: background 0.2s;
+        }
+        .diagram-area:hover { background: #eae5de; }
+        /* when no diagram loaded, revert cursor */
+        .diagram-area.no-diagram { cursor: default; }
+        .diagram-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+        .diagram-placeholder-icon { font-size: 2.5rem; opacity: 0.25; }
+        .diagram-placeholder-text {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 260px;
+        }
+        .diagram-placeholder-hint {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            opacity: 0.6;
+            margin-top: 0.25rem;
+        }
+
+        /* ── LIGHTBOX ── */
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(10, 9, 7, 0.94);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+        #lightbox.open { display: flex; }
+
+        #lb-inner {
+            position: relative;
+            max-width: 95vw;
+            max-height: 93vh;
+            width: 100%;
+            animation: lbOpen 0.18s ease;
+        }
+        @keyframes lbOpen {
+            from { opacity: 0; transform: scale(0.96); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+        #lb-inner iframe {
+            width: 100%;
+            height: 88vh;
+            display: block;
+            border: none;
+            border-radius: 4px;
+            background: #f5f0e8;
+        }
+        #lb-inner img {
+            width: 100%;
+            height: auto;
+            max-height: 88vh;
+            object-fit: contain;
+            display: block;
+            border-radius: 4px;
+        }
+        #lb-close {
+            position: absolute;
+            top: -16px;
+            right: -16px;
+            width: 34px;
+            height: 34px;
+            background: #2a2218;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50%;
+            color: #f0ece4;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.15s;
+            z-index: 2;
+        }
+        #lb-close:hover { background: #c0392b; }
+        #lb-hint {
+            position: fixed;
+            bottom: 1.25rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.14em;
+            color: rgba(240,236,228,0.35);
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        /* Stats strip */
+        .stats-strip {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+        .stat-item-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.35rem;
+        }
+        .stat-item-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* ── Right column ── */
+        .ds-right { display: flex; flex-direction: column; gap: 1.5rem; }
+
+        .info-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .info-block-header {
+            padding: 0.75rem 1.25rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-dark);
+        }
+        .info-block-body { padding: 1.5rem 1.25rem; }
+        .cause-text { font-size: 0.9rem; line-height: 1.9; color: var(--text-secondary); }
+        .cause-empty { font-size: 0.85rem; color: var(--text-muted); font-style: italic; opacity: 0.7; }
+
+        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .detail-cell-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.35rem;
+        }
+        .detail-cell-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* ── Bottom nav ── */
+        .ds-nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .ds-nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1.5rem;
+            background: var(--bg-card);
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+        .ds-nav-btn:hover { border-color: var(--text-primary); color: var(--text-primary); transform: translateY(-2px); }
+        .ds-nav-btn.archive { background: var(--text-primary); color: var(--bg-dark); border-color: var(--text-primary); }
+        .ds-nav-btn.archive:hover { background: var(--accent-orange); border-color: var(--accent-orange); color: white; }
+        .ds-nav-ghost { width: 160px; }
+
+        /* ── Loading / Error ── */
+        .ds-loading { min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
+        .ds-spinner { width: 36px; height: 36px; border: 2px solid var(--border); border-top-color: var(--text-primary); border-radius: 50%; animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .ds-loading-text { font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em; color: var(--text-muted); text-transform: uppercase; }
+        .ds-error { min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; text-align: center; padding: 2rem; }
+        .ds-error-icon { font-size: 3rem; opacity: 0.3; }
+        .ds-error-title { font-family: 'Space Mono', monospace; font-size: 1rem; font-weight: 700; color: var(--text-primary); }
+        .ds-error-sub { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .ds-body { grid-template-columns: 1fr; }
+            .ds-hero, .breadcrumb, .ds-body, .ds-nav { padding-left: 1.25rem; padding-right: 1.25rem; }
+        }
+        @media (max-width: 500px) {
+            .details-grid { grid-template-columns: 1fr; }
+            .stats-strip { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="disaster-page">
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox">
+        <div id="lb-inner">
+            <button id="lb-close" aria-label="Close">✕</button>
+        </div>
+        <div id="lb-hint">CLICK ANYWHERE OR PRESS ESC TO CLOSE</div>
+    </div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">⚠️ Failures Archive</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="archive.html" class="nav-link">Archive</a>
+        </div>
+    </nav>
+
+    <!-- Loading -->
+    <div id="stateLoading" style="padding-top:80px;">
+        <div class="ds-loading">
+            <div class="ds-spinner"></div>
+            <div class="ds-loading-text">Loading case study...</div>
+        </div>
+    </div>
+
+    <!-- Error -->
+    <div id="stateError" style="display:none; padding-top:80px;">
+        <div class="ds-error">
+            <div class="ds-error-icon">⚠️</div>
+            <div class="ds-error-title">Case study not found</div>
+            <div class="ds-error-sub">Check the URL or return to the archive</div>
+            <a href="archive.html" class="ds-nav-btn archive" style="margin-top:1rem;">Back to Archive</a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <main id="stateContent" style="display:none; padding-top:80px;">
+
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="archive.html">Archive</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current" id="bcName">—</span>
+        </div>
+
+        <div class="ds-hero">
+            <div class="ds-hero-meta">
+                <span class="ds-id" id="dsId">FAIL-000</span>
+                <span class="ds-badge ds-badge-discipline" id="dsDiscipline">—</span>
+                <span class="ds-badge ds-badge-type" id="dsType">—</span>
+            </div>
+            <h1 class="ds-title" id="dsTitle">—</h1>
+            <div class="ds-location-year">
+                <span>📍 <span id="dsLocation">—</span></span>
+                <span class="ds-year-large" id="dsYear">—</span>
+            </div>
+        </div>
+
+        <div class="ds-body">
+
+            <div class="ds-left">
+
+                <div class="diagram-card">
+                    <div class="diagram-label">
+                        <span>Failure Diagram</span>
+                        <span class="diagram-zoom-hint">⊕ CLICK TO ZOOM</span>
+                    </div>
+                    <div class="diagram-area no-diagram" id="diagramArea">
+                        <img id="diagramImg" src="" alt="Failure diagram" />
+                        <div id="diagramPlaceholder">
+                            <div class="diagram-placeholder-icon">📐</div>
+                            <div class="diagram-placeholder-text" id="diagramDesc">Diagram coming soon</div>
+                            <div class="diagram-placeholder-hint">Add image file to enable diagram</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-strip">
+                    <div class="stat-item">
+                        <div class="stat-item-label">Discipline</div>
+                        <div class="stat-item-value" id="statDiscipline">—</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-item-label">Type</div>
+                        <div class="stat-item-value" id="statType">—</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-item-label">Year</div>
+                        <div class="stat-item-value" id="statYear">—</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-item-label">Location</div>
+                        <div class="stat-item-value" id="statLocation">—</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="ds-right">
+
+                <div class="info-block">
+                    <div class="info-block-header">Root Cause Analysis</div>
+                    <div class="info-block-body">
+                        <div id="causeContent" class="cause-text">—</div>
+                    </div>
+                </div>
+
+                <div class="info-block" id="videoBlock" style="display:none;">
+                    <div class="info-block-header">Watch: Documentary / Footage</div>
+                    <div class="video-wrapper">
+                        <iframe id="videoIframe" src="" title="Disaster documentary"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="video-caption" id="videoCaption"></div>
+                </div>
+
+                <div class="info-block">
+                    <div class="info-block-header">Case Details</div>
+                    <div class="info-block-body">
+                        <div class="details-grid">
+                            <div class="detail-cell">
+                                <div class="detail-cell-label">Case ID</div>
+                                <div class="detail-cell-value" id="detId">—</div>
+                            </div>
+                            <div class="detail-cell">
+                                <div class="detail-cell-label">Year</div>
+                                <div class="detail-cell-value" id="detYear">—</div>
+                            </div>
+                            <div class="detail-cell">
+                                <div class="detail-cell-label">Discipline</div>
+                                <div class="detail-cell-value" id="detDiscipline">—</div>
+                            </div>
+                            <div class="detail-cell">
+                                <div class="detail-cell-label">Failure Type</div>
+                                <div class="detail-cell-value" id="detType">—</div>
+                            </div>
+                            <div class="detail-cell" style="grid-column: 1 / -1;">
+                                <div class="detail-cell-label">Location</div>
+                                <div class="detail-cell-value" id="detLocation">—</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="ds-nav">
+            <a id="navPrev" href="#" class="ds-nav-btn" style="display:none;">← Previous</a>
+            <div id="navPrevSpacer" class="ds-nav-ghost" style="display:none;"></div>
+            <a href="archive.html" class="ds-nav-btn archive">↩ Back to Archive</a>
+            <a id="navNext" href="#" class="ds-nav-btn" style="display:none;">Next →</a>
+            <div id="navNextSpacer" class="ds-nav-ghost" style="display:none;"></div>
+        </div>
+
+    </main>
+
+    <script src="disaster.js"></script>
+
+    <script>
+    /* ── LIGHTBOX ─────────────────────────────────────────── */
+    (function () {
+        const lb       = document.getElementById('lightbox');
+        const lbInner  = document.getElementById('lb-inner');
+        const lbClose  = document.getElementById('lb-close');
+        const diagArea = document.getElementById('diagramArea');
+
+        // disaster.js sets these once it knows the file path and type
+        window._lbSrc  = null;   // e.g. 'diagrams/FAIL-005.svg'
+        window._lbType = null;   // 'svg' or 'img'
+
+        function openLightbox () {
+            if (!window._lbSrc) return;
+
+            // Remove any previous content
+            const old = lbInner.querySelector('iframe, img');
+            if (old) old.remove();
+
+            if (window._lbType === 'svg') {
+                const frame = document.createElement('iframe');
+                frame.src   = window._lbSrc;
+                frame.title = 'Failure diagram fullscreen';
+                lbInner.appendChild(frame);
+            } else {
+                const img = document.createElement('img');
+                img.src   = window._lbSrc;
+                img.alt   = 'Failure diagram fullscreen';
+                lbInner.appendChild(img);
+            }
+
+            lb.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox () {
+            lb.classList.remove('open');
+            document.body.style.overflow = '';
+            const el = lbInner.querySelector('iframe, img');
+            if (el) el.remove();   // stops iframe from loading in background
+        }
+
+        // Click diagram to open (cursor:zoom-in is set via CSS once src is known)
+        diagArea.addEventListener('click', () => {
+            if (window._lbSrc) openLightbox();
+        });
+
+        // Click dark overlay to close
+        lb.addEventListener('click', e => {
+            if (e.target === lb || e.target.id === 'lb-hint') closeLightbox();
+        });
+
+        // Close button
+        lbClose.addEventListener('click', e => { e.stopPropagation(); closeLightbox(); });
+
+        // Escape key
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    })();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sources — Engineering Failures Archive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ===== VARIABLES (mirrored from styles.css) ===== */
+    :root {
+      --bg-dark: #f7f4ef;
+      --bg-card: #ffffff;
+      --bg-elevated: #f0ece5;
+      --text-primary: #1a1814;
+      --text-secondary: #5a5650;
+      --text-muted: #9a9690;
+      --accent-orange: #c0392b;
+      --accent-red: #96281b;
+      --accent-blue: #2c3e50;
+      --border: #e8e3db;
+      --shadow-sm: 0 1px 4px rgba(26,24,20,0.06);
+      --shadow-md: 0 4px 16px rgba(26,24,20,0.08);
+      --shadow-lg: 0 12px 40px rgba(26,24,20,0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Space Mono', 'Courier New', monospace;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      padding: 1.25rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(247, 244, 239, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-logo:hover { color: var(--accent-orange); }
+    .nav-links { display: flex; gap: 2.5rem; }
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--text-primary); }
+    .nav-link.active { color: var(--accent-orange); }
+
+    /* ===== PAGE WRAPPER ===== */
+    .sources-page { padding-top: 80px; }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* ===== HEADER ===== */
+    .archive-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .archive-title {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+    .archive-title span { color: var(--accent-orange); }
+    .archive-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* ===== ADD SOURCE PANEL ===== */
+    .controls-wrapper {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .add-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+    .add-toggle-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .add-toggle-btn {
+      padding: 0.625rem 1.25rem;
+      background: var(--text-primary);
+      color: var(--bg-dark);
+      border: none;
+      border-radius: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .add-toggle-btn:hover { background: var(--accent-orange); }
+
+    .form-panel {
+      display: none;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .form-panel.open { display: block; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .form-grid .full { grid-column: 1 / -1; }
+
+    .field-label {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .field-input, .field-select, .field-textarea {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      background: var(--bg-dark);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      color: var(--text-primary);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      transition: all 0.2s;
+      appearance: none;
+    }
+    .field-input::placeholder, .field-textarea::placeholder { color: var(--text-muted); }
+    .field-input:focus, .field-select:focus, .field-textarea:focus {
+      outline: none;
+      border-color: var(--text-secondary);
+      box-shadow: 0 0 0 3px rgba(26,24,20,0.06);
+    }
+    .field-select option { background: var(--bg-dark); }
+    .field-textarea { resize: vertical; min-height: 72px; line-height: 1.6; }
+
+    .btn-primary {
+      padding: 1rem 2.5rem;
+      border-radius: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      border: none;
+      cursor: pointer;
+      background: var(--text-primary);
+      color: var(--bg-dark);
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-primary:hover {
+      background: var(--accent-orange);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ===== SORT / RESULTS ROW ===== */
+    .sort-results {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .results-count {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+    .btn-secondary {
+      padding: 0.625rem 1.25rem;
+      border-radius: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1.5px solid var(--border);
+      cursor: pointer;
+    }
+    .btn-secondary:hover {
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+      transform: translateY(-2px);
+    }
+
+    /* ===== TWO-COLUMN GRID ===== */
+    .sources-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* ===== COLUMN ===== */
+    .col-heading {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .col-pip {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .col-pip.ref { background: var(--text-primary); }
+    .col-pip.ind { background: var(--accent-orange); }
+    .col-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      flex: 1;
+    }
+    .col-count {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== SOURCE CARD ===== */
+    .source-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s;
+      animation: fadeInUp 0.3s ease;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .source-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: var(--accent-orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .source-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: #d0cbc2;
+    }
+    .source-card:hover::before { transform: scaleX(1); }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      background: var(--bg-dark);
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .card-body { flex: 1; min-width: 0; }
+    .card-name {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+      line-height: 1.4;
+    }
+    .card-url {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent-red);
+      text-decoration: none;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 0.75rem;
+      transition: color 0.2s;
+    }
+    .card-url:hover { color: var(--accent-orange); text-decoration: underline; }
+    .card-note {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 0.875rem;
+    }
+    .card-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .badge {
+      padding: 0.3rem 0.65rem;
+      border-radius: 5px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge-tag {
+      background: var(--bg-dark);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+    .btn-remove {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: all 0.15s;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .btn-remove:hover { color: var(--accent-orange); background: var(--bg-dark); }
+
+    /* ===== EMPTY STATE ===== */
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+    .empty-icon { font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.4; }
+    .empty-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .sources-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">Engineering Failures Archive</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="archive.html" class="nav-link">Archive</a>
+    <a href="sources.html" class="nav-link active">Sources</a>
+  </div>
+</nav>
+
+<!-- ===== PAGE ===== -->
+<div class="sources-page">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="archive-header">
+      <h1 class="archive-title">Source <span>Materials</span></h1>
+      <p class="archive-subtitle">All reference materials and technical publications used to document the 50 engineering disasters in this archive.</p>
+    </div>
+
+    <!-- Add Source Panel -->
+    <div class="controls-wrapper">
+      <div class="add-toggle" onclick="toggleForm()">
+        <span class="add-toggle-label">Reference Index</span>
+        <button class="add-toggle-btn" id="toggle-btn">+ Add Source</button>
+      </div>
+      <div class="form-panel" id="form-panel">
+        <div class="form-grid">
+          <div>
+            <label class="field-label">Source Name / Title</label>
+            <input type="text" class="field-input" id="inp-name" placeholder="e.g. Wikipedia — Bridge Failures" />
+          </div>
+          <div>
+            <label class="field-label">URL</label>
+            <input type="url" class="field-input" id="inp-url" placeholder="https://..." />
+          </div>
+          <div>
+            <label class="field-label">Category</label>
+            <select class="field-select" id="inp-cat">
+              <option value="reference">Reference &amp; Encyclopedia</option>
+              <option value="industry">Industry &amp; Technical</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label">Tag (optional)</label>
+            <input type="text" class="field-input" id="inp-tag" placeholder="e.g. Wikipedia, NASA, ASME" />
+          </div>
+          <div class="full">
+            <label class="field-label">Notes (optional)</label>
+            <textarea class="field-textarea" id="inp-note" placeholder="What this source covers or why it was used…"></textarea>
+          </div>
+          <div class="full">
+            <button class="btn-primary" onclick="addSource()">Add Source →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sort / results row -->
+    <div class="sort-results">
+      <span class="results-count" id="results-count">— sources</span>
+      <button class="btn-secondary" onclick="exportJSON()">Export JSON ↓</button>
+    </div>
+
+    <!-- Two-column grid -->
+    <div class="sources-grid">
+      <!-- Reference -->
+      <div>
+        <div class="col-heading">
+          <div class="col-pip ref"></div>
+          <div class="col-title">Reference &amp; Encyclopedia</div>
+          <div class="col-count" id="ref-count">0</div>
+        </div>
+        <div id="list-reference"></div>
+      </div>
+      <!-- Industry -->
+      <div>
+        <div class="col-heading">
+          <div class="col-pip ind"></div>
+          <div class="col-title">Industry &amp; Technical</div>
+          <div class="col-count" id="ind-count">0</div>
+        </div>
+        <div id="list-industry"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const defaults = [
+    { name: "Wikipedia — Engineering Failures in the U.S.", url: "https://en.wikipedia.org/wiki/Engineering_failures_in_the_U.S.", category: "reference", tag: "Wikipedia", note: "Primary list of U.S. engineering failures with dates, locations and descriptions." },
+    { name: "Wikipedia — Engineering Disasters", url: "https://en.wikipedia.org/wiki/Engineering_disasters", category: "reference", tag: "Wikipedia", note: "Broad overview of global engineering disasters across all disciplines." },
+    { name: "Wikipedia — List of Bridge Failures", url: "https://en.wikipedia.org/wiki/List_of_bridge_failures", category: "reference", tag: "Wikipedia", note: "Comprehensive table of bridge failures worldwide with cause and casualty data." },
+    { name: "Britannica — 7 Accidents & Disasters in Spaceflight History", url: "https://www.britannica.com/story/7-accidents-and-disasters-in-spaceflight-history", category: "reference", tag: "Britannica", note: "Editorial overview of major spaceflight disasters from Apollo 1 through Columbia." },
+    { name: "ASME — Ten Engineering Disasters of the Last 100 Years", url: "https://www.asme.org/topics-resources/content/ten-engineering-disasters-of-the-last-100-years", category: "industry", tag: "ASME", note: "Professional engineering society ranking of the most significant disasters by impact." },
+    { name: "World Nuclear — Chernobyl Accident", url: "https://world-nuclear.org/information-library/safety-and-security/safety-of-plants/chernobyl-accident", category: "industry", tag: "World Nuclear Association", note: "Technical breakdown of the Chernobyl reactor failure, causes, and long-term effects." }
+  ];
+
+  let sources = JSON.parse(localStorage.getItem('eng-sources') || 'null');
+  if (!sources) {
+    sources = defaults.map((s, i) => ({ id: Date.now() + i, ...s }));
+    save();
+  }
+
+  let formOpen = false;
+  function toggleForm() {
+    formOpen = !formOpen;
+    document.getElementById('form-panel').classList.toggle('open', formOpen);
+    document.getElementById('toggle-btn').textContent = formOpen ? '− Cancel' : '+ Add Source';
+  }
+
+  function save() { localStorage.setItem('eng-sources', JSON.stringify(sources)); }
+
+  function render() {
+    const ref = sources.filter(s => s.category === 'reference');
+    const ind = sources.filter(s => s.category === 'industry');
+    document.getElementById('results-count').textContent = sources.length + ' source' + (sources.length !== 1 ? 's' : '');
+    document.getElementById('ref-count').textContent = ref.length;
+    document.getElementById('ind-count').textContent = ind.length;
+    renderList('list-reference', ref);
+    renderList('list-industry', ind);
+  }
+
+  function renderList(id, list) {
+    const el = document.getElementById(id);
+    if (!list.length) {
+      el.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-icon">📂</div>
+          <div class="empty-title">No sources yet</div>
+        </div>`;
+      return;
+    }
+    el.innerHTML = list.map((s, i) => `
+      <div class="source-card">
+        <div class="card-num">${String(i + 1).padStart(2, '0')}</div>
+        <div class="card-body">
+          <div class="card-name">${esc(s.name)}</div>
+          <a class="card-url" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a>
+          ${s.note ? `<div class="card-note">${esc(s.note)}</div>` : ''}
+          ${s.tag  ? `<div class="card-badges"><span class="badge badge-tag">${esc(s.tag)}</span></div>` : ''}
+        </div>
+        <button class="btn-remove" onclick="remove(${s.id})" title="Remove source">×</button>
+      </div>
+    `).join('');
+  }
+
+  function esc(str) {
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function addSource() {
+    const name = document.getElementById('inp-name').value.trim();
+    const url  = document.getElementById('inp-url').value.trim();
+    const cat  = document.getElementById('inp-cat').value;
+    const tag  = document.getElementById('inp-tag').value.trim();
+    const note = document.getElementById('inp-note').value.trim();
+    if (!name || !url) { alert('Name and URL are required.'); return; }
+    sources.push({ id: Date.now(), name, url, category: cat, tag, note });
+    save(); render();
+    ['inp-name','inp-url','inp-tag','inp-note'].forEach(i => document.getElementById(i).value = '');
+    toggleForm();
+  }
+
+  function remove(id) {
+    if (!confirm('Remove this source?')) return;
+    sources = sources.filter(s => s.id !== id);
+    save(); render();
+  }
+
+  function exportJSON() {
+    const blob = new Blob([JSON.stringify(sources, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'sources.json';
+    a.click();
+  }
+
+  render();
+</script>
+</body>
+</html>
