@@ -80,6 +80,21 @@ Scraper ID counter auto-increments; restart from a clean counter if needed by ed
 | `.vscode/launch.json` | VS Code debug config |
 | `settings.json` | Python env manager preference |
 
+## Git Workflow
+
+After every meaningful unit of work, commit and push to GitHub so progress is never lost and any change can be reverted.
+
+- Remote: `https://github.com/chanialDang/engineering-failures-archive` (branch `main`)
+- Commit after each logical change — don't batch unrelated edits into one commit
+- Write concise, descriptive commit messages: what changed and why, not just "update files"
+- Always push immediately after committing: `git push origin main`
+
+```bash
+git add <changed files>
+git commit -m "short description of what changed and why"
+git push origin main
+```
+
 ## Notes
 
 - No server-side logic — all rendering happens in the browser after JSON fetch
