@@ -130,7 +130,7 @@
         .diagram-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 18px;
             overflow: hidden;
             position: relative;
         }
@@ -279,7 +279,7 @@
         .stats-strip {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 18px;
             padding: 1.5rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -307,7 +307,7 @@
         .info-block {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 18px;
             overflow: hidden;
         }
         .info-block-header {
@@ -361,7 +361,7 @@
             padding: 0.875rem 1.5rem;
             background: var(--bg-card);
             border: 1.5px solid var(--border);
-            border-radius: 8px;
+            border-radius: 980px;
             text-decoration: none;
             font-family: 'Space Mono', monospace;
             font-size: 0.72rem;
@@ -395,6 +395,142 @@
             .details-grid { grid-template-columns: 1fr; }
             .stats-strip { grid-template-columns: 1fr; }
         }
+
+        /* ── AI Chat Widget ── */
+        #chatWidget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+        }
+        #chatToggle {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #1a1814;
+            border: 1.5px solid rgba(192,57,43,0.6);
+            color: #f0ece4;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+        }
+        #chatToggle:hover { border-color: #c0392b; background: #c0392b; }
+        #chatPanel {
+            width: 340px;
+            background: rgba(26,24,20,0.97);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            transition: opacity 0.2s, transform 0.2s;
+        }
+        #chatPanel.chat-hidden {
+            opacity: 0;
+            transform: translateY(12px) scale(0.97);
+            pointer-events: none;
+        }
+        .chat-header {
+            padding: 1rem 1.25rem 0.85rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+        }
+        .chat-header-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            color: #c0392b;
+            margin-bottom: 0.15rem;
+        }
+        .chat-header-sub {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            color: rgba(240,236,228,0.4);
+        }
+        #chatClose {
+            position: absolute;
+            top: 0.85rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: rgba(240,236,228,0.35);
+            font-size: 0.9rem;
+            cursor: pointer;
+            padding: 0.2rem 0.4rem;
+            line-height: 1;
+            transition: color 0.15s;
+        }
+        #chatClose:hover { color: #f0ece4; }
+        .chat-messages {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            overflow-y: auto;
+            max-height: 340px;
+        }
+        .chat-messages::-webkit-scrollbar { width: 4px; }
+        .chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+        .chat-msg {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            line-height: 1.7;
+            max-width: 92%;
+            padding: 0.65rem 0.9rem;
+        }
+        .chat-msg p { margin: 0; }
+        .chat-msg-user {
+            background: #f7f4ef;
+            color: #1a1814;
+            align-self: flex-end;
+            border-radius: 12px 12px 4px 12px;
+        }
+        .chat-msg-ai {
+            background: rgba(255,255,255,0.06);
+            color: rgba(240,236,228,0.85);
+            align-self: flex-start;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px 12px 12px 4px;
+        }
+        .chat-msg-thinking { color: rgba(240,236,228,0.35); font-style: italic; }
+        .chat-input-row {
+            display: flex;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        #chatInput {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 0.875rem 1rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            color: #f0ece4;
+            outline: none;
+        }
+        #chatInput::placeholder { color: rgba(240,236,228,0.28); }
+        #chatSend {
+            padding: 0 1.25rem;
+            background: #c0392b;
+            border: none;
+            color: #fff;
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        #chatSend:hover { background: #a93226; }
+        #chatSend:disabled { background: rgba(192,57,43,0.25); cursor: not-allowed; }
     </style>
 </head>
 <body class="disaster-page">
@@ -408,10 +544,11 @@
     </div>
 
     <nav class="navbar">
-        <a href="index.html" class="nav-logo">⚠️ Failures Archive</a>
+        <a href="index.html" class="nav-logo">EFA</a>
         <div class="nav-links">
             <a href="index.html" class="nav-link">Home</a>
             <a href="archive.html" class="nav-link">Archive</a>
+            <a href="chat.html" class="nav-link">Chat</a>
         </div>
     </nav>
 
@@ -558,7 +695,93 @@
 
     </main>
 
+    <!-- AI Chat Widget -->
+    <div id="chatWidget">
+        <div id="chatPanel" class="chat-hidden">
+            <div class="chat-header">
+                <div class="chat-header-title">ASK THE ARCHIVE</div>
+                <div class="chat-header-sub">AI on engineering failures</div>
+                <button id="chatClose" aria-label="Close">✕</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-msg chat-msg-ai">
+                    <p>Ask me anything about engineering failures — causes, patterns, specific disasters.</p>
+                </div>
+            </div>
+            <div class="chat-input-row">
+                <input type="text" id="chatInput" placeholder="Ask about a disaster..." maxlength="300">
+                <button id="chatSend">→</button>
+            </div>
+        </div>
+        <button id="chatToggle" aria-label="Open AI assistant">⊕</button>
+    </div>
+
     <script src="disaster.js"></script>
+
+    <script>
+    /* ── AI CHAT WIDGET ───────────────────────────────────── */
+    (function () {
+        const API_URL = 'https://engineering-failures-archive.up.railway.app';
+
+        const toggle   = document.getElementById('chatToggle');
+        const panel    = document.getElementById('chatPanel');
+        const closeBtn = document.getElementById('chatClose');
+        const messages = document.getElementById('chatMessages');
+        const input    = document.getElementById('chatInput');
+        const send     = document.getElementById('chatSend');
+
+        let isOpen = false;
+
+        function openChat()  { isOpen = true;  panel.classList.remove('chat-hidden'); input.focus(); }
+        function closeChat() { isOpen = false; panel.classList.add('chat-hidden'); }
+
+        toggle.addEventListener('click', () => isOpen ? closeChat() : openChat());
+        closeBtn.addEventListener('click', closeChat);
+
+        function appendMsg(text, role) {
+            const div = document.createElement('div');
+            div.className = `chat-msg chat-msg-${role}`;
+            div.innerHTML = `<p>${text.replace(/\n/g, '<br>')}</p>`;
+            messages.appendChild(div);
+            messages.scrollTop = messages.scrollHeight;
+            return div;
+        }
+
+        async function sendMessage() {
+            const msg = input.value.trim();
+            if (!msg) return;
+
+            input.value = '';
+            send.disabled = true;
+            appendMsg(msg, 'user');
+
+            const thinking = appendMsg('Thinking...', 'ai');
+            thinking.querySelector('p').classList.add('chat-msg-thinking');
+
+            try {
+                const res  = await fetch(`${API_URL}/api/chat`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: msg }),
+                });
+                const data = await res.json();
+                thinking.remove();
+                appendMsg(data.response, 'ai');
+            } catch {
+                thinking.remove();
+                appendMsg('Could not reach the backend.', 'ai');
+            } finally {
+                send.disabled = false;
+                input.focus();
+            }
+        }
+
+        send.addEventListener('click', sendMessage);
+        input.addEventListener('keydown', e => {
+            if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+        });
+    })();
+    </script>
 
     <script>
     /* ── LIGHTBOX ─────────────────────────────────────────── */

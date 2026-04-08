@@ -1,15 +1,19 @@
+# Secrets
+.env
+.env.*
+
 # macOS
 .DS_Store
-.AppleDouble
-.LSOverride
-
-# VS Code
-.vscode/
 
 # Python
 __pycache__/
-*.py[cod]
 *.pyc
+*.pyo
+.venv/
+venv/
 
-# Environment
-.env
+# Node
+node_modules/
+
+# IDE
+.vscode/

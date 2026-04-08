@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1080 742" xmlns="http://www.w3.org/2000/svg" width="1080" height="742" font-family="Georgia, 'Times New Roman', serif">
+<defs>
+  <style>
+    .label-sm { font-size: 8px; }
+    .label-md { font-size: 10px; }
+    .label-lg { font-size: 12px; }
+    .bold { font-weight: bold; }
+    .mono { font-family: 'Courier New', monospace; }
+  </style>
+  <marker id="arr-dark" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M0,0 L8,4 L0,8 Z" fill="#2a2218"/>
+  </marker>
+  <marker id="arr-red" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M0,0 L8,4 L0,8 Z" fill="#c0392b"/>
+  </marker>
+  <marker id="arr-amber" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M0,0 L8,4 L0,8 Z" fill="#c0a870"/>
+  </marker>
+  <marker id="arr-blue" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M0,0 L8,4 L0,8 Z" fill="#3a6a9a"/>
+  </marker>
+  <pattern id="flame-pat" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+    <rect width="8" height="8" fill="#c0392b" opacity="0.18"/>
+    <path d="M0,8 Q4,4 8,8" stroke="#e05030" stroke-width="0.8" fill="none"/>
+  </pattern>
+  <pattern id="grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#d8d0c0" stroke-width="0.3"/>
+  </pattern>
+</defs>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- FULL CANVAS BACKGROUND                                         -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<rect width="1080" height="742" fill="#f5f0e8"/>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- HEADER BAR (top 52px)                                          -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<rect x="0" y="0" width="1080" height="52" fill="#1e1810"/>
+<line x1="0" y1="52" x2="1080" y2="52" stroke="#c0a870" stroke-width="2"/>
+<text x="540" y="22" text-anchor="middle" font-size="14" fill="#f0ece4" letter-spacing="4" font-weight="bold">SPACE SHUTTLE CHALLENGER — ENGINEERING FAILURE ANALYSIS</text>
+<text x="540" y="41" text-anchor="middle" font-size="9" fill="#c0a870" letter-spacing="2">STS-51-L  ·  28 JANUARY 1986  ·  CAPE CANAVERAL, FL  ·  VEHICLE BREAKUP AT T+73 SECONDS</text>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- LEFT PANEL: VEHICLE DIAGRAM  (x 0–648, y 52–722)              -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<rect x="0" y="52" width="648" height="670" fill="#dce8f4"/>
+<rect x="0" y="52" width="648" height="670" fill="url(#grid)" opacity="0.5"/>
+
+<!-- Launch pad reference line -->
+<line x1="0" y1="718" x2="648" y2="718" stroke="#a09070" stroke-width="1" stroke-dasharray="6,4"/>
+<text x="8" y="715" font-size="7.5" fill="#a09070" font-style="italic">Launch pad level</text>
+
+<!-- ─── EXTERNAL TANK ─────────────────────────────────────────── -->
+<rect x="297" y="81" width="61" height="225" fill="#c87818" stroke="#2a2218" stroke-width="1.5" rx="4"/>
+<path d="M 297,81 Q 327,65 358,81" fill="#d48828" stroke="#2a2218" stroke-width="1.5"/>
+<path d="M 297,306 Q 327,322 358,306" fill="#b06810" stroke="#2a2218" stroke-width="1.5"/>
+<text x="328" y="183" text-anchor="middle" font-size="9" fill="#2a1408" font-weight="bold">EXTERNAL</text>
+<text x="328" y="196" text-anchor="middle" font-size="9" fill="#2a1408" font-weight="bold">TANK</text>
+<text x="328" y="209" text-anchor="middle" font-size="8" fill="#3a2008">(LH₂ / LOX)</text>
+<text x="328" y="221" text-anchor="middle" font-size="7" fill="#5a3010">1.6M lbs propellant</text>
+
+<!-- ET flame breach indicator -->
+<rect x="354" y="175" width="18" height="30" fill="url(#flame-pat)" rx="2"/>
+<path d="M 358,175 Q 367,189 362,206" stroke="#c0392b" stroke-width="2.5" fill="none" opacity="0.9"/>
+
+<!-- ─── RIGHT SRB (failure side) ──────────────────────────────── -->
+<rect x="374" y="93" width="47" height="205" fill="#8a8880" stroke="#2a2218" stroke-width="1.5" rx="3"/>
+<path d="M 374,93 Q 397,79 421,93" fill="#9a9890" stroke="#2a2218" stroke-width="1.5"/>
+<path d="M 374,298 Q 397,313 421,298" fill="#6a6860" stroke="#2a2218" stroke-width="1.5"/>
+<path d="M 377,298 L 372,322 L 423,322 L 418,298 Z" fill="#4a4840" stroke="#2a2218" stroke-width="1"/>
+<text x="397" y="183" text-anchor="middle" font-size="8" fill="#f0ece4" font-weight="bold">RIGHT</text>
+<text x="397" y="195" text-anchor="middle" font-size="8" fill="#f0ece4" font-weight="bold">SRB</text>
+
+<!-- SRB field joint failure line (red horizontal) -->
+<line x1="374" y1="222" x2="421" y2="222" stroke="#c0392b" stroke-width="3.5"/>
+
+<!-- Flame plume escaping field joint -->
+<path d="M 421,222 Q 440,210 434,196 Q 453,185 444,172 Q 462,161 454,149" stroke="#e05020" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M 421,222 Q 442,217 435,205 Q 454,196 446,184" stroke="#f08030" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.65"/>
+
+<!-- ─── LEFT SRB (nominal) ─────────────────────────────────────── -->
+<rect x="234" y="93" width="47" height="205" fill="#8a8880" stroke="#2a2218" stroke-width="1.5" rx="3"/>
+<path d="M 234,93 Q 257,79 281,93" fill="#9a9890" stroke="#2a2218" stroke-width="1.5"/>
+<path d="M 234,298 Q 257,313 281,298" fill="#6a6860" stroke="#2a2218" stroke-width="1.5"/>
+<path d="M 237,298 L 232,322 L 283,322 L 278,298 Z" fill="#4a4840" stroke="#2a2218" stroke-width="1"/>
+<text x="257" y="183" text-anchor="middle" font-size="8" fill="#f0ece4" font-weight="bold">LEFT</text>
+<text x="257" y="195" text-anchor="middle" font-size="8" fill="#f0ece4" font-weight="bold">SRB</text>
+<text x="257" y="210" text-anchor="middle" font-size="7" fill="#a0d080">(nominal)</text>
+
+<!-- ─── ORBITER / CHALLENGER ───────────────────────────────────── -->
+<rect x="263" y="68" width="90" height="31" fill="#ddd8cc" stroke="#2a2218" stroke-width="1.5" rx="3"/>
+<path d="M 353,68 Q 374,81 353,99 Z" fill="#ccc8bc" stroke="#2a2218" stroke-width="1.5"/>
+<rect x="335" y="72" width="15" height="7" fill="#4a6a8a" rx="1" stroke="#2a2218" stroke-width="0.8"/>
+<path d="M 263,99 L 202,130 L 219,99 Z" fill="#c8c0b0" stroke="#2a2218" stroke-width="1.2"/>
+<path d="M 353,99 L 353,130 L 263,99 Z" fill="#d0c8b8" stroke="#2a2218" stroke-width="1.2"/>
+<path d="M 266,68 L 255,56 L 263,68 Z" fill="#c0b8a8" stroke="#2a2218" stroke-width="1"/>
+<ellipse cx="277" cy="108" rx="6" ry="5" fill="#4a4838" stroke="#2a2218" stroke-width="1"/>
+<ellipse cx="290" cy="110" rx="6" ry="5" fill="#4a4838" stroke="#2a2218" stroke-width="1"/>
+<ellipse cx="303" cy="108" rx="6" ry="5" fill="#4a4838" stroke="#2a2218" stroke-width="1"/>
+<text x="308" y="65" text-anchor="middle" font-size="9" fill="#2a2218" font-weight="bold">CHALLENGER ORBITER</text>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- TIMELINE ANNOTATION LABELS (left side of diagram)             -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<!-- T+0.678s -->
+<rect x="14" y="348" width="148" height="30" fill="#1e1810" rx="2" opacity="0.92"/>
+<text x="88" y="361" text-anchor="middle" font-size="8" fill="#c0a870" font-weight="bold" class="mono">T+0.678s</text>
+<text x="88" y="373" text-anchor="middle" font-size="7.5" fill="#d0c8b8">First O-ring smoke visible</text>
+<line x1="162" y1="364" x2="234" y2="270" stroke="#c0a870" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arr-amber)"/>
+
+<!-- T+58.788s -->
+<rect x="14" y="392" width="148" height="30" fill="#3a1208" rx="2" opacity="0.92"/>
+<text x="88" y="405" text-anchor="middle" font-size="8" fill="#e06040" font-weight="bold" class="mono">T+58.788s</text>
+<text x="88" y="417" text-anchor="middle" font-size="7.5" fill="#d0c8b8">Continuous flame from joint</text>
+<line x1="162" y1="409" x2="374" y2="222" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arr-red)"/>
+
+<!-- T+64.660s -->
+<rect x="14" y="436" width="148" height="30" fill="#3a1208" rx="2" opacity="0.92"/>
+<text x="88" y="449" text-anchor="middle" font-size="8" fill="#e06040" font-weight="bold" class="mono">T+64.660s</text>
+<text x="88" y="461" text-anchor="middle" font-size="7.5" fill="#d0c8b8">ET hydrogen tank breach</text>
+<line x1="162" y1="452" x2="297" y2="240" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arr-red)"/>
+
+<!-- T+73.162s -->
+<rect x="14" y="480" width="148" height="30" fill="#5a0808" rx="2" opacity="0.92"/>
+<text x="88" y="493" text-anchor="middle" font-size="8" fill="#ff8060" font-weight="bold" class="mono">T+73.162s</text>
+<text x="88" y="505" text-anchor="middle" font-size="7.5" fill="#ffe0d8">Vehicle structural breakup</text>
+
+<!-- ─── Right-side annotation labels (flame plume + field joint) ── -->
+
+<!-- Flame plume label -->
+<rect x="460" y="140" width="148" height="30" fill="#3a1208" rx="2" opacity="0.92"/>
+<text x="534" y="153" text-anchor="middle" font-size="8.5" fill="#e06040" font-weight="bold">Flame plume path</text>
+<text x="534" y="165" text-anchor="middle" font-size="7.5" fill="#d0c8b8">escaping field joint</text>
+<line x1="460" y1="156" x2="444" y2="165" stroke="#c0392b" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arr-red)"/>
+
+<!-- Field joint primary failure label -->
+<rect x="460" y="206" width="148" height="30" fill="#5a0808" rx="2" opacity="0.92"/>
+<text x="534" y="219" text-anchor="middle" font-size="8.5" fill="#ff6040" font-weight="bold">SRB Field Joint</text>
+<text x="534" y="231" text-anchor="middle" font-size="7.5" fill="#d0c8b8">PRIMARY FAILURE POINT</text>
+<line x1="460" y1="222" x2="422" y2="222" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arr-red)"/>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- RIGHT PANEL: KEY PARAMETERS (x 648–1080, y 52–722)            -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<rect x="648" y="52" width="432" height="670" fill="#1e1810"/>
+<line x1="648" y1="52" x2="648" y2="722" stroke="#c0a870" stroke-width="1.5"/>
+
+<!-- Right panel sub-header -->
+<rect x="648" y="52" width="432" height="25" fill="#2a2218"/>
+<text x="864" y="69" text-anchor="middle" font-size="10" fill="#c0a870" letter-spacing="2">KEY PARAMETERS &amp; CONTEXT</text>
+
+<!-- ─── Temperature stat boxes ─────────────────────────────────── -->
+<rect x="660" y="88" width="189" height="66" fill="#3a1208" stroke="#c0392b" stroke-width="1" rx="3"/>
+<text x="754" y="105" text-anchor="middle" font-size="9" fill="#c0a870">Launch Temperature</text>
+<text x="754" y="138" text-anchor="middle" font-size="26" fill="#e04030" font-weight="bold">28°F</text>
+<text x="754" y="151" text-anchor="middle" font-size="8.5" fill="#c09080">−2°C  ·  Record cold for a launch</text>
+
+<rect x="861" y="88" width="189" height="66" fill="#0e2a0e" stroke="#2a8a2a" stroke-width="1" rx="3"/>
+<text x="955" y="105" text-anchor="middle" font-size="9" fill="#c0a870">O-ring Qualified To</text>
+<text x="955" y="138" text-anchor="middle" font-size="26" fill="#40cc40" font-weight="bold">53°F</text>
+<text x="955" y="151" text-anchor="middle" font-size="8.5" fill="#90c890">12°C  ·  Design lower limit</text>
+
+<!-- ─── Gap analysis bar ───────────────────────────────────────── -->
+<rect x="660" y="166" width="390" height="34" fill="#2a1a08" stroke="#c0a870" stroke-width="0.8" rx="2"/>
+<text x="855" y="180" text-anchor="middle" font-size="8.5" fill="#e0c080" font-weight="bold">25°F below qualification — O-ring stiffness increased 6× at launch temperature</text>
+<text x="855" y="194" text-anchor="middle" font-size="8" fill="#c09060">Cold rubber loses resilience and cannot seat against joint gaps under ignition pressure</text>
+
+<!-- ─── Crew members panel ─────────────────────────────────────── -->
+<rect x="660" y="212" width="189" height="118" fill="#1a1a2a" stroke="#3a6a9a" stroke-width="1" rx="3"/>
+<text x="754" y="228" text-anchor="middle" font-size="9" fill="#c0a870">Seven Crew Members</text>
+<line x1="666" y1="232" x2="843" y2="232" stroke="#3a6a9a" stroke-width="0.6"/>
+<text x="666" y="246" font-size="7.5" fill="#a0b8d0">Cdr. Francis Scobee</text>
+<text x="666" y="259" font-size="7.5" fill="#a0b8d0">Plt. Michael Smith</text>
+<text x="666" y="272" font-size="7.5" fill="#a0b8d0">MS  Ellison Onizuka</text>
+<text x="666" y="285" font-size="7.5" fill="#a0b8d0">MS  Judith Resnik</text>
+<text x="666" y="298" font-size="7.5" fill="#a0b8d0">MS  Ronald McNair</text>
+<text x="666" y="311" font-size="7.5" fill="#a0b8d0">PS  Gregory Jarvis</text>
+<text x="666" y="316" font-size="7" fill="#a0c8d8">PS  Christa McAuliffe</text>
+<text x="666" y="326" font-size="6.5" fill="#a0c8d8" font-style="italic">(Teacher in Space)</text>
+
+<!-- ─── Technical parameters panel ────────────────────────────── -->
+<rect x="861" y="212" width="189" height="118" fill="#1e1810" stroke="#c0a870" stroke-width="0.8" rx="3"/>
+<text x="955" y="228" text-anchor="middle" font-size="9" fill="#c0a870">Technical Parameters</text>
+<line x1="867" y1="232" x2="1044" y2="232" stroke="#c0a870" stroke-width="0.6"/>
+<text x="867" y="247" font-size="7.5" fill="#d0c8b8">SRB thrust (each):   3.3M lbf</text>
+<text x="867" y="261" font-size="7.5" fill="#d0c8b8">ET propellant:        1.6M lbs total</text>
+<text x="867" y="275" font-size="7.5" fill="#d0c8b8">LH₂ stored at:        −423°F</text>
+<text x="867" y="289" font-size="7.5" fill="#d0c8b8">LOX stored at:        −297°F</text>
+<text x="867" y="303" font-size="7.5" fill="#d0c8b8">Breakup altitude:    46,000 ft</text>
+<text x="867" y="317" font-size="7.5" fill="#c0392b">Breakup velocity:    Mach 1.92</text>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- FOOTER BAR (y 722–742)                                         -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<rect x="0" y="722" width="1080" height="20" fill="#2a2218"/>
+<line x1="0" y1="722" x2="1080" y2="722" stroke="#c0a870" stroke-width="1.5"/>
+<text x="540" y="735" text-anchor="middle" font-size="8.5" fill="#c0a870" letter-spacing="3">DETAIL PANELS — MECHANISM &amp; CONTEXT OF FAILURE</text>
+</svg>

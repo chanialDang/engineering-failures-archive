@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask the Archive - Engineering Failures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .chat-page {
+            min-height: 100vh;
+            background: #0d0b09;
+            padding-top: 64px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-page-header {
+            padding: 3.5rem 2rem 2.5rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .chat-page-eyebrow {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #c0392b;
+            margin-bottom: 0.6rem;
+        }
+        .chat-page-title {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: #f5f0e8;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+        .chat-page-sub {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68rem;
+            color: rgba(240,236,228,0.3);
+            letter-spacing: 0.05em;
+        }
+
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            max-width: 760px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .chat-page-messages {
+            flex: 1;
+            padding: 2rem 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            overflow-y: auto;
+            min-height: 300px;
+        }
+        .chat-page-messages::-webkit-scrollbar { width: 4px; }
+        .chat-page-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+        .chat-page-msg {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            line-height: 1.85;
+            max-width: 85%;
+            padding: 1rem 1.25rem;
+        }
+        .chat-page-msg p { margin: 0; }
+        .chat-page-msg-user {
+            background: #f7f4ef;
+            color: #1a1814;
+            align-self: flex-end;
+            border-radius: 16px 16px 4px 16px;
+        }
+        .chat-page-msg-ai {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.07);
+            color: rgba(240,236,228,0.85);
+            align-self: flex-start;
+            border-radius: 16px 16px 16px 4px;
+        }
+        .chat-page-msg-thinking {
+            color: rgba(240,236,228,0.3);
+            font-style: italic;
+        }
+
+        .chat-page-input-area {
+            padding: 1.5rem 0 2.5rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .chat-page-input-row {
+            display: flex;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 980px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+        .chat-page-input-row:focus-within {
+            border-color: rgba(192,57,43,0.5);
+        }
+        #chatInput {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            color: #f0ece4;
+            outline: none;
+        }
+        #chatInput::placeholder { color: rgba(240,236,228,0.22); }
+        #chatSend {
+            padding: 0 1.75rem;
+            background: #c0392b;
+            border: none;
+            color: #fff;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: background 0.15s;
+            white-space: nowrap;
+        }
+        #chatSend:hover { background: #a93226; }
+        #chatSend:disabled { background: rgba(192,57,43,0.2); cursor: not-allowed; }
+
+        .chat-page-hint {
+            margin-top: 0.85rem;
+            text-align: center;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.58rem;
+            color: rgba(240,236,228,0.18);
+            letter-spacing: 0.08em;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">EFA</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="archive.html" class="nav-link">Archive</a>
+            <a href="chat.html" class="nav-link">Chat</a>
+        </div>
+    </nav>
+
+    <div class="chat-page">
+        <div class="chat-page-header">
+            <div class="chat-page-eyebrow">AI Assistant</div>
+            <h1 class="chat-page-title">Ask the Archive</h1>
+            <p class="chat-page-sub">Context-aware answers from 50 disasters · Powered by gpt-4o-mini</p>
+        </div>
+
+        <div class="chat-container">
+            <div class="chat-page-messages" id="chatMessages">
+                <div class="chat-page-msg chat-page-msg-ai">
+                    <p>Ask me anything about engineering failures — causes, patterns, specific disasters, or what the archive contains.</p>
+                </div>
+            </div>
+
+            <div class="chat-page-input-area">
+                <div class="chat-page-input-row">
+                    <input
+                        type="text"
+                        id="chatInput"
+                        placeholder="Ask about Challenger, Bhopal, the I-35W bridge..."
+                        maxlength="500"
+                        autocomplete="off"
+                    >
+                    <button id="chatSend">Send →</button>
+                </div>
+                <div class="chat-page-hint">Answers are drawn from raw_failures.json · Not a substitute for primary sources</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function () {
+        const API_URL = 'https://engineering-failures-archive.up.railway.app';
+
+        const messages = document.getElementById('chatMessages');
+        const input    = document.getElementById('chatInput');
+        const send     = document.getElementById('chatSend');
+
+        function appendMsg(text, role) {
+            const div = document.createElement('div');
+            div.className = `chat-page-msg chat-page-msg-${role}`;
+            div.innerHTML = `<p>${text.replace(/\n/g, '<br>')}</p>`;
+            messages.appendChild(div);
+            messages.scrollTop = messages.scrollHeight;
+            return div;
+        }
+
+        async function sendMessage() {
+            const msg = input.value.trim();
+            if (!msg) return;
+
+            input.value = '';
+            send.disabled = true;
+            appendMsg(msg, 'user');
+
+            const thinking = appendMsg('Thinking...', 'ai');
+            thinking.querySelector('p').classList.add('chat-page-msg-thinking');
+
+            try {
+                const res  = await fetch(`${API_URL}/api/chat`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: msg }),
+                });
+                const data = await res.json();
+                thinking.remove();
+                appendMsg(data.response, 'ai');
+            } catch {
+                thinking.remove();
+                appendMsg('Could not reach the backend. Check that the Railway service is running.', 'ai');
+            } finally {
+                send.disabled = false;
+                input.focus();
+            }
+        }
+
+        send.addEventListener('click', sendMessage);
+        input.addEventListener('keydown', e => {
+            if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+        });
+    })();
+    </script>
+
+</body>
+</html>

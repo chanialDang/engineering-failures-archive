@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1080 742" xmlns="http://www.w3.org/2000/svg" width="1080" height="742" font-family="Georgia, 'Times New Roman', serif">
+<defs>
+  <style>
+    .label-sm { font-size: 12px; }
+    .label-md { font-size: 15px; }
+    .label-lg { font-size: 18px; }
+    .bold { font-weight: bold; }
+    .mono { font-family: 'Courier New', monospace; }
+  </style>
+</defs>
+
+<!-- Background and header -->
+<rect x="0" y="0" width="1080" height="742" fill="#faf6ee" stroke="#c8bca8" stroke-width="1"/>
+<rect x="0" y="0" width="1080" height="32" fill="#3a2e1e"/>
+<text x="540" y="21" text-anchor="middle" font-size="13" fill="#f0ece4" letter-spacing="1.5">B — TEMPERATURE DATA &amp; DECISIONS</text>
+
+<!-- Chart title and subtitle -->
+<text x="540" y="58" text-anchor="middle" font-size="12" fill="#2a2218" font-weight="bold">O-ring distress incidents vs. joint temperature (all prior flights)</text>
+<text x="540" y="76" text-anchor="middle" font-size="11" fill="#5a4a28" font-style="italic">Red = incident recorded · Green = no incident</text>
+
+<!--
+  Chart area coordinate mapping:
+  Old viewBox: (236,400) to (963,900), content in that space.
+  Old chart rect: x=448,y=464 w=320 h=160  →  chart from x=448..768, y=464..624
+  New canvas: 1080×742 with 55px left margin, 40px top margin after header.
+  Chart occupies x: 200..860 (660px wide), y: 100..480 (380px tall)
+  x-scale: 660/320 = 2.0625    x_new = 200 + (old_x - 448) * 2.0625
+  y-scale: 380/160 = 2.375     y_new = 100 + (old_y - 464) * 2.375
+  Key x positions:
+    448 → 200   (left axis / 28°F)
+    560 → 431   (48°F)
+    616 → 547   (53°F qual min)
+    641 → 598   (data point cluster)
+    672 → 662   (63°F)
+    674 → 666   (data point)
+    690 → 699   (data point)
+    714 → 748   (73°F area)
+    725 → 771   (data point)
+    728 → 777   (73°F tick)
+    742 → 806   (data point)
+    759 → 841   (data point)
+    768 → 860   (80°F)
+  Key y positions:
+    464 → 100   (top of chart)
+    476 → 129   (challenger point center)
+    485 → 150   (challenger drop line start)
+    504 → 190   (y=3 line)
+    544 → 285   (y=2 line)
+    584 → 380   (y=1 line)
+    624 → 475   (baseline y=0 / x-axis)
+    627 → 482   (challenger drop line end)
+    628 → 485   (tick bottom)
+-->
+
+<!-- Chart area background -->
+<rect x="200" y="100" width="660" height="380" fill="#f0ece0" stroke="#c8bca8" stroke-width="1.5"/>
+
+<!-- X axis baseline -->
+<line x1="200" y1="480" x2="860" y2="480" stroke="#2a2218" stroke-width="2"/>
+
+<!-- X axis label -->
+<text x="530" y="545" text-anchor="middle" font-size="12" fill="#4a3a20">Joint Temperature (°F)</text>
+
+<!-- Tick at 28°F — Challenger launch temp -->
+<line x1="200" y1="480" x2="200" y2="492" stroke="#2a2218" stroke-width="1.5"/>
+<text x="200" y="510" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="bold">28</text>
+
+<!-- Tick at 48°F -->
+<line x1="431" y1="480" x2="431" y2="492" stroke="#2a2218" stroke-width="1.5"/>
+<text x="431" y="510" text-anchor="middle" font-size="11" fill="#2a2218">48</text>
+
+<!-- Tick at 53°F — qualification minimum -->
+<line x1="547" y1="480" x2="547" y2="492" stroke="#2a2218" stroke-width="1.5"/>
+<text x="547" y="510" text-anchor="middle" font-size="11" fill="#2a8a2a" font-weight="bold">53</text>
+<text x="547" y="526" text-anchor="middle" font-size="9.5" fill="#2a8a2a">qual min</text>
+
+<!-- Tick at 63°F -->
+<line x1="662" y1="480" x2="662" y2="492" stroke="#2a2218" stroke-width="1.5"/>
+<text x="662" y="510" text-anchor="middle" font-size="11" fill="#2a2218">63</text>
+
+<!-- Tick at 73°F -->
+<line x1="777" y1="480" x2="777" y2="492" stroke="#2a2218" stroke-width="1.5"/>
+<text x="777" y="510" text-anchor="middle" font-size="11" fill="#2a2218">73</text>
+
+<!-- Tick at 80°F -->
+<line x1="860" y1="480" x2="860" y2="492" stroke="#2a2218" stroke-width="1.5"/>
+<text x="860" y="510" text-anchor="middle" font-size="11" fill="#2a2218">80</text>
+
+<!-- Y axis -->
+<line x1="200" y1="100" x2="200" y2="480" stroke="#2a2218" stroke-width="2"/>
+
+<!-- Y axis tick labels -->
+<line x1="194" y1="100" x2="200" y2="100" stroke="#2a2218" stroke-width="1.5"/>
+<text x="182" y="104" text-anchor="end" font-size="11" fill="#2a2218">4</text>
+<line x1="194" y1="195" x2="200" y2="195" stroke="#2a2218" stroke-width="1.5"/>
+<text x="182" y="199" text-anchor="end" font-size="11" fill="#2a2218">3</text>
+<line x1="194" y1="290" x2="200" y2="290" stroke="#2a2218" stroke-width="1.5"/>
+<text x="182" y="294" text-anchor="end" font-size="11" fill="#2a2218">2</text>
+<line x1="194" y1="385" x2="200" y2="385" stroke="#2a2218" stroke-width="1.5"/>
+<text x="182" y="389" text-anchor="end" font-size="11" fill="#2a2218">1</text>
+<line x1="194" y1="480" x2="200" y2="480" stroke="#2a2218" stroke-width="1.5"/>
+<text x="182" y="484" text-anchor="end" font-size="11" fill="#2a2218">0</text>
+
+<!-- Y axis rotated label -->
+<text x="148" y="290" text-anchor="middle" font-size="12" fill="#4a3a20" transform="rotate(-90,148,290)">O-ring incidents</text>
+
+<!-- Grid lines (y=1, 2, 3) -->
+<line x1="200" y1="385" x2="860" y2="385" stroke="#c8bca8" stroke-width="0.8" stroke-dasharray="5,4"/>
+<line x1="200" y1="290" x2="860" y2="290" stroke="#c8bca8" stroke-width="0.8" stroke-dasharray="5,4"/>
+<line x1="200" y1="195" x2="860" y2="195" stroke="#c8bca8" stroke-width="0.8" stroke-dasharray="5,4"/>
+
+<!-- No-data zone (x < 53°F) -->
+<rect x="200" y="100" width="347" height="380" fill="#c0392b" opacity="0.06"/>
+<line x1="547" y1="100" x2="547" y2="480" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="6,4"/>
+<text x="373" y="132" text-anchor="middle" font-size="10.5" fill="#c0392b" font-style="italic">no flight data</text>
+<text x="373" y="148" text-anchor="middle" font-size="10.5" fill="#c0392b" font-style="italic">in this range</text>
+
+<!-- Data points (r scaled from 5.5 to ~8) -->
+<!-- 53°F, y=2 incidents -->
+<circle cx="547" cy="290" r="8" fill="#c0392b" opacity="0.9"/>
+<!-- ~56°F, y=3 incidents -->
+<circle cx="598" cy="195" r="8" fill="#c0392b" opacity="0.9"/>
+<!-- ~63°F, y=1 incident -->
+<circle cx="666" cy="385" r="8" fill="#c0392b" opacity="0.9"/>
+<!-- ~66°F, y=0 (no incident) -->
+<circle cx="699" cy="480" r="8" fill="#2a7a2a" opacity="0.9"/>
+<!-- ~70°F, y=1 incident -->
+<circle cx="749" cy="385" r="8" fill="#c0392b" opacity="0.9"/>
+<!-- ~72°F, y=0 -->
+<circle cx="772" cy="480" r="8" fill="#2a7a2a" opacity="0.9"/>
+<!-- ~75°F, y=0 -->
+<circle cx="806" cy="480" r="8" fill="#2a7a2a" opacity="0.9"/>
+<!-- ~79°F, y=0 -->
+<circle cx="841" cy="480" r="8" fill="#2a7a2a" opacity="0.9"/>
+
+<!-- Challenger point at 28°F — distinctive marker -->
+<circle cx="200" cy="129" r="13" fill="#c0392b" stroke="#8a1808" stroke-width="3"/>
+<text x="200" y="134" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">!</text>
+<!-- Vertical drop line from Challenger point to x-axis -->
+<line x1="200" y1="142" x2="200" y2="483" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+<!-- Legend row — sits between chart bottom and management box -->
+<circle cx="235" cy="566" r="8" fill="#c0392b"/>
+<text x="250" y="571" font-size="12" fill="#4a3a20">O-ring incident recorded</text>
+
+<circle cx="460" cy="566" r="8" fill="#2a7a2a"/>
+<text x="475" y="571" font-size="12" fill="#4a3a20">No incident</text>
+
+<circle cx="660" cy="566" r="11" fill="#c0392b" stroke="#8a1808" stroke-width="2"/>
+<text x="660" y="570" font-size="11" fill="#fff" font-weight="bold" text-anchor="middle">!</text>
+<text x="678" y="571" font-size="12" fill="#c0392b" font-weight="bold">Challenger (28°F)</text>
+
+<!-- Management override box -->
+<rect x="80" y="596" width="920" height="128" fill="#f0e8d8" stroke="#c0a870" stroke-width="1.5" rx="4"/>
+<text x="540" y="618" text-anchor="middle" font-size="13" fill="#2a2218" font-weight="bold">Management Override — Rogers Commission Finding</text>
+<line x1="90" y1="626" x2="990" y2="626" stroke="#c0a870" stroke-width="1"/>
+<text x="540" y="647" text-anchor="middle" font-size="11" fill="#4a3a20">Morton Thiokol engineers submitted formal launch objection at 8:45 PM, 27 Jan 1986.</text>
+<text x="540" y="666" text-anchor="middle" font-size="11" fill="#4a3a20">NASA management asked Thiokol to "take off your engineer hat and put on your</text>
+<text x="540" y="685" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="bold">management hat." Engineers' concerns had been raised in writing 13 prior times.</text>
+<text x="540" y="704" text-anchor="middle" font-size="11" fill="#4a3a20">Launch proceeded at 11:38 AM. Commission found organisational culture equally culpable.</text>
+</svg>

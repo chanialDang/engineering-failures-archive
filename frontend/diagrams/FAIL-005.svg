@@ -149,55 +149,22 @@
 <text x="470" y="130" text-anchor="middle" font-size="7.5" fill="#c0392b" font-weight="bold">E</text>
 <text x="542" y="130" text-anchor="middle" font-size="7.5" fill="#c0392b" font-weight="bold">F</text>
 
-<!-- FLOOD RATE BOX -->
+<!-- LEGEND — positioned above ship, clear of hull top (y=133) -->
+<rect x="22" y="52" width="148" height="78" fill="#2a2218" opacity="0.92" rx="2"/>
+<text x="96" y="66" text-anchor="middle" font-size="8" fill="#c0a870" letter-spacing="1.5">LEGEND</text>
+<rect x="30" y="72" width="12" height="9" fill="#2e5f84" opacity="0.78"/>
+<text x="47" y="81" font-size="8" fill="#f0ece4">Flooded compartment</text>
+<rect x="30" y="86" width="12" height="9" fill="#7a3020" opacity="0.75"/>
+<text x="47" y="95" font-size="8" fill="#f0ece4">Active breach (BR5/6)</text>
+<line x1="30" y1="105" x2="42" y2="105" stroke="#c0392b" stroke-width="2"/>
+<text x="47" y="109" font-size="8" fill="#f0ece4">Critical bulkhead (E, F)</text>
+<line x1="30" y1="118" x2="42" y2="118" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="5,3"/>
+<text x="47" y="122" font-size="8" fill="#f0ece4">Structural break axis</text>
+
+<!-- FLOOD RATE BOX — positioned below dimension line, left of iceberg -->
 <rect x="22" y="270" width="148" height="38" fill="#2a2218" rx="2"/>
 <text x="96" y="284" text-anchor="middle" font-size="8" fill="#c0a870">Flood ingress rate:</text>
 <text x="96" y="300" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="bold">~400 t / min</text>
-
-<!-- LEGEND -->
-<rect x="22" y="65" width="148" height="88" fill="#2a2218" opacity="0.88" rx="2"/>
-<text x="96" y="79" text-anchor="middle" font-size="8" fill="#c0a870" letter-spacing="1.5">LEGEND</text>
-<rect x="30" y="84" width="12" height="9" fill="#2e5f84" opacity="0.78"/>
-<text x="47" y="93" font-size="8" fill="#f0ece4">Flooded compartment</text>
-<rect x="30" y="98" width="12" height="9" fill="#7a3020" opacity="0.75"/>
-<text x="47" y="107" font-size="8" fill="#f0ece4">Active breach (BR5/6)</text>
-<line x1="30" y1="118" x2="42" y2="118" stroke="#c0392b" stroke-width="2"/>
-<text x="47" y="122" font-size="8" fill="#f0ece4">Critical bulkhead (E, F)</text>
-<line x1="30" y1="133" x2="42" y2="133" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="5,3"/>
-<text x="47" y="137" font-size="8" fill="#f0ece4">Structural break axis</text>
-<text x="47" y="150" font-size="8" fill="#c0a870">Hover ①–⑥ for detail</text>
-
-<!-- HOTSPOTS -->
-<g class="hotspot" id="hs1">
-  <circle cx="280" cy="218" r="13" class="hs-bg" fill="#c0392b" opacity="0.18"/>
-  <circle cx="280" cy="218" r="10" fill="#2a2218" opacity="0.75" stroke="#c0392b" stroke-width="1.5"/>
-  <text x="280" y="222" text-anchor="middle" font-size="10" fill="#c0392b">①</text>
-</g>
-<g class="hotspot" id="hs2">
-  <circle cx="150" cy="233" r="13" class="hs-bg" fill="#c0392b" opacity="0.18"/>
-  <circle cx="150" cy="233" r="10" fill="#2a2218" opacity="0.75" stroke="#c0392b" stroke-width="1.5"/>
-  <text x="150" y="237" text-anchor="middle" font-size="10" fill="#c0392b">②</text>
-</g>
-<g class="hotspot" id="hs3">
-  <circle cx="498" cy="152" r="13" class="hs-bg" fill="#e67e22" opacity="0.18"/>
-  <circle cx="498" cy="152" r="10" fill="#2a2218" opacity="0.75" stroke="#e67e22" stroke-width="1.5"/>
-  <text x="498" y="156" text-anchor="middle" font-size="10" fill="#e67e22">③</text>
-</g>
-<g class="hotspot" id="hs4">
-  <circle cx="570" cy="185" r="13" class="hs-bg" fill="#3a6a9a" opacity="0.2"/>
-  <circle cx="570" cy="185" r="10" fill="#2a2218" opacity="0.75" stroke="#3a6a9a" stroke-width="1.5"/>
-  <text x="570" y="189" text-anchor="middle" font-size="10" fill="#6aaac8">④</text>
-</g>
-<g class="hotspot" id="hs5">
-  <circle cx="590" cy="70" r="13" class="hs-bg" fill="#c0392b" opacity="0.18"/>
-  <circle cx="590" cy="70" r="10" fill="#2a2218" opacity="0.75" stroke="#c0392b" stroke-width="1.5"/>
-  <text x="590" y="74" text-anchor="middle" font-size="10" fill="#c0392b">⑤</text>
-</g>
-<g class="hotspot" id="hs6">
-  <circle cx="115" cy="205" r="13" class="hs-bg" fill="#c0392b" opacity="0.18"/>
-  <circle cx="115" cy="205" r="10" fill="#2a2218" opacity="0.75" stroke="#c0a060" stroke-width="1.5"/>
-  <text x="115" y="209" text-anchor="middle" font-size="10" fill="#c0a060">⑥</text>
-</g>
 
 <!-- SECTION DIVIDER -->
 <rect x="18" y="336" width="1044" height="18" fill="#2a2218"/>
@@ -255,34 +222,44 @@
 <rect x="370" y="354" width="338" height="22"  fill="#3a2e1e" rx="2"/>
 <text x="539" y="369" text-anchor="middle" font-size="9.5" fill="#f0ece4" letter-spacing="1">B — BULKHEAD DESIGN FAILURE</text>
 <text x="539" y="390" text-anchor="middle" font-size="8" fill="#5a4a28">Cross-section — bulkhead E (critical)</text>
-<line x1="385" y1="402" x2="695" y2="402" stroke="#2a2218" stroke-width="1.5"/>
-<line x1="385" y1="428" x2="695" y2="428" stroke="#2a2218" stroke-width="1.5"/>
-<line x1="385" y1="454" x2="695" y2="454" stroke="#2a2218" stroke-width="1.5"/>
-<line x1="385" y1="480" x2="695" y2="480" stroke="#2a2218" stroke-width="1.5"/>
-<line x1="385" y1="506" x2="695" y2="506" stroke="#2a2218" stroke-width="1.5"/>
-<line x1="385" y1="532" x2="695" y2="532" stroke="#2a2218" stroke-width="1.5"/>
-<line x1="385" y1="558" x2="695" y2="558" stroke="#2a2218" stroke-width="2"/>
-<text x="700" y="406" font-size="8" fill="#2a2218">Boat Deck</text>
-<text x="700" y="432" font-size="8" fill="#2a2218">A Deck</text>
-<text x="700" y="458" font-size="8" fill="#2a2218">B Deck</text>
-<text x="700" y="484" font-size="8" fill="#2a2218">C Deck</text>
-<text x="700" y="510" font-size="8" fill="#2a2218">D Deck</text>
-<text x="700" y="536" font-size="8" fill="#c0392b" font-weight="bold">E Deck ← bulkhead max</text>
-<text x="700" y="562" font-size="7.5" fill="#2a2218">Tank top</text>
+
+<!-- Deck lines spanning full panel width -->
+<line x1="385" y1="402" x2="700" y2="402" stroke="#2a2218" stroke-width="1.5"/>
+<line x1="385" y1="428" x2="700" y2="428" stroke="#2a2218" stroke-width="1.5"/>
+<line x1="385" y1="454" x2="700" y2="454" stroke="#2a2218" stroke-width="1.5"/>
+<line x1="385" y1="480" x2="700" y2="480" stroke="#2a2218" stroke-width="1.5"/>
+<line x1="385" y1="506" x2="700" y2="506" stroke="#2a2218" stroke-width="1.5"/>
+<line x1="385" y1="532" x2="700" y2="532" stroke="#2a2218" stroke-width="1.5"/>
+<line x1="385" y1="558" x2="700" y2="558" stroke="#2a2218" stroke-width="2"/>
+
+<!-- Deck labels — right-anchored inside panel at x=698 -->
+<text x="698" y="415" text-anchor="end" font-size="7.5" fill="#2a2218">Boat Deck</text>
+<text x="698" y="441" text-anchor="end" font-size="7.5" fill="#2a2218">A Deck</text>
+<text x="698" y="467" text-anchor="end" font-size="7.5" fill="#2a2218">B Deck</text>
+<text x="698" y="493" text-anchor="end" font-size="7.5" fill="#2a2218">C Deck</text>
+<text x="698" y="519" text-anchor="end" font-size="7.5" fill="#2a2218">D Deck</text>
+<text x="698" y="543" text-anchor="end" font-size="7.5" fill="#c0392b" font-weight="bold">E Deck ← limit</text>
+<text x="698" y="569" text-anchor="end" font-size="7.5" fill="#2a2218">Tank top</text>
+
+<!-- Flooded compartment fill -->
 <rect x="393" y="454" width="130" height="104" fill="#2e5f84" opacity="0.50"/>
 <rect x="393" y="454" width="130" height="78"  fill="url(#water)" opacity="0.45"/>
 <text x="458" y="495" text-anchor="middle" font-size="8.5" fill="#e0f0ff" font-weight="bold">Boiler Rm. 5</text>
 <text x="458" y="508" text-anchor="middle" font-size="7.5" fill="#c0ddf5">FLOODED</text>
-<text x="590" y="495" text-anchor="middle" font-size="8.5" fill="#3a3028">Boiler Rm. 4</text>
-<text x="590" y="508" text-anchor="middle" font-size="7.5" fill="#888">(no direct breach)</text>
+<text x="570" y="495" text-anchor="middle" font-size="8.5" fill="#3a3028">Boiler Rm. 4</text>
+<text x="570" y="508" text-anchor="middle" font-size="7.5" fill="#888">(no direct breach)</text>
+
+<!-- Bulkhead indicator and overflow arrow -->
 <rect x="526" y="532" width="10" height="26" fill="#c0392b" rx="1"/>
 <line x1="531" y1="402" x2="531" y2="532" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.5"/>
-<text x="545" y="525" font-size="7.5" fill="#c0392b" font-weight="bold">← Bulkhead top</text>
-<text x="545" y="535" font-size="7.5" fill="#c0392b">at E-deck only</text>
+<text x="543" y="527" font-size="7.5" fill="#c0392b" font-weight="bold">← Bulkhead top</text>
+<text x="543" y="537" font-size="7.5" fill="#c0392b">at E-deck only</text>
 <line x1="393" y1="532" x2="523" y2="532" stroke="#6aaac8" stroke-width="2.5"/>
-<path d="M 490,526 Q 508,517 526,520 Q 544,524 560,516 Q 575,510 590,515"
+<path d="M 490,526 Q 508,517 526,520 Q 544,524 560,516 Q 575,510 585,513"
       stroke="#2e5f84" stroke-width="2.2" fill="none" marker-end="url(#arrB)"/>
-<text x="540" y="507" text-anchor="middle" font-size="7.5" fill="#2e5f84" font-weight="bold">water overflows →</text>
+<text x="548" y="505" text-anchor="middle" font-size="7.5" fill="#2e5f84" font-weight="bold">water overflows →</text>
+
+<!-- Summary box -->
 <rect x="380" y="572" width="318" height="104" fill="#f0e8d8" stroke="#c0a870" stroke-width="0.8" rx="2"/>
 <text x="539" y="588" text-anchor="middle" font-size="9" fill="#2a2218" font-weight="bold">Design specification failure</text>
 <line x1="385" y1="593" x2="693" y2="593" stroke="#c0a870" stroke-width="0.6"/>
@@ -298,32 +275,52 @@
 <rect x="722" y="354" width="338" height="22"  fill="#3a2e1e" rx="2"/>
 <text x="891" y="369" text-anchor="middle" font-size="9.5" fill="#f0ece4" letter-spacing="1">C — STRUCTURAL BREAKUP &amp; STEEL</text>
 <text x="891" y="392" text-anchor="middle" font-size="8.5" fill="#2a2218">Hogging stress state — approx. 2:17 AM</text>
+
+<!-- Hull hogging diagram -->
 <path d="M 736,460 Q 760,480 810,474 L 858,464" stroke="#2a2218" stroke-width="2.5" fill="none"/>
 <path d="M 870,464 L 918,448 Q 940,442 950,440" stroke="#2a2218" stroke-width="2.5" fill="none"/>
 <line x1="730" y1="460" x2="1050" y2="460" stroke="#3a6a9a" stroke-width="0.8" stroke-dasharray="5,3"/>
 <text x="735" y="456" font-size="7.5" fill="#3a6a9a" font-style="italic">sea level</text>
 <line x1="862" y1="444" x2="868" y2="478" stroke="#c0392b" stroke-width="3" stroke-dasharray="4,2"/>
 <circle cx="865" cy="461" r="8" fill="none" stroke="#c0392b" stroke-width="2"/>
+
+<!-- Depth and elevation arrows -->
 <path d="M 768,460 L 768,476" stroke="#3a6a9a" stroke-width="2" marker-end="url(#arrB)"/>
 <text x="744" y="488" font-size="7.5" fill="#3a6a9a">bow: −14 m</text>
 <path d="M 940,448 L 940,432" stroke="#2a2218" stroke-width="2" marker-end="url(#arr)"/>
-<text x="916" y="426" font-size="7.5" fill="#2a2218">stern rises</text>
+<text x="916" y="428" font-size="7.5" fill="#2a2218">stern rises</text>
+
+<!-- Stress force arrows -->
 <path d="M 838,470 L 820,468" stroke="#c0392b" stroke-width="1.8" marker-end="url(#arrR)"/>
 <path d="M 895,462 L 913,460" stroke="#c0392b" stroke-width="1.8" marker-end="url(#arrR)"/>
-<text x="865" y="495" text-anchor="middle" font-size="8"   fill="#c0392b" font-weight="bold">Break point</text>
-<text x="865" y="507" text-anchor="middle" font-size="7.5" fill="#c0392b">Keel: compression</text>
-<text x="865" y="518" text-anchor="middle" font-size="7.5" fill="#c0392b">Upper decks: tension</text>
-<text x="865" y="529" text-anchor="middle" font-size="7.5" fill="#2a2218">between funnels 3–4</text>
-<line x1="732" y1="540" x2="1050" y2="540" stroke="#c8bca8" stroke-width="0.8" stroke-dasharray="4,3"/>
-<text x="891" y="558" text-anchor="middle" font-size="8.5" fill="#2a2218" font-weight="bold">Hull Steel — Charpy Impact Testing</text>
-<text x="775" y="576" text-anchor="middle" font-size="7.5" fill="#5a4a28">Titanic</text>
-<rect x="756" y="578" width="38" height="70" fill="#e8e0d0" stroke="#bbb" stroke-width="0.8" rx="1"/>
+
+<!-- Break point annotation — repositioned to avoid overlapping hull path -->
+<text x="865" y="498" text-anchor="middle" font-size="8"   fill="#c0392b" font-weight="bold">Break point</text>
+<text x="865" y="510" text-anchor="middle" font-size="7.5" fill="#c0392b">Keel: compression</text>
+<text x="865" y="521" text-anchor="middle" font-size="7.5" fill="#c0392b">Upper decks: tension</text>
+<text x="865" y="532" text-anchor="middle" font-size="7.5" fill="#2a2218">between funnels 3–4</text>
+
+<!-- Divider line -->
+<line x1="732" y1="542" x2="1050" y2="542" stroke="#c8bca8" stroke-width="0.8" stroke-dasharray="4,3"/>
+
+<!-- Charpy chart -->
+<text x="891" y="560" text-anchor="middle" font-size="8.5" fill="#2a2218" font-weight="bold">Hull Steel — Charpy Impact Testing</text>
+
+<!-- Bar chart: Titanic -->
+<text x="775" y="578" text-anchor="middle" font-size="7.5" fill="#5a4a28">Titanic</text>
+<rect x="756" y="580" width="38" height="68" fill="#e8e0d0" stroke="#bbb" stroke-width="0.8" rx="1"/>
 <rect x="756" y="628" width="38" height="20" fill="#c0392b" rx="1"/>
-<text x="775" y="624" text-anchor="middle" font-size="8" fill="#c0392b" font-weight="bold">4–10 J</text>
-<text x="842" y="576" text-anchor="middle" font-size="7.5" fill="#5a4a28">Modern</text>
-<rect x="823" y="578" width="38" height="70" fill="#3a6a9a" rx="1"/>
-<text x="842" y="574" text-anchor="middle" font-size="8" fill="#3a6a9a" font-weight="bold">200+ J</text>
-<text x="800" y="658" text-anchor="middle" font-size="7.5" fill="#888">Impact energy absorbed</text>
+<text x="775" y="625" text-anchor="middle" font-size="7.5" fill="#c0392b" font-weight="bold">4–10 J</text>
+
+<!-- Bar chart: Modern -->
+<text x="842" y="578" text-anchor="middle" font-size="7.5" fill="#5a4a28">Modern</text>
+<rect x="823" y="580" width="38" height="68" fill="#3a6a9a" rx="1"/>
+<text x="842" y="576" text-anchor="middle" font-size="7.5" fill="#3a6a9a" font-weight="bold">200+ J</text>
+
+<!-- Chart x-axis label -->
+<text x="800" y="660" text-anchor="middle" font-size="7.5" fill="#888">Impact energy absorbed</text>
+
+<!-- Composition anomalies box -->
 <rect x="874" y="572" width="176" height="112" fill="#f0e8d8" stroke="#c0a870" stroke-width="0.8" rx="2"/>
 <text x="962" y="586" text-anchor="middle" font-size="8" fill="#2a2218" font-weight="bold">Composition anomalies</text>
 <line x1="879" y1="590" x2="1045" y2="590" stroke="#c0a870" stroke-width="0.6"/>
@@ -342,34 +339,80 @@
 <!-- ANNOTATION FOOTER -->
 <rect x="18" y="692" width="1044" height="158" fill="#2a2218" rx="2"/>
 <text x="540" y="710" text-anchor="middle" font-size="9.5" fill="#c0a870" letter-spacing="2">ANNOTATED FAILURE SEQUENCE</text>
+
+<!-- Left column: items 1–3 -->
 <circle cx="40" cy="730" r="9" fill="none" stroke="#c0392b" stroke-width="1.5"/>
 <text x="40" y="734" text-anchor="middle" font-size="9" fill="#c0392b">①</text>
 <text x="57"  y="725" font-size="8.5" fill="#e0c080" font-weight="bold">Iceberg Collision — 11:40 PM, 14 April 1912</text>
 <text x="57"  y="736" font-size="7.5" fill="#a09878">Starboard bow scraped ~90 m at 22.5 kn. Rivets sheared across 6 sections. ~400 t/min ingress. No large gash.</text>
+
 <circle cx="40" cy="752" r="9" fill="none" stroke="#c0392b" stroke-width="1.5"/>
 <text x="40" y="756" text-anchor="middle" font-size="9" fill="#c0392b">②</text>
 <text x="57"  y="747" font-size="8.5" fill="#e0c080" font-weight="bold">Rivet Failure (NIST, 1996)</text>
 <text x="57"  y="758" font-size="7.5" fill="#a09878">Bow rivets: wrought iron, 9.3% MnS slag (max 2–3%). Sheared along brittle planes. Seams opened ~1.1 m² total.</text>
+
 <circle cx="40" cy="774" r="9" fill="none" stroke="#e67e22" stroke-width="1.5"/>
 <text x="40" y="778" text-anchor="middle" font-size="9" fill="#e67e22">③</text>
 <text x="57"  y="769" font-size="8.5" fill="#e0c080" font-weight="bold">Bulkhead Height Flaw</text>
 <text x="57"  y="780" font-size="7.5" fill="#a09878">Bulkheads reached E-deck only. No watertight deck cap. Designed for 4 flooded compartments; 5th was fatal.</text>
+
+<!-- Right column: items 4–6 -->
 <circle cx="540" cy="730" r="9" fill="none" stroke="#3a6a9a" stroke-width="1.5"/>
 <text x="540" y="734" text-anchor="middle" font-size="9" fill="#6aaac8">④</text>
 <text x="557"  y="725" font-size="8.5" fill="#e0c080" font-weight="bold">Progressive Flooding</text>
 <text x="557"  y="736" font-size="7.5" fill="#a09878">Water overtopped bulkhead E into BR4 with no direct breach. Cascade made outcome unrecoverable by ~00:30 AM.</text>
+
 <circle cx="540" cy="752" r="9" fill="none" stroke="#c0392b" stroke-width="1.5"/>
 <text x="540" y="756" text-anchor="middle" font-size="9" fill="#c0392b">⑤</text>
 <text x="557"  y="747" font-size="8.5" fill="#e0c080" font-weight="bold">Structural Breakup — 2:17 AM, 15 April 1912</text>
 <text x="557"  y="758" font-size="7.5" fill="#a09878">Hogging exceeded hull limit. Keel buckled (compression); upper decks failed (tension). Fractured between funnels 3–4.</text>
+
 <circle cx="540" cy="774" r="9" fill="none" stroke="#c0a060" stroke-width="1.5"/>
 <text x="540" y="778" text-anchor="middle" font-size="9" fill="#c0a060">⑥</text>
 <text x="557"  y="769" font-size="8.5" fill="#e0c080" font-weight="bold">Steel Embrittlement</text>
 <text x="557"  y="780" font-size="7.5" fill="#a09878">S=0.069%, Mn:S=6.8:1, temp −2°C (DBTT). Charpy: 4–10 J vs 200+ J modern. Brittle fracture propagated under hogging.</text>
+
 <text x="540" y="836" text-anchor="middle" font-size="7.5" fill="#5a5040" font-style="italic">Sources: NIST (1996) · SNAME Marine Technology Vol. 35 (1998) · Foecke &amp; McCarty (2008) · MAIB formal investigation</text>
 
 <!-- TOOLTIP OVERLAY (rendered by JS) -->
 </g>
+
+<!-- HOTSPOTS — outside scale group so they track scaled positions correctly -->
+<g transform="scale(1, 0.8628)">
+
+<g class="hotspot" id="hs1">
+  <circle cx="280" cy="218" r="13" class="hs-bg" fill="#c0392b" opacity="0.18"/>
+  <circle cx="280" cy="218" r="10" fill="#2a2218" opacity="0.75" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="280" y="222" text-anchor="middle" font-size="10" fill="#c0392b">①</text>
+</g>
+<g class="hotspot" id="hs2">
+  <circle cx="150" cy="233" r="13" class="hs-bg" fill="#c0392b" opacity="0.18"/>
+  <circle cx="150" cy="233" r="10" fill="#2a2218" opacity="0.75" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="150" y="237" text-anchor="middle" font-size="10" fill="#c0392b">②</text>
+</g>
+<g class="hotspot" id="hs3">
+  <circle cx="498" cy="152" r="13" class="hs-bg" fill="#e67e22" opacity="0.18"/>
+  <circle cx="498" cy="152" r="10" fill="#2a2218" opacity="0.75" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="498" y="156" text-anchor="middle" font-size="10" fill="#e67e22">③</text>
+</g>
+<g class="hotspot" id="hs4">
+  <circle cx="570" cy="185" r="13" class="hs-bg" fill="#3a6a9a" opacity="0.2"/>
+  <circle cx="570" cy="185" r="10" fill="#2a2218" opacity="0.75" stroke="#3a6a9a" stroke-width="1.5"/>
+  <text x="570" y="189" text-anchor="middle" font-size="10" fill="#6aaac8">④</text>
+</g>
+<g class="hotspot" id="hs5">
+  <circle cx="590" cy="70" r="13" class="hs-bg" fill="#c0392b" opacity="0.18"/>
+  <circle cx="590" cy="70" r="10" fill="#2a2218" opacity="0.75" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="590" y="74" text-anchor="middle" font-size="10" fill="#c0392b">⑤</text>
+</g>
+<g class="hotspot" id="hs6">
+  <circle cx="115" cy="205" r="13" class="hs-bg" fill="#c0392b" opacity="0.18"/>
+  <circle cx="115" cy="205" r="10" fill="#2a2218" opacity="0.75" stroke="#c0a060" stroke-width="1.5"/>
+  <text x="115" y="209" text-anchor="middle" font-size="10" fill="#c0a060">⑥</text>
+</g>
+
+</g>
+
 <g id="tt">
   <rect id="tt-bg" x="0" y="0" width="320" height="110" rx="3" fill="#1a1208" opacity="0.95"/>
   <rect x="0" y="0" width="4" height="110" rx="1" fill="#c0392b"/>

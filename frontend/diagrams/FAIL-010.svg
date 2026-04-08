@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1080 742" xmlns="http://www.w3.org/2000/svg"
+     width="1080" height="742" font-family="Georgia,serif">
+<defs>
+  <style>
+    .hotspot { cursor: pointer; }
+    .hs-bg { opacity: 0; transition: opacity 0.15s; }
+    .hotspot:hover .hs-bg { opacity: 1; }
+    #tt { display: none; pointer-events: none; }
+    #tt-bg { fill: #0d1008; opacity: 0.96; }
+  </style>
+  <marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M0,0 L8,4 L0,8 Z" fill="#2a2a18"/>
+  </marker>
+  <marker id="arrR" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M0,0 L8,4 L0,8 Z" fill="#c0392b"/>
+  </marker>
+  <marker id="arrY" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M0,0 L8,4 L0,8 Z" fill="#d4a017"/>
+  </marker>
+  <marker id="arrG" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M0,0 L8,4 L0,8 Z" fill="#3a7a3a"/>
+  </marker>
+  <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ff6a00" stop-opacity="0.85"/>
+    <stop offset="40%" stop-color="#e03010" stop-opacity="0.55"/>
+    <stop offset="100%" stop-color="#800000" stop-opacity="0.0"/>
+  </radialGradient>
+  <linearGradient id="reactorBody" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#4a4a3a"/>
+    <stop offset="50%" stop-color="#5a5a48"/>
+    <stop offset="100%" stop-color="#3a3a2a"/>
+  </linearGradient>
+  <linearGradient id="fuelGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#b04010"/>
+    <stop offset="50%" stop-color="#e06020"/>
+    <stop offset="100%" stop-color="#803010"/>
+  </linearGradient>
+  <pattern id="grid" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+    <rect width="18" height="18" fill="none"/>
+    <path d="M0,0 L18,0 L18,18" stroke="#2a3020" stroke-width="0.5" fill="none"/>
+  </pattern>
+</defs>
+
+<!-- ═══════════════════════════════════════════════════════════
+     TITLE BLOCK  y=10–60
+     ═══════════════════════════════════════════════════════════ -->
+<rect x="18" y="10" width="1044" height="50" fill="#0d1008" rx="2"/>
+<text x="540" y="31" text-anchor="middle" font-size="14" fill="#e8e4d0" letter-spacing="3">RBMK-1000 REACTOR — CHERNOBYL UNIT 4 · ENGINEERING FAILURE ANALYSIS</text>
+<text x="540" y="50" text-anchor="middle" font-size="9" fill="#9a8a40" letter-spacing="1.5">26 APRIL 1986 · 01:23:40 LOCAL TIME · PRIPYAT, UKRAINIAN SSR · UNCONTROLLED PROMPT-SUPERCRITICAL EXCURSION</text>
+
+<!-- ═══════════════════════════════════════════════════════════
+     REACTOR CROSS-SECTION PANEL  y=60–305
+     Background grid and outer structure
+     ═══════════════════════════════════════════════════════════ -->
+<rect x="18" y="60" width="1044" height="248" fill="#0d1008" rx="1"/>
+<rect x="18" y="60" width="1044" height="248" fill="url(#grid)" opacity="0.5"/>
+
+<!-- Outer biological shielding -->
+<rect x="260" y="68" width="400" height="233" rx="8" fill="#1e2018" stroke="#3a3a28" stroke-width="2"/>
+<!-- Reactor vault walls -->
+<rect x="290" y="80" width="340" height="206" rx="4" fill="#2a2a1e" stroke="#4a4a38" stroke-width="1.5"/>
+<!-- Sand/concrete fill -->
+<rect x="305" y="93" width="310" height="180" fill="#1a1a12" rx="2"/>
+
+<!-- FUEL CHANNELS GRID — 7×11 simplified representation of 1660 channels -->
+<g opacity="0.85">
+  <g transform="translate(385,108)">
+    <g fill="#5a4020" stroke="#7a6030" stroke-width="0.5">
+      <!-- Col 0 -->
+      <circle cx="0"   cy="0"   r="4.5"/><circle cx="0"   cy="15"  r="4.5"/><circle cx="0"   cy="30"  r="4.5"/>
+      <circle cx="0"   cy="45"  r="4.5"/><circle cx="0"   cy="60"  r="4.5"/><circle cx="0"   cy="75"  r="4.5"/>
+      <circle cx="0"   cy="90"  r="4.5"/><circle cx="0"   cy="105" r="4.5"/><circle cx="0"   cy="120" r="4.5"/>
+      <circle cx="0"   cy="135" r="4.5"/><circle cx="0"   cy="150" r="4.5"/>
+      <!-- Col 1 -->
+      <circle cx="18"  cy="0"   r="4.5"/><circle cx="18"  cy="15"  r="4.5"/><circle cx="18"  cy="30"  r="4.5"/>
+      <circle cx="18"  cy="45"  r="4.5"/><circle cx="18"  cy="60"  r="4.5"/><circle cx="18"  cy="75"  r="4.5"/>
+      <circle cx="18"  cy="90"  r="4.5"/><circle cx="18"  cy="105" r="4.5"/><circle cx="18"  cy="120" r="4.5"/>
+      <circle cx="18"  cy="135" r="4.5"/><circle cx="18"  cy="150" r="4.5"/>
+      <!-- Col 2 -->
+      <circle cx="36"  cy="0"   r="4.5"/><circle cx="36"  cy="15"  r="4.5"/><circle cx="36"  cy="30"  r="4.5"/>
+      <circle cx="36"  cy="45"  r="4.5"/><circle cx="36"  cy="60"  r="4.5"/><circle cx="36"  cy="75"  r="4.5"/>
+      <circle cx="36"  cy="90"  r="4.5"/><circle cx="36"  cy="105" r="4.5"/><circle cx="36"  cy="120" r="4.5"/>
+      <circle cx="36"  cy="135" r="4.5"/><circle cx="36"  cy="150" r="4.5"/>
+      <!-- Col 3 -->
+      <circle cx="54"  cy="0"   r="4.5"/><circle cx="54"  cy="15"  r="4.5"/><circle cx="54"  cy="30"  r="4.5"/>
+      <circle cx="54"  cy="45"  r="4.5"/><circle cx="54"  cy="60"  r="4.5"/><circle cx="54"  cy="75"  r="4.5"/>
+      <circle cx="54"  cy="90"  r="4.5"/><circle cx="54"  cy="105" r="4.5"/><circle cx="54"  cy="120" r="4.5"/>
+      <circle cx="54"  cy="135" r="4.5"/><circle cx="54"  cy="150" r="4.5"/>
+      <!-- Col 4 -->
+      <circle cx="72"  cy="0"   r="4.5"/><circle cx="72"  cy="15"  r="4.5"/><circle cx="72"  cy="30"  r="4.5"/>
+      <circle cx="72"  cy="45"  r="4.5"/><circle cx="72"  cy="60"  r="4.5"/><circle cx="72"  cy="75"  r="4.5"/>
+      <circle cx="72"  cy="90"  r="4.5"/><circle cx="72"  cy="105" r="4.5"/><circle cx="72"  cy="120" r="4.5"/>
+      <circle cx="72"  cy="135" r="4.5"/><circle cx="72"  cy="150" r="4.5"/>
+      <!-- Col 5 -->
+      <circle cx="90"  cy="0"   r="4.5"/><circle cx="90"  cy="15"  r="4.5"/><circle cx="90"  cy="30"  r="4.5"/>
+      <circle cx="90"  cy="45"  r="4.5"/><circle cx="90"  cy="60"  r="4.5"/><circle cx="90"  cy="75"  r="4.5"/>
+      <circle cx="90"  cy="90"  r="4.5"/><circle cx="90"  cy="105" r="4.5"/><circle cx="90"  cy="120" r="4.5"/>
+      <circle cx="90"  cy="135" r="4.5"/><circle cx="90"  cy="150" r="4.5"/>
+      <!-- Col 6 -->
+      <circle cx="108" cy="0"   r="4.5"/><circle cx="108" cy="15"  r="4.5"/><circle cx="108" cy="30"  r="4.5"/>
+      <circle cx="108" cy="45"  r="4.5"/><circle cx="108" cy="60"  r="4.5"/><circle cx="108" cy="75"  r="4.5"/>
+      <circle cx="108" cy="90"  r="4.5"/><circle cx="108" cy="105" r="4.5"/><circle cx="108" cy="120" r="4.5"/>
+      <circle cx="108" cy="135" r="4.5"/><circle cx="108" cy="150" r="4.5"/>
+    </g>
+    <!-- Breached/overheating channels highlighted red -->
+    <circle cx="36"  cy="75"  r="5.5" fill="#c03010" stroke="#ff6020" stroke-width="1.2"/>
+    <circle cx="54"  cy="60"  r="5.5" fill="#c03010" stroke="#ff6020" stroke-width="1.2"/>
+    <circle cx="54"  cy="75"  r="5.5" fill="#e04010" stroke="#ff8030" stroke-width="1.5"/>
+    <circle cx="54"  cy="90"  r="5.5" fill="#c03010" stroke="#ff6020" stroke-width="1.2"/>
+    <circle cx="72"  cy="75"  r="5.5" fill="#c03010" stroke="#ff6020" stroke-width="1.2"/>
+    <circle cx="72"  cy="60"  r="5.5" fill="#b02010" stroke="#ff4010" stroke-width="1.0"/>
+    <circle cx="72"  cy="90"  r="5.5" fill="#b02010" stroke="#ff4010" stroke-width="1.0"/>
+  </g>
+  <!-- Core glow overlay — centered on fuel channel group -->
+  <ellipse cx="460" cy="183" rx="70" ry="78" fill="url(#coreGlow)" opacity="0.65"/>
+</g>
+
+<!-- CONTROL RODS — full rods (gray bars) -->
+<g stroke="#6a6a5a" stroke-width="2" fill="none">
+  <line x1="321" y1="93" x2="321" y2="273"/>
+  <line x1="347" y1="93" x2="347" y2="273"/>
+  <line x1="567" y1="93" x2="567" y2="273"/>
+  <line x1="593" y1="93" x2="593" y2="273"/>
+</g>
+<!-- Withdrawn rods (dashed = only graphite tip in core) -->
+<g stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,4" fill="none" opacity="0.75">
+  <line x1="373" y1="93"  x2="373" y2="138"/>
+  <line x1="399" y1="93"  x2="399" y2="138"/>
+  <line x1="425" y1="93"  x2="425" y2="138"/>
+  <line x1="451" y1="93"  x2="451" y2="138"/>
+  <line x1="477" y1="93"  x2="477" y2="138"/>
+  <line x1="503" y1="93"  x2="503" y2="138"/>
+  <line x1="529" y1="93"  x2="529" y2="138"/>
+</g>
+<!-- Graphite tips visible at bottom -->
+<g fill="#4a7a4a" opacity="0.7">
+  <rect x="370" y="251" width="6" height="22" rx="1"/>
+  <rect x="396" y="251" width="6" height="22" rx="1"/>
+  <rect x="422" y="251" width="6" height="22" rx="1"/>
+  <rect x="448" y="251" width="6" height="22" rx="1"/>
+  <rect x="474" y="251" width="6" height="22" rx="1"/>
+  <rect x="500" y="251" width="6" height="22" rx="1"/>
+  <rect x="526" y="251" width="6" height="22" rx="1"/>
+</g>
+
+<!-- UPPER REACTOR PLATE (1000 t cover plate) -->
+<rect x="270" y="80" width="380" height="14" fill="url(#reactorBody)" stroke="#5a5a48" stroke-width="1.5" rx="2"/>
+<text x="460" y="90" text-anchor="middle" font-size="7.5" fill="#c0b880">UPPER BIOLOGICAL SHIELD — 1000 t</text>
+
+<!-- LOWER BIOLOGICAL SHIELD -->
+<rect x="270" y="273" width="380" height="14" fill="url(#reactorBody)" stroke="#5a5a48" stroke-width="1.5" rx="2"/>
+<text x="460" y="283" text-anchor="middle" font-size="7.5" fill="#c0b880">LOWER BIOLOGICAL SHIELD</text>
+
+<!-- DIMENSION ANNOTATION — 7 m active core height -->
+<line x1="260" y1="94"  x2="260" y2="273" stroke="#4a4a3a" stroke-width="0.8"/>
+<line x1="256" y1="94"  x2="264" y2="94"  stroke="#4a4a3a" stroke-width="0.8"/>
+<line x1="256" y1="273" x2="264" y2="273" stroke="#4a4a3a" stroke-width="0.8"/>
+<text x="254" y="183" text-anchor="middle" font-size="8" fill="#888878" transform="rotate(-90,254,183)">7 m active core height</text>
+
+<!-- STEAM SEPARATORS  top-right of cross-section -->
+<rect x="660" y="90"  width="55" height="28" rx="4" fill="#2a3028" stroke="#4a604a" stroke-width="1"/>
+<text x="687" y="107" text-anchor="middle" font-size="7" fill="#80a880">Steam sep.</text>
+<rect x="660" y="124" width="55" height="28" rx="4" fill="#2a3028" stroke="#4a604a" stroke-width="1"/>
+<text x="687" y="141" text-anchor="middle" font-size="7" fill="#80a880">@7 MPa</text>
+<line x1="660" y1="104" x2="650" y2="150" stroke="#4a8060" stroke-width="1.2" marker-end="url(#arrG)"/>
+<line x1="660" y1="138" x2="650" y2="175" stroke="#3a6a9a" stroke-width="1.2" marker-end="url(#arr)"/>
+<text x="647" y="148" font-size="7" fill="#80a880" text-anchor="end">steam</text>
+<text x="647" y="173" font-size="7" fill="#6090b0" text-anchor="end">feedwater</text>
+
+<!-- Turbine box -->
+<rect x="660" y="170" width="55" height="24" rx="3" fill="#1e2818" stroke="#3a5838" stroke-width="1"/>
+<text x="687" y="184" text-anchor="middle" font-size="7" fill="#70a870">Turbine</text>
+<text x="687" y="193" text-anchor="middle" font-size="6.5" fill="#506850">(coast-down)</text>
+<line x1="660" y1="182" x2="650" y2="200" stroke="#c0392b" stroke-width="1.8" marker-end="url(#arrR)" stroke-dasharray="3,2"/>
+<text x="647" y="198" text-anchor="end" font-size="7" fill="#c0392b">ECCS blocked</text>
+
+<!-- LEFT CALLOUT — ORM -->
+<line x1="260" y1="120" x2="186" y2="120" stroke="#d4a017" stroke-width="1" stroke-dasharray="3,2"/>
+<line x1="186" y1="120" x2="186" y2="168" stroke="#d4a017" stroke-width="0.8"/>
+<rect x="22" y="107" width="162" height="32" fill="#1a1808" stroke="#4a3a08" stroke-width="0.8" rx="2"/>
+<text x="103" y="120" text-anchor="middle" font-size="8.5" fill="#d4a017" font-weight="bold">ORM: 8 rods (req. ≥ 15)</text>
+<text x="103" y="133" text-anchor="middle" font-size="7.5" fill="#a09050">201 rods fully withdrawn</text>
+
+<!-- LEFT CALLOUT — Power -->
+<line x1="260" y1="168" x2="186" y2="168" stroke="#c0392b" stroke-width="1" stroke-dasharray="3,2"/>
+<rect x="22" y="155" width="162" height="44" fill="#1a0808" stroke="#4a1808" stroke-width="0.8" rx="2"/>
+<text x="103" y="168" text-anchor="middle" font-size="8.5" fill="#c0392b" font-weight="bold">Power: 200 MW(th)</text>
+<text x="103" y="180" text-anchor="middle" font-size="7.5" fill="#a07070">Rated: 3200 MW(th)</text>
+<text x="103" y="192" text-anchor="middle" font-size="7.5" fill="#a07070">Test plan: 700–1000 MW(th)</text>
+
+<!-- RIGHT CALLOUT — Void coefficient -->
+<line x1="660" y1="225" x2="720" y2="225" stroke="#a03000" stroke-width="1" stroke-dasharray="3,2"/>
+<rect x="720" y="215" width="178" height="34" fill="#180800" stroke="#4a2000" stroke-width="0.8" rx="2"/>
+<text x="809" y="228" text-anchor="middle" font-size="8.5" fill="#e06030" font-weight="bold">Void coeff: up to +5β_eff</text>
+<text x="809" y="240" text-anchor="middle" font-size="7.5" fill="#a05030">Prompt supercritical threshold</text>
+<circle cx="660" cy="225" r="3" fill="#c03000"/>
+
+<!-- HOTSPOTS -->
+<g class="hotspot" id="hs1">
+  <circle cx="460" cy="183" r="16" class="hs-bg" fill="#c0392b" opacity="0.15"/>
+  <circle cx="460" cy="183" r="12" fill="#0d1008" opacity="0.8" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="460" y="187" text-anchor="middle" font-size="11" fill="#c0392b">①</text>
+</g>
+<g class="hotspot" id="hs2">
+  <circle cx="450" cy="115" r="14" class="hs-bg" fill="#d4a017" opacity="0.18"/>
+  <circle cx="450" cy="115" r="10" fill="#0d1008" opacity="0.8" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="450" y="119" text-anchor="middle" font-size="11" fill="#d4a017">②</text>
+</g>
+<g class="hotspot" id="hs3">
+  <circle cx="322" cy="180" r="14" class="hs-bg" fill="#d4a017" opacity="0.18"/>
+  <circle cx="322" cy="180" r="10" fill="#0d1008" opacity="0.8" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="322" y="184" text-anchor="middle" font-size="11" fill="#d4a017">③</text>
+</g>
+<g class="hotspot" id="hs4">
+  <circle cx="460" cy="84" r="12" class="hs-bg" fill="#c0392b" opacity="0.15"/>
+  <circle cx="460" cy="84" r="9"  fill="#0d1008" opacity="0.8" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="460" y="88" text-anchor="middle" font-size="10" fill="#c0392b">④</text>
+</g>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION DIVIDER  y=308–324
+     ═══════════════════════════════════════════════════════════ -->
+<rect x="18" y="308" width="1044" height="16" fill="#0d1008" stroke="#2a2a18" stroke-width="1"/>
+<text x="540" y="320" text-anchor="middle" font-size="9" fill="#9a8a40" letter-spacing="2">DETAIL PANELS — MECHANISM OF FAILURE</text>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PANEL A — POWER EXCURSION TIMELINE  y=324–574
+     ═══════════════════════════════════════════════════════════ -->
+<rect x="18"  y="324" width="338" height="256" fill="#0d1008" stroke="#2a2a18" stroke-width="1" rx="2"/>
+<rect x="18"  y="324" width="338" height="20"  fill="#1a1008" rx="2"/>
+<text x="187" y="338" text-anchor="middle" font-size="9.5" fill="#e8e4d0" letter-spacing="1">A — POWER EXCURSION TIMELINE</text>
+
+<!-- Timeline vertical axis -->
+<line x1="88" y1="358" x2="88" y2="562" stroke="#3a3a28" stroke-width="1"/>
+
+<!-- Event: 00:28 — power collapses -->
+<line x1="83" y1="368" x2="93" y2="368" stroke="#4a4a38" stroke-width="1"/>
+<text x="79" y="372" text-anchor="end" font-size="8" fill="#a09070">00:28</text>
+<rect x="98" y="362" width="244" height="18" fill="#1a1a12" rx="2"/>
+<text x="103" y="375" font-size="8" fill="#908070">Power collapses to ~30 MW(th)</text>
+
+<!-- Event: 01:03 — stabilised -->
+<line x1="83" y1="398" x2="93" y2="398" stroke="#4a4a38" stroke-width="1"/>
+<text x="79" y="402" text-anchor="end" font-size="8" fill="#a09070">01:03</text>
+<rect x="98" y="392" width="244" height="18" fill="#1a1a12" rx="2"/>
+<text x="103" y="405" font-size="8" fill="#908070">Stabilised at 200 MW(th) — too low</text>
+
+<!-- Event: 01:22:30 — ORM critical -->
+<line x1="83" y1="428" x2="93" y2="428" stroke="#4a4a38" stroke-width="1"/>
+<text x="79" y="432" text-anchor="end" font-size="8" fill="#d4a017">01:22:30</text>
+<rect x="98" y="422" width="244" height="18" fill="#2a1e08" stroke="#4a3010" stroke-width="0.8" rx="2"/>
+<text x="103" y="435" font-size="8" fill="#d4a017">ORM = 8 rods (min. required: 15)</text>
+
+<!-- Event: 01:23:40 — AZ-5 pressed -->
+<line x1="83" y1="460" x2="93" y2="460" stroke="#c0392b" stroke-width="1.5"/>
+<text x="79" y="464" text-anchor="end" font-size="8" fill="#c0392b" font-weight="bold">01:23:40</text>
+<rect x="98" y="454" width="244" height="18" fill="#2a0808" stroke="#600808" stroke-width="1" rx="2"/>
+<text x="103" y="467" font-size="8" fill="#c0392b" font-weight="bold">EPS-5/AZ-5 pressed → scram initiated</text>
+
+<!-- Event: +3 s — power already rising -->
+<line x1="83" y1="488" x2="93" y2="488" stroke="#c0392b" stroke-width="2"/>
+<text x="79" y="492" text-anchor="end" font-size="8" fill="#c0392b" font-weight="bold">+3 s</text>
+<rect x="98" y="482" width="244" height="18" fill="#360808" stroke="#800808" stroke-width="1.2" rx="2"/>
+<text x="103" y="495" font-size="8" fill="#ff6040" font-weight="bold">Power already &gt;530 MW(th) &amp; rising</text>
+
+<!-- Event: +6.5 s — prompt supercritical -->
+<line x1="83" y1="516" x2="93" y2="516" stroke="#c0392b" stroke-width="2.5"/>
+<text x="79" y="520" text-anchor="end" font-size="8" fill="#ff4020" font-weight="bold">+6.5 s</text>
+<rect x="98" y="510" width="244" height="26" fill="#4a0808" stroke="#a00808" stroke-width="1.5" rx="2"/>
+<text x="103" y="523" font-size="8" fill="#ff8060" font-weight="bold">~6200–12800 MW(th) estimated</text>
+<text x="103" y="533" font-size="7.5" fill="#e06040">31–64× initial power (INSAG dynamic model)</text>
+
+<!-- Event: +7–10 s — explosions -->
+<line x1="83" y1="548" x2="93" y2="548" stroke="#c0392b" stroke-width="3"/>
+<text x="79" y="552" text-anchor="end" font-size="8" fill="#ff2000" font-weight="bold">+7–10 s</text>
+<rect x="98" y="542" width="244" height="26" fill="#600000" stroke="#c00000" stroke-width="2" rx="2"/>
+<text x="103" y="555" font-size="8.5" fill="#ff4020" font-weight="bold">TWO EXPLOSIONS — reactor destroyed</text>
+<text x="103" y="566" font-size="7.5" fill="#e06040">Steam burst + H₂/zirconium detonation</text>
+
+<!-- Timeline acceleration curve -->
+<path d="M 88,368 Q 90,428 88,460 Q 86,476 78,490 Q 68,508 62,522" stroke="#c0392b" stroke-width="1.2" fill="none" opacity="0.5"/>
+
+<!-- Rate note -->
+<rect x="28" y="572" width="318" height="14" fill="#1a1008" stroke="#3a2a08" stroke-width="0.8" rx="2"/>
+<text x="187" y="582" text-anchor="middle" font-size="7.5" fill="#a08848">Rate of rise: ~400–1000 MW/s by t+6 s · Rate ≈ (ρ−β)/Λ · P</text>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PANEL B — CONTROL ROD DESIGN FLAW  y=324–574
+     ═══════════════════════════════════════════════════════════ -->
+<rect x="370" y="324" width="338" height="256" fill="#0d1008" stroke="#2a2a18" stroke-width="1" rx="2"/>
+<rect x="370" y="324" width="338" height="20"  fill="#1a1008" rx="2"/>
+<text x="539" y="338" text-anchor="middle" font-size="9.5" fill="#e8e4d0" letter-spacing="1">B — CONTROL ROD DESIGN FLAW</text>
+
+<!-- Normal rod cross-section — INSERTED -->
+<text x="450" y="356" text-anchor="middle" font-size="8.5" fill="#a09070">INSERTED (normal)</text>
+<rect x="395" y="361" width="110" height="14" fill="#3a3a2a" stroke="#5a5a48" stroke-width="1"/>
+<rect x="440" y="375" width="20" height="90" rx="1" fill="#6a6a58" stroke="#888878" stroke-width="0.8"/>
+<rect x="440" y="375" width="20" height="30" rx="1" fill="#2e5f3e"/>
+<text x="466" y="396" font-size="7.5" fill="#6a9a6a">absorber</text>
+<rect x="440" y="405" width="20" height="8" fill="#888888" stroke="#aaaaaa" stroke-width="0.5" rx="1"/>
+<text x="466" y="411" font-size="7" fill="#888878">1.25 m gap</text>
+<text x="466" y="421" font-size="7" fill="#888878">(water)</text>
+<rect x="440" y="423" width="20" height="42" rx="1" fill="#4a7a4a"/>
+<text x="466" y="448" font-size="7.5" fill="#80b080">graphite</text>
+<text x="466" y="458" font-size="7.5" fill="#80b080">follower</text>
+
+<!-- Water-gap annotation arrow -->
+<path d="M 440,409 L 428,434" stroke="#3a6a9a" stroke-width="1.5" marker-end="url(#arr)"/>
+<text x="424" y="437" text-anchor="end" font-size="7" fill="#6090b8">H₂O</text>
+<text x="424" y="447" text-anchor="end" font-size="7" fill="#6090b8">absorbs</text>
+
+<!-- Withdrawn rod cross-section — BEING INSERTED (scram) -->
+<text x="600" y="356" text-anchor="middle" font-size="8.5" fill="#d4a017">BEING INSERTED (scram)</text>
+<rect x="545" y="361" width="110" height="14" fill="#3a3a2a" stroke="#5a5a48" stroke-width="1"/>
+<rect x="590" y="375" width="20" height="90" rx="1" fill="#1a1a12" stroke="#3a3a2a" stroke-width="0.5" stroke-dasharray="3,2"/>
+<rect x="590" y="375" width="20" height="42" rx="1" fill="#4a7a4a" opacity="0.5"/>
+<text x="616" y="398" font-size="7.5" fill="#80b080">graphite</text>
+<text x="616" y="408" font-size="7.5" fill="#80b080">enters first</text>
+<rect x="590" y="417" width="20" height="8" fill="#c08030" stroke="#e0a040" stroke-width="0.8" rx="1"/>
+<text x="616" y="423" font-size="7" fill="#d4a017">replaces</text>
+<text x="616" y="433" font-size="7" fill="#d4a017">neutron-abs.</text>
+<text x="616" y="443" font-size="7" fill="#d4a017">water with</text>
+<text x="616" y="453" font-size="7" fill="#d4a017">graphite ↑</text>
+
+<!-- Positive scram label -->
+<rect x="545" y="450" width="110" height="24" fill="#2a0808" stroke="#800808" stroke-width="1.2" rx="2"/>
+<text x="600" y="462" text-anchor="middle" font-size="9" fill="#ff4020" font-weight="bold">POSITIVE SCRAM</text>
+<text x="600" y="472" text-anchor="middle" font-size="7.5" fill="#c06040">adds reactivity first</text>
+
+<!-- Vertical divider between the two rod sub-panels -->
+<line x1="539" y1="350" x2="539" y2="480" stroke="#2a2a18" stroke-width="0.8" stroke-dasharray="4,3"/>
+
+<!-- Rod speed callout -->
+<rect x="380" y="482" width="318" height="30" fill="#1a1a12" stroke="#3a3a28" stroke-width="0.8" rx="2"/>
+<text x="539" y="496" text-anchor="middle" font-size="8.5" fill="#d4a017" font-weight="bold">Rod speed: 0.4 m/s → full insertion in 18 seconds</text>
+<text x="539" y="507" text-anchor="middle" font-size="7.5" fill="#808070">Post-accident retrofit: 12 s + 24 fast rods &gt;2β in &lt;2.5 s</text>
+
+<!-- Swiss Cheese layer labels -->
+<rect x="380" y="518" width="318" height="60" fill="#0f0f0a" stroke="#c0a040" stroke-width="0.8" rx="2"/>
+<text x="539" y="531" text-anchor="middle" font-size="8.5" fill="#c0a040" font-weight="bold">Swiss Cheese — aligned holes</text>
+<line x1="385" y1="535" x2="693" y2="535" stroke="#3a3010" stroke-width="0.5"/>
+<text x="388" y="547" font-size="7.5" fill="#908860">Design:   +void coeff · positive scram · slow rods · weak containment</text>
+<text x="388" y="558" font-size="7.5" fill="#908860">Operations: low ORM · 200 MW(th) test · ECCS isolated</text>
+<text x="388" y="569" font-size="7.5" fill="#c0392b">→ Shutdown system became the initiator of runaway</text>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PANEL C — CONTAINMENT FAILURE &amp; LEGACY  y=324–574
+     ═══════════════════════════════════════════════════════════ -->
+<rect x="722" y="324" width="338" height="256" fill="#0d1008" stroke="#2a2a18" stroke-width="1" rx="2"/>
+<rect x="722" y="324" width="338" height="20"  fill="#1a1008" rx="2"/>
+<text x="891" y="338" text-anchor="middle" font-size="9.5" fill="#e8e4d0" letter-spacing="1">C — CONTAINMENT FAILURE &amp; LEGACY</text>
+
+<!-- Containment capacity sub-header -->
+<text x="891" y="356" text-anchor="middle" font-size="8.5" fill="#a09070">Design limit vs. actual failure</text>
+
+<!-- Rated / Actual / Retrofit channel bars -->
+<rect x="730" y="361" width="80" height="36" fill="#1a2a1a" stroke="#2a4a2a" stroke-width="1" rx="2"/>
+<text x="770" y="374" text-anchor="middle" font-size="8" fill="#60a060">Rated</text>
+<text x="770" y="388" text-anchor="middle" font-size="9" fill="#80c080" font-weight="bold">2 channels</text>
+
+<rect x="822" y="361" width="80" height="36" fill="#2a1010" stroke="#6a1010" stroke-width="1.5" rx="2"/>
+<text x="862" y="374" text-anchor="middle" font-size="8" fill="#c06060">Actual</text>
+<text x="862" y="388" text-anchor="middle" font-size="9" fill="#ff4020" font-weight="bold">Multi-channel</text>
+
+<rect x="914" y="361" width="138" height="36" fill="#2a2010" stroke="#5a4010" stroke-width="1" rx="2"/>
+<text x="983" y="374" text-anchor="middle" font-size="8" fill="#d4a017">Retrofit (1986+)</text>
+<text x="983" y="388" text-anchor="middle" font-size="8.5" fill="#e8c050">9–10 channels rated</text>
+
+<!-- Pressure cascade flowchart -->
+<text x="810" y="412" text-anchor="middle" font-size="8" fill="#808070">Pressure cascade:</text>
+<rect x="730" y="419" width="160" height="16" fill="#1a1a12" rx="1"/>
+<text x="810" y="431" text-anchor="middle" font-size="7.5" fill="#a09070">Fuel overheating</text>
+<path d="M 810,435 L 810,445" stroke="#c0392b" stroke-width="1.2" marker-end="url(#arrR)"/>
+<rect x="730" y="445" width="160" height="16" fill="#1a1a12" rx="1"/>
+<text x="810" y="457" text-anchor="middle" font-size="7.5" fill="#a09070">Steam generation</text>
+<path d="M 810,461 L 810,471" stroke="#c0392b" stroke-width="1.2" marker-end="url(#arrR)"/>
+<rect x="730" y="471" width="160" height="16" fill="#1a1a12" rx="1"/>
+<text x="810" y="483" text-anchor="middle" font-size="7.5" fill="#a09070">Channel rupture</text>
+<path d="M 810,487 L 810,497" stroke="#c0392b" stroke-width="1.2" marker-end="url(#arrR)"/>
+<rect x="730" y="497" width="160" height="16" fill="#2a0808" rx="1" stroke="#600808" stroke-width="0.8"/>
+<text x="810" y="509" text-anchor="middle" font-size="7.5" fill="#ff4020">Lid lifted / rods jam</text>
+<path d="M 810,513 L 810,523" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrR)"/>
+<rect x="730" y="523" width="160" height="16" fill="#400000" rx="1" stroke="#900000" stroke-width="1"/>
+<text x="810" y="535" text-anchor="middle" font-size="7.5" fill="#ff6040" font-weight="bold">EXPLOSION ×2</text>
+
+<!-- International legacy panel -->
+<rect x="900" y="413" width="152" height="165" fill="#0f1208" stroke="#2a3a20" stroke-width="0.8" rx="2"/>
+<text x="976" y="428" text-anchor="middle" font-size="8.5" fill="#a0b870" font-weight="bold">International legacy</text>
+<line x1="905" y1="433" x2="1047" y2="433" stroke="#2a3a18" stroke-width="0.5"/>
+<text x="905" y="445" font-size="7.5" fill="#708a60">1986: Conv. on Early Notification</text>
+<text x="905" y="457" font-size="7.5" fill="#708a60">1986: Conv. on Assistance</text>
+<text x="905" y="469" font-size="7.5" fill="#708a60">1994: Convention on Nuclear Safety</text>
+<text x="905" y="481" font-size="7.5" fill="#708a60">INSAG "safety culture" becomes</text>
+<text x="905" y="493" font-size="7.5" fill="#708a60">international engineering standard</text>
+<line x1="905" y1="498" x2="1047" y2="498" stroke="#2a3a18" stroke-width="0.5"/>
+<text x="905" y="510" font-size="7.5" fill="#c0392b">RBMK fixes: +80–90 absorbers</text>
+<text x="905" y="522" font-size="7.5" fill="#c0392b">ORM raised 8 → 43–48 rods</text>
+<text x="905" y="534" font-size="7.5" fill="#c0392b">Fuel enriched 2.0% → 2.4% U-235</text>
+<text x="905" y="546" font-size="7.5" fill="#c0392b">Pos. scram effect eliminated</text>
+<text x="905" y="558" font-size="7.5" fill="#c0392b">Regulatory: no indep. regulator</text>
+<text x="905" y="569" font-size="7.5" fill="#c0392b">→ Deficient safety culture</text>
+
+<!-- ═══════════════════════════════════════════════════════════
+     ROOT CAUSE CHAIN — 5 WHYS  y=584–730
+     ═══════════════════════════════════════════════════════════ -->
+<rect x="18" y="584" width="1044" height="14" fill="#0d1008" stroke="#2a2a18" stroke-width="1"/>
+<text x="540" y="595" text-anchor="middle" font-size="9" fill="#9a8a40" letter-spacing="2">ROOT CAUSE CHAIN — 5 WHYS</text>
+
+<rect x="18" y="598" width="1044" height="130" fill="#0a0a08"/>
+
+<!-- 5 Why boxes — horizontal chain -->
+<rect x="28"  y="609" width="170" height="48" fill="#1a0808" stroke="#400808" stroke-width="1" rx="2"/>
+<text x="113" y="623" text-anchor="middle" font-size="8.5" fill="#e0c0c0" font-weight="bold">Why was Unit 4</text>
+<text x="113" y="634" text-anchor="middle" font-size="8.5" fill="#e0c0c0" font-weight="bold">destroyed?</text>
+<text x="113" y="648" text-anchor="middle" font-size="7.5" fill="#a08080">Pressure event → explosions</text>
+
+<path d="M 198,633 L 216,633" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrR)"/>
+
+<rect x="217" y="609" width="170" height="48" fill="#1a0a08" stroke="#481808" stroke-width="1" rx="2"/>
+<text x="302" y="623" text-anchor="middle" font-size="8.5" fill="#e0c0a0" font-weight="bold">Why the pressure</text>
+<text x="302" y="634" text-anchor="middle" font-size="8.5" fill="#e0c0a0" font-weight="bold">event?</text>
+<text x="302" y="648" text-anchor="middle" font-size="7.5" fill="#a09070">Uncontrolled power excursion</text>
+
+<path d="M 387,633 L 405,633" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrR)"/>
+
+<rect x="406" y="609" width="170" height="48" fill="#1a1008" stroke="#4a2808" stroke-width="1" rx="2"/>
+<text x="491" y="623" text-anchor="middle" font-size="8.5" fill="#e0c870" font-weight="bold">Why the power</text>
+<text x="491" y="634" text-anchor="middle" font-size="8.5" fill="#e0c870" font-weight="bold">excursion?</text>
+<text x="491" y="648" text-anchor="middle" font-size="7.5" fill="#a09870">+void coeff + positive scram</text>
+
+<path d="M 576,633 L 594,633" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrR)"/>
+
+<rect x="595" y="609" width="170" height="48" fill="#181808" stroke="#3a3808" stroke-width="1" rx="2"/>
+<text x="680" y="623" text-anchor="middle" font-size="8.5" fill="#d0d870" font-weight="bold">Why the unstable</text>
+<text x="680" y="634" text-anchor="middle" font-size="8.5" fill="#d0d870" font-weight="bold">core state?</text>
+<text x="680" y="648" text-anchor="middle" font-size="7.5" fill="#909870">Test at 200 MW · ORM = 8 rods</text>
+
+<path d="M 765,633 L 783,633" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrR)"/>
+
+<rect x="784" y="609" width="268" height="48" fill="#100c18" stroke="#301838" stroke-width="1.5" rx="2"/>
+<text x="918" y="622" text-anchor="middle" font-size="8.5" fill="#c0a0e0" font-weight="bold">Why did the system permit it?</text>
+<text x="918" y="634" text-anchor="middle" font-size="7.5" fill="#9070b0">Design defects undisclosed · No independent regulator</text>
+<text x="918" y="645" text-anchor="middle" font-size="7.5" fill="#9070b0">Precursor events (Leningrad 1975, Ignalina 1983) ignored</text>
+<text x="918" y="656" text-anchor="middle" font-size="7.5" fill="#c0392b">→ Deficient safety culture across design, ops, and govt</text>
+
+<!-- SOURCES BAR -->
+<rect x="18" y="728" width="1044" height="14" fill="#0a0a08"/>
+<text x="540" y="738" text-anchor="middle" font-size="7.5" fill="#5a5040">Sources: INSAG-7 (IAEA, 1992) · World Nuclear Association · Convention on Early Notification of a Nuclear Accident (IAEA, 1986) · Convention on Nuclear Safety (IAEA, 1994)</text>
+
+<!-- ═══════════════════════════════════════════════════════════
+     TOOLTIP OVERLAY (injected by JS on hover)
+     ═══════════════════════════════════════════════════════════ -->
+<g id="tt">
+  <rect id="tt-bg" x="0" y="0" width="330" height="90" rx="3" fill="#0d1008" opacity="0.96"/>
+  <rect x="0" y="0" width="4" height="90" rx="1" fill="#c0392b"/>
+  <text id="tt-title" x="12" y="18" font-size="10" fill="#d0c870" font-weight="bold"></text>
+  <text id="tt-body"  x="12" y="34" font-size="8.5" fill="#b0a888"></text>
+</g>
+
+<script><![CDATA[
+const TIPS = {
+  hs1: {
+    title: '① Core — positive void coefficient',
+    lines: [
+      'When cooling water flashed to steam, void fraction rose.',
+      'Instead of shutting down (negative void = safe), RBMK',
+      'added reactivity — up to +5β_eff on full steaming.',
+      'Once ρ > β the core became prompt supercritical:',
+      'power grew on μs timescale, not the slower delayed-n scale.'
+    ]
+  },
+  hs2: {
+    title: '② Control rods — withdrawn (ORM = 8)',
+    lines: [
+      '201 of 211 absorber rods were effectively out of the core.',
+      'Operating rules required ≥15 rods (hard minimum).',
+      'Below 50% power the procedure table required ≥30 rods.',
+      'Operators did not appreciate the physical danger of ORM < 15;',
+      'they were told ORM was an "efficiency" limit, not a safety one.'
+    ]
+  },
+  hs3: {
+    title: '③ Graphite-tipped rods — positive scram effect',
+    lines: [
+      'Each rod had a 1.25 m water gap above its graphite follower.',
+      'On insertion, graphite entered the lower core first,',
+      'replacing neutron-absorbing water with a moderator.',
+      'This gave an initial burst of positive reactivity (~+1β)',
+      'before absorption finally caught up — too late at 200 MW(th).'
+    ]
+  },
+  hs4: {
+    title: '④ Upper shield plate — 1000-tonne cover',
+    lines: [
+      'Steam-dump system was rated for only 2 channel ruptures.',
+      'Multi-channel failure pressurised the reactor cavity.',
+      'Overpressure lifted the 1000 t upper biological shield,',
+      'jamming control rods at mid-insertion.',
+      'Two explosions followed: steam-driven, then H₂/Zr detonation.'
+    ]
+  }
+};
+
+const tt      = document.getElementById('tt');
+const ttBg    = document.getElementById('tt-bg');
+const ttTitle = document.getElementById('tt-title');
+const ttBody  = document.getElementById('tt-body');
+
+function showTip(id, evt) {
+  const tip = TIPS[id];
+  if (!tip) return;
+  ttTitle.textContent = tip.title;
+  while (ttBody.firstChild) ttBody.removeChild(ttBody.firstChild);
+  tip.lines.forEach((line, i) => {
+    const t = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+    t.setAttribute('x', '12');
+    t.setAttribute('dy', i === 0 ? '0' : '13');
+    t.textContent = line;
+    ttBody.appendChild(t);
+  });
+  const h = 28 + tip.lines.length * 13 + 8;
+  ttBg.setAttribute('height', h);
+  document.querySelector('#tt rect:nth-child(2)').setAttribute('height', h);
+  const svg   = tt.ownerSVGElement;
+  const pt    = svg.createSVGPoint();
+  pt.x = evt.clientX; pt.y = evt.clientY;
+  const svgPt = pt.matrixTransform(svg.getScreenCTM().inverse());
+  let tx = svgPt.x + 16;
+  let ty = svgPt.y - 16;
+  if (tx + 340 > 1080) tx = svgPt.x - 350;
+  if (ty < 0) ty = 4;
+  tt.setAttribute('transform', 'translate(' + tx + ',' + ty + ')');
+  tt.style.display = 'block';
+}
+
+['hs1','hs2','hs3','hs4'].forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('mouseenter', e => showTip(id, e));
+  el.addEventListener('mousemove',  e => showTip(id, e));
+  el.addEventListener('mouseleave', () => { tt.style.display = 'none'; });
+});
+]]></script>
+</svg>
