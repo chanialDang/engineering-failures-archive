@@ -4,72 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sources — Engineering Failures Archive</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
   <style>
-    /* ===== VARIABLES (mirrored from styles.css) ===== */
-    :root {
-      --bg-dark: #f7f4ef;
-      --bg-card: #ffffff;
-      --bg-elevated: #f0ece5;
-      --text-primary: #1a1814;
-      --text-secondary: #5a5650;
-      --text-muted: #9a9690;
-      --accent-orange: #c0392b;
-      --accent-red: #96281b;
-      --accent-blue: #2c3e50;
-      --border: #e8e3db;
-      --shadow-sm: 0 1px 4px rgba(26,24,20,0.06);
-      --shadow-md: 0 4px 16px rgba(26,24,20,0.08);
-      --shadow-lg: 0 12px 40px rgba(26,24,20,0.1);
-    }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      font-family: 'Space Mono', 'Courier New', monospace;
-      background: var(--bg-dark);
-      color: var(--text-primary);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ===== NAVBAR ===== */
+    /* ===== NAVBAR OVERRIDE (light page) ===== */
     .navbar {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      padding: 1.25rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       background: rgba(247, 244, 239, 0.92);
-      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      z-index: 100;
     }
-    .nav-logo {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
+    .nav-logo { color: var(--text-primary); }
     .nav-logo:hover { color: var(--accent-orange); }
-    .nav-links { display: flex; gap: 2.5rem; }
-    .nav-link {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      transition: color 0.2s;
-    }
+    .nav-link { color: var(--text-secondary); }
     .nav-link:hover { color: var(--text-primary); }
-    .nav-link.active { color: var(--accent-orange); }
+    .nav-link.active { color: var(--text-primary); }
 
     /* ===== PAGE WRAPPER ===== */
     .sources-page { padding-top: 80px; }
@@ -129,7 +80,7 @@
       background: var(--text-primary);
       color: var(--bg-dark);
       border: none;
-      border-radius: 8px;
+      border-radius: 980px;
       font-family: 'Space Mono', monospace;
       font-size: 0.75rem;
       font-weight: 700;
@@ -190,7 +141,7 @@
 
     .btn-primary {
       padding: 1rem 2.5rem;
-      border-radius: 8px;
+      border-radius: 980px;
       font-family: 'Space Mono', monospace;
       font-size: 0.8rem;
       font-weight: 700;
@@ -229,7 +180,7 @@
     }
     .btn-secondary {
       padding: 0.625rem 1.25rem;
-      border-radius: 8px;
+      border-radius: 980px;
       font-family: 'Space Mono', monospace;
       font-size: 0.75rem;
       font-weight: 700;
@@ -407,8 +358,6 @@
     }
 
     @media (max-width: 768px) {
-      .navbar { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.5rem; }
       .sources-grid { grid-template-columns: 1fr; }
       .form-grid { grid-template-columns: 1fr; }
     }
@@ -418,11 +367,12 @@
 
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar">
-  <a href="index.html" class="nav-logo">Engineering Failures Archive</a>
+  <a href="index.html" class="nav-logo">EFA</a>
   <div class="nav-links">
-    <a href="index.html" class="nav-link">Home</a>
     <a href="archive.html" class="nav-link">Archive</a>
+    <a href="chat.html" class="nav-link">Chat</a>
     <a href="sources.html" class="nav-link active">Sources</a>
+    <a href="why.html" class="nav-link">Why I Made This</a>
   </div>
 </nav>
 

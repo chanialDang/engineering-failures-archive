@@ -25,7 +25,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     background: var(--bg-dark);
     color: var(--text-primary);
     line-height: 1.6;
@@ -79,6 +79,7 @@ body {
 }
 
 .nav-link {
+    font-family: 'Space Mono', monospace;
     color: rgba(245, 245, 247, 0.6);
     text-decoration: none;
     font-size: 0.85rem;
@@ -89,6 +90,10 @@ body {
 
 .nav-link:hover {
     color: #f5f5f7;
+}
+
+.nav-link.active {
+    color: rgba(245, 245, 247, 0.9);
 }
 
 /* ===== LANDING PAGE ===== */
@@ -158,6 +163,12 @@ body {
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-outline {
+    font-family: 'Space Mono', monospace;
 }
 
 .btn-primary {
@@ -674,17 +685,20 @@ body {
     align-items: center;
 }
 
-.footer-copy {
+.footer-copy,
+.footer-link {
+    font-family: 'Space Mono', monospace;
     font-size: 13px;
-    color: rgba(245, 245, 247, 0.3);
     font-weight: 400;
 }
 
+.footer-copy {
+    color: rgba(245, 245, 247, 0.3);
+}
+
 .footer-link {
-    font-size: 13px;
     color: rgba(245, 245, 247, 0.45);
     text-decoration: none;
-    font-weight: 400;
     transition: color 0.2s;
 }
 
@@ -784,6 +798,7 @@ body {
 }
 
 .section-label {
+    font-family: 'Space Mono', monospace;
     font-size: 0.68rem;
     color: var(--text-muted);
     letter-spacing: 0.18em;
@@ -1057,6 +1072,7 @@ body {
 }
 
 .info-label {
+    font-family: 'Space Mono', monospace;
     font-size: 0.68rem;
     color: var(--text-muted);
     letter-spacing: 0.18em;
