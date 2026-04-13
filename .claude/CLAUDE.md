@@ -30,6 +30,7 @@ Engineering Failures Archive — static site, 50+ disaster records (1847–2023)
 | `backend/db/supabase.py` | Only file that touches Supabase — never import supabase elsewhere |
 | `backend/services/openai_service.py` | All OpenAI API calls — the only layer allowed to call OpenAI |
 | `backend/services/rag_service.py` | Vector search + context injection |
+| `backend/requirements.txt` | Python dependencies — fastapi, uvicorn, openai, supabase, python-dotenv, pydantic |
 | `.env` | `OPENAI_API_KEY`, `SUPABASE_URL`, `SUPABASE_KEY` — never commit |
 
 Unused: `landing.js` (legacy — ignore)
