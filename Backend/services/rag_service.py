@@ -21,12 +21,10 @@ def get_context(message: str, disasters: list[dict]) -> str:
     Tries Supabase vector search first; falls back to keyword search.
     Always returns a non-empty string.
     """
-    chunks: list[str] = []
-
     try:
         chunks = search_documents(embed(message))
     except Exception:
-        pass
+        chunks = []
 
     if not chunks:
         chunks = keyword_search(message, disasters)

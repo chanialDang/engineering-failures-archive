@@ -15,7 +15,6 @@ app.include_router(chat_router, prefix="/api")
 app.include_router(settings_router, prefix="/api")
 
 
-# Basic health check
 @app.get("/health")
 async def health():
     return {"status": "ok"}
