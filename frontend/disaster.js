@@ -36,6 +36,38 @@ const VIDEOS = {
   'FAIL-046': {
     url:   'https://www.youtube.com/watch?v=sJ3Q3kL7jcA',
     label: 'Apollo 13: Houston, We\'ve Got a Problem — Official NASA archival documentary featuring real mission footage, Mission Control audio, and astronaut commentary.'
+  },
+  'FAIL-033': {
+    url:   'https://www.youtube.com/watch?v=Z-LlVyNpjpE',
+    label: 'Champlain Towers South collapse documentary.'
+  },
+  'FAIL-048': {
+    url:   'https://youtu.be/6LcGrLnzYuU',
+    label: 'Titan submersible implosion documentary.'
+  },
+  'FAIL-007': {
+    url:   'https://www.youtube.com/watch?v=-lyyIvxy2Z4',
+    label: 'Deepwater Horizon oil spill documentary.'
+  },
+  'FAIL-008': {
+    url:   'https://youtu.be/NDeWmvJ2AOs',
+    label: 'Fukushima nuclear accident documentary.'
+  },
+  'FAIL-013': {
+    url:   'https://youtu.be/3DV7cVJHUh4',
+    label: 'Apollo 1 cabin fire documentary.'
+  },
+  'FAIL-017': {
+    url:   'https://youtu.be/xEPswDYbcnk',
+    label: 'I-35W bridge collapse documentary.'
+  },
+  'FAIL-036': {
+    url:   'https://youtu.be/-ibvUxv1-lM',
+    label: 'St. Francis Dam failure documentary.'
+  },
+  'FAIL-037': {
+    url:   'https://youtu.be/rhk8BJIMkLM',
+    label: 'Teton Dam failure documentary.'
   }
 };
 
