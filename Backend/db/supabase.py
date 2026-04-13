@@ -1,4 +1,5 @@
 import os
+from typing import Optional
 from supabase import create_client, Client
 
 # Initialize the Supabase client using credentials from environment variables
@@ -8,7 +9,7 @@ client: Client = create_client(url, key)
 
 
 # Retrieve a single setting value by key from the settings table
-def get_setting(key: str) -> str | None:
+def get_setting(key: str) -> Optional[str]:
     result = client.table("settings").select("value").eq("key", key).maybe_single().execute()
     return result.data["value"] if result.data else None
 
