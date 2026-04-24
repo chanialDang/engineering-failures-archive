@@ -1,8 +1,11 @@
-from fastapi import APIRouter
+import logging
+
+from fastapi import APIRouter, HTTPException
 
 from models.schemas import SettingsRequest, SettingsResponse
 from db.supabase import get_setting, save_setting
 
+logger = logging.getLogger(__name__)
 router = APIRouter()
 
 
@@ -10,17 +13,21 @@ router = APIRouter()
 async def read_setting(key: str):
     try:
         value = get_setting(key)
-        if value is None:
-            return SettingsResponse(key=key, value="")
-        return SettingsResponse(key=key, value=value)
     except Exception:
-        return SettingsResponse(key=key, value="")
+        logger.exception("Failed to read setting: %s", key)
+        raise HTTPException(status_code=500, detail="Failed to read setting")
+    if value is None:
+        raise HTTPException(status_code=404, detail=f"Setting '{key}' not found")
+    return SettingsResponse(key=key, value=value)
 
 
 @router.post("/settings", response_model=SettingsResponse)
 async def write_setting(req: SettingsRequest):
     try:
         save_setting(req.key, req.value)
-        return SettingsResponse(key=req.key, value=req.value)
+    except ValueError as e:
+        raise HTTPException(status_code=422, detail=str(e))
     except Exception:
-        return SettingsResponse(key=req.key, value="")
+        logger.exception("Failed to write setting: %s", req.key)
+        raise HTTPException(status_code=500, detail="Failed to write setting")
+    return SettingsResponse(key=req.key, value=req.value)

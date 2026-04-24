@@ -1,9 +1,9 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class ChatRequest(BaseModel):
-    message: str
-    history: list[dict] = []
+    message: str = Field(..., min_length=1, max_length=2000)
+    history: list[dict] = Field(default_factory=list)
 
 
 class ChatResponse(BaseModel):
@@ -11,8 +11,8 @@ class ChatResponse(BaseModel):
 
 
 class SettingsRequest(BaseModel):
-    key: str
-    value: str
+    key: str = Field(..., min_length=1, max_length=256)
+    value: str = Field(..., max_length=4096)
 
 
 class SettingsResponse(BaseModel):

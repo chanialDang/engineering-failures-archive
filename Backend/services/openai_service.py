@@ -1,17 +1,34 @@
+import logging
 import os
 
 from openai import OpenAI
 
-_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", ""))
+logger = logging.getLogger(__name__)
+
+
+def _make_client() -> OpenAI:
+    key = os.environ.get("OPENAI_API_KEY", "")
+    if not key:
+        raise ValueError("OPENAI_API_KEY environment variable is not set")
+    return OpenAI(api_key=key, timeout=30)
+
+
+_client = _make_client()
 
 
 def embed(text: str) -> list[float]:
-    """Convert text to a vector using OpenAI text-embedding-3-small."""
-    result = _client.embeddings.create(model="text-embedding-3-small", input=text)
-    return result.data[0].embedding
+    try:
+        result = _client.embeddings.create(model="text-embedding-3-small", input=text)
+        return result.data[0].embedding
+    except Exception:
+        logger.exception("OpenAI embed failed")
+        raise
 
 
 def chat(messages: list[dict]) -> str:
-    """Send a message list to gpt-4o-mini and return the response string."""
-    result = _client.chat.completions.create(model="gpt-4o-mini", messages=messages)
-    return result.choices[0].message.content
+    try:
+        result = _client.chat.completions.create(model="gpt-4o-mini", messages=messages)
+        return result.choices[0].message.content
+    except Exception:
+        logger.exception("OpenAI chat failed")
+        raise
