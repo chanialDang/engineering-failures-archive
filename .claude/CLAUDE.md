@@ -72,16 +72,18 @@ Unused: `landing.js` (legacy — ignore)
 ### Folder Structure
 ```
 backend/
-├── main.py                    ← app entry, mounts middleware + routes
-├── middleware/cors.py          ← CORS: allow only Vercel frontend domain
-├── routes/chat.py              ← POST /chat
-├── routes/settings.py          ← POST/GET /settings
+├── main.py                    ← app entry, mounts middleware + routes + rate limiter
+├── limiter.py                  ← slowapi Limiter instance (imported by main + routes)
+├── middleware/cors.py          ← CORS: allow only Vercel frontend domain (GET/POST only)
+├── routes/chat.py              ← POST /chat — rate-limited 20/min per IP
+├── routes/settings.py          ← POST/GET /settings — returns 404/500 HTTPException on error
 ├── services/openai_service.py  ← all OpenAI API calls live here
 ├── services/rag_service.py     ← vector search + context injection
-├── models/schemas.py           ← Pydantic request/response models
-├── db/supabase.py              ← ONLY file that touches Supabase
+├── models/schemas.py           ← Pydantic request/response models with Field validators
+├── db/supabase.py              ← ONLY file that touches Supabase; exposes ping()
+├── supabase_schema.sql         ← run once in Supabase SQL editor to create tables + RPC
 ├── .env                        ← never commit — OPENAI_API_KEY, SUPABASE_URL, SUPABASE_KEY
-└── requirements.txt
+└── requirements.txt            ← includes slowapi==0.1.9
 ```
 
 ### Security Layers (outermost first)
