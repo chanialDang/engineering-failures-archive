@@ -12,189 +12,408 @@
 <body class="landing-page">
 
     <nav class="navbar">
-        <a href="index.html" class="nav-logo">EFA</a>
+        <a href="#home" class="nav-logo" data-section="home">EFA</a>
         <div class="nav-links">
-            <a href="archive.html" class="nav-link">Archive</a>
-            <a href="chat.html" class="nav-link">Chat</a>
-            <a href="sources.html" class="nav-link">Sources</a>
-            <a href="why.html" class="nav-link">Why I Made This</a>
+            <a href="#archive" class="nav-link" data-section="archive">Archive</a>
+            <a href="#sources" class="nav-link" data-section="sources">Sources</a>
+            <a href="#why" class="nav-link" data-section="why">Why I Made This</a>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero-landing">
-        <div class="hero-content">
-            <div class="hero-eyebrow">Est. 1847 — 2023</div>
-            <h1 class="mega-title">
-                Engineering<br>
-                <span class="highlight">Failures</span><br>
-                Archive
-            </h1>
-            <p class="hero-tagline">50 catastrophic disasters. 176 years of decisions.</p>
-            <div class="cta-buttons">
-                <a href="archive.html" class="btn-primary">Explore Archive</a>
-                <a href="archive.html" class="btn-secondary">View All Disasters →</a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-line"></div>
-        </div>
-    </section>
+    <!-- ===== HOME ===== -->
+    <div id="section-home" class="page-section active">
 
-    <!-- Stats Strip -->
-    <section class="stats-strip">
-        <div class="stats-inner">
-            <div class="stat-item">
-                <div class="stat-number">1.5M+</div>
-                <div class="stat-label">Lives lost to engineering<br>failures in the 20th century</div>
+        <section class="hero-landing">
+            <div class="hero-grain"></div>
+            <div class="hero-spotlight" id="heroSpotlight"></div>
+            <div class="hero-content">
+                <div class="hero-eyebrow">Est. 1847 — 2023</div>
+                <h1 class="mega-title">
+                    Engineering<br>
+                    <span class="highlight glitch-text">Failures</span><br>
+                    Archive
+                </h1>
+                <p class="hero-tagline">50 catastrophic disasters. 176 years of decisions.</p>
+                <div class="cta-buttons">
+                    <a href="#archive" class="btn-primary" data-section="archive">Explore Archive</a>
+                    <a href="#archive" class="btn-secondary" data-section="archive">View All Disasters →</a>
+                </div>
             </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-                <div class="stat-number">80%</div>
-                <div class="stat-label">Of failures attributed to<br>human or organisational error</div>
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
             </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-                <div class="stat-number">$100B+</div>
-                <div class="stat-label">Combined economic damage<br>from archived disasters</div>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-                <div class="stat-number">7 yrs</div>
-                <div class="stat-label">Avg gap between a known<br>defect and a resulting collapse</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Why Section -->
-    <section class="why-section reveal">
-        <div class="why-inner section-container">
-            <div class="why-eyebrow">Why this archive exists</div>
-            <h2 class="why-title">Engineering failures are not accidents.<br>They are decisions.</h2>
-            <p class="why-body">Behind every collapsed bridge, ruptured reactor, and sunken vessel is a chain of choices — design compromises, ignored warnings, costs approved at the expense of safety margins. The structures fail, but the failure begins long before the steel buckles or the seal cracks.</p>
-            <p class="why-body">This archive makes those chains visible — not as a record of tragedy, but as a working reference for engineers, students, and anyone who wants to understand what actually goes wrong, and why the same patterns keep recurring across decades and disciplines.</p>
-            <a href="archive.html" class="why-cta">Start exploring →</a>
-        </div>
-    </section>
+        <section class="stats-strip">
+            <div class="stats-inner">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="1.5" data-suffix="M+">1.5M+</div>
+                    <div class="stat-label">Lives lost to engineering<br>failures in the 20th century</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="80" data-suffix="%">80%</div>
+                    <div class="stat-label">Of failures attributed to<br>human or organisational error</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number" data-prefix="$" data-count="100" data-suffix="B+">$100B+</div>
+                    <div class="stat-label">Combined economic damage<br>from archived disasters</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="7" data-suffix=" yrs">7 yrs</div>
+                    <div class="stat-label">Avg gap between a known<br>defect and a resulting collapse</div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Editorial Sections -->
-    <div class="editorial-sections">
+        <section class="why-section reveal">
+            <div class="why-inner section-container">
+                <div class="why-eyebrow">Why this archive exists</div>
+                <h2 class="why-title">Engineering failures are not accidents.<br>They are decisions.</h2>
+                <p class="why-body">Behind every collapsed bridge, ruptured reactor, and sunken vessel is a chain of choices — design compromises, ignored warnings, costs approved at the expense of safety margins. The structures fail, but the failure begins long before the steel buckles or the seal cracks.</p>
+                <p class="why-body">This archive makes those chains visible — not as a record of tragedy, but as a working reference for engineers, students, and anyone who wants to understand what actually goes wrong, and why the same patterns keep recurring across decades and disciplines.</p>
+                <a href="#archive" class="why-cta" data-section="archive">Start exploring →</a>
+            </div>
+        </section>
 
-        <div class="editorial-block reveal">
-            <div class="editorial-inner">
-                <div class="editorial-eyebrow">The Pattern</div>
-                <h2 class="editorial-title">"The engineers voted no.<br>Management launched anyway."</h2>
-                <div class="editorial-body">
-                    <p>The night before the Challenger launch, engineers at Morton Thiokol formally recommended against the flight. Temperatures at Cape Canaveral were forecast to drop below 18°F — far outside the tested range for the O-ring seals. They had the data. They made the recommendation. Their managers overrode them, and NASA launched at 11:38 AM on January 28, 1986.</p>
-                    <p>This pattern — a technical warning dismissed by organisational pressure — is not unique to Challenger. It appears, in some form, in the majority of disasters documented in this archive. The Bhopal plant had multiple safety systems offline simultaneously. The Fern Hollow Bridge had been rated "poor" for years. The Champlain Towers had outstanding repair orders since 1992. The Columbia foam strike was classified as "not a safety issue" by management thirteen days before reentry.</p>
-                    <p>The engineering is rarely the problem. The org chart is.</p>
+        <div class="editorial-sections">
+            <div class="editorial-block reveal">
+                <div class="editorial-inner">
+                    <div class="editorial-eyebrow">The Pattern</div>
+                    <h2 class="editorial-title">"The engineers voted no.<br>Management launched anyway."</h2>
+                    <div class="editorial-body">
+                        <p>The night before the Challenger launch, engineers at Morton Thiokol formally recommended against the flight. Temperatures at Cape Canaveral were forecast to drop below 18°F — far outside the tested range for the O-ring seals. They had the data. They made the recommendation. Their managers overrode them, and NASA launched at 11:38 AM on January 28, 1986.</p>
+                        <p>This pattern — a technical warning dismissed by organisational pressure — is not unique to Challenger. It appears, in some form, in the majority of disasters documented in this archive. The Bhopal plant had multiple safety systems offline simultaneously. The Fern Hollow Bridge had been rated "poor" for years. The Champlain Towers had outstanding repair orders since 1992. The Columbia foam strike was classified as "not a safety issue" by management thirteen days before reentry.</p>
+                        <p>The engineering is rarely the problem. The org chart is.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="editorial-block editorial-block-alt reveal">
+                <div class="editorial-inner">
+                    <div class="editorial-eyebrow">The Interval</div>
+                    <h2 class="editorial-title">Seven years.<br>The average time between<br>a known defect and a collapse.</h2>
+                    <div class="editorial-body">
+                        <p>The I-35W bridge in Minneapolis was rated "structurally deficient" in 1990. It collapsed in 2007. The gusset plates that failed were undersized from the original 1967 design — a calculation error that was never caught in 40 years of inspections because inspections looked at surface condition, not load capacity.</p>
+                        <p>This is the most consistent finding across this archive: the gap between documented concern and catastrophic outcome is not measured in days. It is measured in budget cycles, in political terms, in the quiet accumulation of deferred maintenance. Inspectors file the reports. The reports enter a queue. The queue has a funding problem.</p>
+                        <p>The Tacoma Narrows bridge oscillated visibly for four months before it fell. Engineers, drivers, and local press all documented it. A film crew was on-site the morning it collapsed. Nobody was surprised — they just hadn't fixed it yet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="editorial-block reveal">
+                <div class="editorial-inner">
+                    <div class="editorial-eyebrow">The Repetition</div>
+                    <h2 class="editorial-title">The same failure has a<br>different name every decade.</h2>
+                    <div class="editorial-body">
+                        <p>Resonance destroyed the Tacoma Narrows Bridge in 1940. Sixty years later, the Millennium Bridge in London had to be closed two days after opening because pedestrian footfall caused near-identical lateral oscillation. Different country, different century, different engineering team — the same physics, the same oversight.</p>
+                        <p>The Hartford Civic Center roof collapsed in 1978 under its own weight, not under snow load. The space frame design had never been properly analysed for the full combination of stresses. In 2003, a terminal roof at Charles de Gaulle Airport failed under similar circumstances. The investigators noted the Hartford collapse in their report.</p>
+                        <p>This archive exists because the engineering community has a short memory. Post-disaster reports are thorough. The recommendations are reasonable. The implementation is optional. What gets built into the next generation of codes is a fraction of what gets learned — and even that knowledge erodes within two professional generations. The disasters in this database are not historical curiosities. Several of them are still being repeated.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="editorial-block editorial-block-alt reveal">
-            <div class="editorial-inner">
-                <div class="editorial-eyebrow">The Interval</div>
-                <h2 class="editorial-title">Seven years.<br>The average time between<br>a known defect and a collapse.</h2>
-                <div class="editorial-body">
-                    <p>The I-35W bridge in Minneapolis was rated "structurally deficient" in 1990. It collapsed in 2007. The gusset plates that failed were undersized from the original 1967 design — a calculation error that was never caught in 40 years of inspections because inspections looked at surface condition, not load capacity.</p>
-                    <p>This is the most consistent finding across this archive: the gap between documented concern and catastrophic outcome is not measured in days. It is measured in budget cycles, in political terms, in the quiet accumulation of deferred maintenance. Inspectors file the reports. The reports enter a queue. The queue has a funding problem.</p>
-                    <p>The Tacoma Narrows bridge oscillated visibly for four months before it fell. Engineers, drivers, and local press all documented it. A film crew was on-site the morning it collapsed. Nobody was surprised — they just hadn't fixed it yet.</p>
+        <section class="timeline-section scrolly-section">
+            <div class="section-container">
+                <div class="section-header reveal">
+                    <div class="section-eyebrow light">1847 — 2023</div>
+                    <h2 class="section-title light">176 years of the same mistakes.</h2>
+                    <p class="section-subtitle light">A record that keeps repeating itself.</p>
                 </div>
             </div>
-        </div>
+            <div class="scrolly-timeline" id="scrollyTimeline">
+                <div class="scrolly-sticky" id="scrollySticky">
+                    <div class="scrolly-year" id="scrollyYear">—</div>
+                    <div class="scrolly-name" id="scrollyName"></div>
+                    <div class="scrolly-badge" id="scrollyBadge"></div>
+                    <div class="scrolly-fuse-wrap">
+                        <div class="scrolly-fuse"><div class="scrolly-fuse-fill" id="scrollyFuse"></div></div>
+                        <div class="scrolly-counter" id="scrollyCounter"></div>
+                    </div>
+                </div>
+                <div class="scrolly-steps" id="scrollySteps"></div>
+            </div>
+        </section>
 
-        <div class="editorial-block reveal">
-            <div class="editorial-inner">
-                <div class="editorial-eyebrow">The Repetition</div>
-                <h2 class="editorial-title">The same failure has a<br>different name every decade.</h2>
-                <div class="editorial-body">
-                    <p>Resonance destroyed the Tacoma Narrows Bridge in 1940. Sixty years later, the Millennium Bridge in London had to be closed two days after opening because pedestrian footfall caused near-identical lateral oscillation. Different country, different century, different engineering team — the same physics, the same oversight.</p>
-                    <p>The Hartford Civic Center roof collapsed in 1978 under its own weight, not under snow load. The space frame design had never been properly analysed for the full combination of stresses. In 2003, a terminal roof at Charles de Gaulle Airport failed under similar circumstances. The investigators noted the Hartford collapse in their report.</p>
-                    <p>This archive exists because the engineering community has a short memory. Post-disaster reports are thorough. The recommendations are reasonable. The implementation is optional. What gets built into the next generation of codes is a fraction of what gets learned — and even that knowledge erodes within two professional generations. The disasters in this database are not historical curiosities. Several of them are still being repeated.</p>
+        <section class="featured-section">
+            <div class="section-container">
+                <div class="section-header reveal">
+                    <div class="section-eyebrow">Notable Cases</div>
+                    <h2 class="section-title">Defining disasters.</h2>
+                    <p class="section-subtitle">The events that changed engineering practice forever.</p>
+                </div>
+                <div class="featured-grid" id="featuredGrid"></div>
+                <div class="section-footer reveal">
+                    <a href="#archive" class="btn-outline" data-section="archive">View all 50 disasters →</a>
                 </div>
             </div>
-        </div>
+        </section>
 
+        <section class="dot-matrix-section">
+            <div class="section-container">
+                <div class="section-header reveal">
+                    <div class="section-eyebrow light">All 50 disasters</div>
+                    <h2 class="section-title light">Every dot is a failure.</h2>
+                    <p class="section-subtitle light">Hover to identify. Click to explore.</p>
+                </div>
+                <div class="dot-legend" id="dotLegend">
+                    <span class="dot-legend-item active-legend" data-filter="all"><span class="dot-legend-pip" style="background:rgba(245,245,247,0.4)"></span>All</span>
+                    <span class="dot-legend-item" data-filter="Civil"><span class="dot-legend-pip" style="background:#e74c3c"></span>Civil</span>
+                    <span class="dot-legend-item" data-filter="Mechanical"><span class="dot-legend-pip" style="background:#4da6ff"></span>Mechanical</span>
+                    <span class="dot-legend-item" data-filter="Electrical"><span class="dot-legend-pip" style="background:#f39c12"></span>Electrical</span>
+                    <span class="dot-legend-item" data-filter="Chemical"><span class="dot-legend-pip" style="background:#2ecc71"></span>Chemical</span>
+                </div>
+                <div class="dot-matrix-grid" id="dotMatrixGrid"></div>
+            </div>
+            <div class="dot-tooltip" id="dotTooltip"></div>
+        </section>
+
+        <section class="categories-section">
+            <div class="section-container">
+                <div class="section-header reveal">
+                    <div class="section-eyebrow light">Browse by discipline</div>
+                    <h2 class="section-title light">Every kind of failure.</h2>
+                </div>
+                <div class="categories-grid">
+                    <a href="#archive" class="category-card reveal" data-section="archive" data-discipline="Civil">
+                        <div class="category-label">Civil</div>
+                        <div class="category-count" id="civilCount">— Disasters</div>
+                        <div class="category-arrow">→</div>
+                    </a>
+                    <a href="#archive" class="category-card reveal" data-section="archive" data-discipline="Mechanical">
+                        <div class="category-label">Mechanical</div>
+                        <div class="category-count" id="mechanicalCount">— Disasters</div>
+                        <div class="category-arrow">→</div>
+                    </a>
+                    <a href="#archive" class="category-card reveal" data-section="archive" data-discipline="Electrical">
+                        <div class="category-label">Electrical</div>
+                        <div class="category-count" id="electricalCount">— Disasters</div>
+                        <div class="category-arrow">→</div>
+                    </a>
+                    <a href="#archive" class="category-card reveal" data-section="archive" data-discipline="Chemical">
+                        <div class="category-label">Chemical</div>
+                        <div class="category-count" id="chemicalCount">— Disasters</div>
+                        <div class="category-arrow">→</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta reveal">
+            <div class="cta-content">
+                <h2 class="cta-title">The past has a lot to teach.</h2>
+                <a href="#archive" class="btn-primary large" data-section="archive">Enter the Archive</a>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <span class="footer-copy">© 2026 Engineering Failures Archive</span>
+                <a href="#sources" class="footer-link" data-section="sources">Sources & References →</a>
+            </div>
+        </footer>
     </div>
 
-    <!-- Timeline Section -->
-    <section class="timeline-section">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <div class="section-eyebrow light">1847 — 2023</div>
-                <h2 class="section-title light">176 years of the same mistakes.</h2>
-                <p class="section-subtitle light">A record that keeps repeating itself.</p>
-            </div>
-            <div class="timeline-track" id="timelineTrack">
-                <!-- Populated by JS -->
-            </div>
-        </div>
-    </section>
+    <!-- ===== ARCHIVE ===== -->
+    <div id="section-archive" class="page-section">
+        <div class="container">
+            <header class="archive-header">
+                <div class="archive-eyebrow">Complete Database</div>
+                <h1 class="archive-title">Disaster Archive</h1>
+                <p class="archive-subtitle">50 engineering failures, documented.</p>
+            </header>
 
-    <!-- Featured Section -->
-    <section class="featured-section">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <div class="section-eyebrow">Notable Cases</div>
-                <h2 class="section-title">Defining disasters.</h2>
-                <p class="section-subtitle">The events that changed engineering practice forever.</p>
-            </div>
-            <div class="featured-grid" id="featuredGrid">
-                <!-- Populated by JS -->
-            </div>
-            <div class="section-footer reveal">
-                <a href="archive.html" class="btn-outline">View all 50 disasters →</a>
-            </div>
-        </div>
-    </section>
+            <div class="controls-wrapper">
+                <div class="search-container">
+                    <div class="search-icon">🔍</div>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search disasters..."
+                        class="search-input"
+                    >
+                </div>
 
-    <!-- Categories Section -->
-    <section class="categories-section">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <div class="section-eyebrow light">Browse by discipline</div>
-                <h2 class="section-title light">Every kind of failure.</h2>
-            </div>
-            <div class="categories-grid">
-                <a href="archive.html?discipline=Civil" class="category-card reveal">
-                    <div class="category-label">Civil</div>
-                    <div class="category-count" id="civilCount">— Disasters</div>
-                    <div class="category-arrow">→</div>
-                </a>
-                <a href="archive.html?discipline=Mechanical" class="category-card reveal">
-                    <div class="category-label">Mechanical</div>
-                    <div class="category-count" id="mechanicalCount">— Disasters</div>
-                    <div class="category-arrow">→</div>
-                </a>
-                <a href="archive.html?discipline=Electrical" class="category-card reveal">
-                    <div class="category-label">Electrical</div>
-                    <div class="category-count" id="electricalCount">— Disasters</div>
-                    <div class="category-arrow">→</div>
-                </a>
-                <a href="archive.html?discipline=Chemical" class="category-card reveal">
-                    <div class="category-label">Chemical</div>
-                    <div class="category-count" id="chemicalCount">— Disasters</div>
-                    <div class="category-arrow">→</div>
-                </a>
-            </div>
-        </div>
-    </section>
+                <div class="filters-section">
+                    <div class="section-label">FILTER BY DISCIPLINE</div>
+                    <div class="filters">
+                        <button class="filter-chip active" data-discipline="all">
+                            <span class="chip-text">ALL</span>
+                            <span class="chip-count" id="count-all">50</span>
+                        </button>
+                        <button class="filter-chip" data-discipline="Civil">
+                            <span class="chip-text">CIVIL</span>
+                            <span class="chip-count" id="count-civil">0</span>
+                        </button>
+                        <button class="filter-chip" data-discipline="Mechanical">
+                            <span class="chip-text">MECHANICAL</span>
+                            <span class="chip-count" id="count-mechanical">0</span>
+                        </button>
+                        <button class="filter-chip" data-discipline="Electrical">
+                            <span class="chip-text">ELECTRICAL</span>
+                            <span class="chip-count" id="count-electrical">0</span>
+                        </button>
+                        <button class="filter-chip" data-discipline="Chemical">
+                            <span class="chip-text">CHEMICAL</span>
+                            <span class="chip-count" id="count-chemical">0</span>
+                        </button>
+                    </div>
+                </div>
 
-    <!-- Final CTA -->
-    <section class="final-cta reveal">
-        <div class="cta-content">
-            <h2 class="cta-title">The past has a lot to teach.</h2>
-            <a href="archive.html" class="btn-primary large">Enter the Archive</a>
-        </div>
-    </section>
+                <div class="sort-results">
+                    <div class="sort-container">
+                        <label>SORT BY</label>
+                        <select id="sortSelect" class="sort-select">
+                            <option value="year-desc">Newest First</option>
+                            <option value="year-asc">Oldest First</option>
+                            <option value="name-asc">A → Z</option>
+                            <option value="name-desc">Z → A</option>
+                        </select>
+                    </div>
+                    <div class="results-count" id="resultsCount">50 disasters</div>
+                </div>
+            </div>
 
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <span class="footer-copy">© 2026 Engineering Failures Archive</span>
-            <a href="sources.html" class="footer-link">Sources & References →</a>
+            <div class="grid" id="disastersGrid"></div>
+
+            <div class="loading" id="loading">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">LOADING...</div>
+            </div>
+
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-title">NO RESULTS</div>
+                <div class="empty-text">Try different filters</div>
+            </div>
         </div>
-    </footer>
+    </div>
+
+    <!-- ===== SOURCES ===== -->
+    <div id="section-sources" class="page-section">
+        <div class="sources-container">
+            <div class="archive-header">
+                <div class="archive-eyebrow">Research Materials</div>
+                <h1 class="archive-title">Source <span style="color: var(--accent-orange)">Materials</span></h1>
+                <p class="archive-subtitle">All reference materials and technical publications used to document the 50 engineering disasters in this archive.</p>
+            </div>
+
+            <div class="sources-grid">
+                <div>
+                    <div class="col-heading">
+                        <div class="col-pip ref"></div>
+                        <div class="col-title">Reference &amp; Encyclopedia</div>
+                        <div class="col-count">4</div>
+                    </div>
+
+                    <div class="source-card">
+                        <div class="card-num">01</div>
+                        <div class="card-body">
+                            <div class="card-name">Wikipedia — Engineering Failures in the U.S.</div>
+                            <a class="card-url" href="https://en.wikipedia.org/wiki/Engineering_failures_in_the_U.S." target="_blank" rel="noopener">en.wikipedia.org/wiki/Engineering_failures_in_the_U.S.</a>
+                            <div class="card-note">Primary list of U.S. engineering failures with dates, locations and descriptions.</div>
+                            <div class="card-badges"><span class="badge badge-tag">Wikipedia</span></div>
+                        </div>
+                    </div>
+
+                    <div class="source-card">
+                        <div class="card-num">02</div>
+                        <div class="card-body">
+                            <div class="card-name">Wikipedia — Engineering Disasters</div>
+                            <a class="card-url" href="https://en.wikipedia.org/wiki/Engineering_disasters" target="_blank" rel="noopener">en.wikipedia.org/wiki/Engineering_disasters</a>
+                            <div class="card-note">Broad overview of global engineering disasters across all disciplines.</div>
+                            <div class="card-badges"><span class="badge badge-tag">Wikipedia</span></div>
+                        </div>
+                    </div>
+
+                    <div class="source-card">
+                        <div class="card-num">03</div>
+                        <div class="card-body">
+                            <div class="card-name">Wikipedia — List of Bridge Failures</div>
+                            <a class="card-url" href="https://en.wikipedia.org/wiki/List_of_bridge_failures" target="_blank" rel="noopener">en.wikipedia.org/wiki/List_of_bridge_failures</a>
+                            <div class="card-note">Comprehensive table of bridge failures worldwide with cause and casualty data.</div>
+                            <div class="card-badges"><span class="badge badge-tag">Wikipedia</span></div>
+                        </div>
+                    </div>
+
+                    <div class="source-card">
+                        <div class="card-num">04</div>
+                        <div class="card-body">
+                            <div class="card-name">Britannica — 7 Accidents &amp; Disasters in Spaceflight History</div>
+                            <a class="card-url" href="https://www.britannica.com/story/7-accidents-and-disasters-in-spaceflight-history" target="_blank" rel="noopener">britannica.com/story/7-accidents-and-disasters-in-spaceflight-history</a>
+                            <div class="card-note">Editorial overview of major spaceflight disasters from Apollo 1 through Columbia.</div>
+                            <div class="card-badges"><span class="badge badge-tag">Britannica</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="col-heading">
+                        <div class="col-pip ind"></div>
+                        <div class="col-title">Industry &amp; Technical</div>
+                        <div class="col-count">2</div>
+                    </div>
+
+                    <div class="source-card">
+                        <div class="card-num">01</div>
+                        <div class="card-body">
+                            <div class="card-name">ASME — Ten Engineering Disasters of the Last 100 Years</div>
+                            <a class="card-url" href="https://www.asme.org/topics-resources/content/ten-engineering-disasters-of-the-last-100-years" target="_blank" rel="noopener">asme.org/topics-resources/content/ten-engineering-disasters-of-the-last-100-years</a>
+                            <div class="card-note">Professional engineering society ranking of the most significant disasters by impact.</div>
+                            <div class="card-badges"><span class="badge badge-tag">ASME</span></div>
+                        </div>
+                    </div>
+
+                    <div class="source-card">
+                        <div class="card-num">02</div>
+                        <div class="card-body">
+                            <div class="card-name">World Nuclear — Chernobyl Accident</div>
+                            <a class="card-url" href="https://world-nuclear.org/information-library/safety-and-security/safety-of-plants/chernobyl-accident" target="_blank" rel="noopener">world-nuclear.org/information-library/safety-and-security/safety-of-plants/chernobyl-accident</a>
+                            <div class="card-note">Technical breakdown of the Chernobyl reactor failure, causes, and long-term effects.</div>
+                            <div class="card-badges"><span class="badge badge-tag">World Nuclear Association</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== WHY ===== -->
+    <div id="section-why" class="page-section">
+        <div class="why-page-container">
+            <div class="why-page-eyebrow">Personal Note</div>
+            <h1 class="why-page-title">Why I Made This</h1>
+            <div class="why-page-card">
+                <p>When my request to start an engineering club was denied (the administration pointed to robotics and science olympiad as "close enough") I realized no one was going to make space for the discipline I cared about, so I built that space myself. I created a website cataloging 50 engineering disasters spanning 176 years, from the 1847 Dee Bridge collapse in Chester, England to the 2023 Titan Submersible implosion.</p>
+                <p>What drew me in wasn't the spectacle of failure. It was the pattern underneath it. The more I researched, the more I noticed that these weren't freak accidents scattered randomly across history; they were repeated lessons that engineers kept having to relearn, sometimes at the cost of entire communities.</p>
+                <p>Building the site turned a rejection into something I couldn't put down. I found that 80% of the disasters I cataloged were deemed preventable in hindsight, failures where someone saw the warning and was ignored or overruled. That single statistic reshaped how I think about engineering entirely: the discipline isn't just about making things work, it's about building cultures where the person who spots the crack isn't afraid to say so.</p>
+                <p>Daniel Chang</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CHAT WIDGET ===== -->
+    <div id="chatWidget">
+        <div id="chatPanel" class="chat-hidden">
+            <div class="chat-widget-header">
+                <div class="chat-widget-dot"></div>
+                <span class="chat-widget-label">Archive Guide</span>
+                <button class="chat-widget-close" id="chatClose">✕</button>
+            </div>
+            <div class="chat-widget-messages" id="chatMessages">
+                <div class="chat-msg chat-msg-ai">I'm your guide through 50 engineering disasters. Ask me about any failure, or type a discipline — Civil, Mechanical, Electrical, Chemical — to explore the archive.</div>
+            </div>
+            <div class="chat-widget-input-row">
+                <input type="text" class="chat-widget-input" id="chatInput" placeholder="Ask about any disaster..." maxlength="500" autocomplete="off">
+                <button class="chat-widget-send" id="chatSend">→</button>
+            </div>
+        </div>
+        <button id="chatToggle" title="Ask the Archive">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </button>
+    </div>
 
     <script src="script.js"></script>
 </body>

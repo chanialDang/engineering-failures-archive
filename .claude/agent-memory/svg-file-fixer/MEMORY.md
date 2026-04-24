@@ -1,2 +1,0 @@
-- [SVG Diagram Standards](svg_standards.md) — Confirmed parameter set for all engineering failure archive diagrams
-- [User Profile](user_profile.md) — User works on Engineering Failures Archive static site
