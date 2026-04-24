@@ -87,12 +87,13 @@ backend/
 ```
 
 ### Security Layers (outermost first)
-1. **middleware/cors.py** — blocks all origins except the Vercel frontend domain before any code runs
-2. **models/schemas.py** — Pydantic validates every incoming request; malformed data returns 422, never reaches logic
-3. **routes/** — only `/chat`, `/settings`, `/health` exist; nothing else reachable
-4. **services/** — API key never in code; loaded from `.env` at runtime only; services layer is the only caller of OpenAI
-5. **db/supabase.py** — sole Supabase interface; nothing else in the project imports Supabase directly
-6. **try/except on every route** — errors return `{"error": "something went wrong"}`; raw stack traces never exposed
+1. **middleware/cors.py** — blocks all origins except Vercel frontend; allows only GET/POST
+2. **limiter.py + SlowAPIMiddleware** — caps /chat at 20 requests/minute per IP (429 on excess)
+3. **models/schemas.py** — Pydantic + Field validators; malformed/oversized data returns 422
+4. **routes/** — only `/chat`, `/settings`, `/health` exist; nothing else reachable
+5. **services/** — API key validated at startup; loaded from `.env` only; sole OpenAI caller
+6. **db/supabase.py** — sole Supabase interface; save_setting rejects keys >256 / values >4096 chars
+7. **logging + try/except on every route** — errors logged with exc_info; stack traces never in HTTP responses
 
 ### Rules (never break these)
 - `.env` never committed — `.gitignore` must include it
