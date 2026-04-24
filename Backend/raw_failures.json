@@ -1,0 +1,474 @@
+{
+  "disasters": [
+    {
+      "id": "FAIL-001",
+      "name": "Space Shuttle Challenger",
+      "year": 1986,
+      "location": "Cape Canaveral, Florida",
+      "discipline": "Mechanical",
+      "type": "Spacecraft",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-002",
+      "name": "Hindenburg Disaster",
+      "year": 1937,
+      "location": "Lakehurst, New Jersey",
+      "discipline": "Mechanical",
+      "type": "Airship",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-003",
+      "name": "Tacoma Narrows Bridge Collapse",
+      "year": 1940,
+      "location": "Tacoma, Washington",
+      "discipline": "Civil",
+      "type": "Bridge",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-004",
+      "name": "Piper Alpha Oil Platform",
+      "year": 1988,
+      "location": "North Sea, United Kingdom",
+      "discipline": "Chemical",
+      "type": "Offshore",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-005",
+      "name": "RMS Titanic",
+      "year": 1912,
+      "location": "Atlantic Ocean",
+      "discipline": "Mechanical",
+      "type": "Maritime",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-006",
+      "name": "Bhopal Chemical Leak",
+      "year": 1984,
+      "location": "Bhopal, India",
+      "discipline": "Chemical",
+      "type": "Chemical Plant",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-007",
+      "name": "Deepwater Horizon Oil Spill",
+      "year": 2010,
+      "location": "Gulf of Mexico",
+      "discipline": "Mechanical",
+      "type": "Oil Rig",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-008",
+      "name": "Fukushima Nuclear Accident",
+      "year": 2011,
+      "location": "Fukushima, Japan",
+      "discipline": "Electrical",
+      "type": "Nuclear Plant",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-009",
+      "name": "Three Mile Island",
+      "year": 1979,
+      "location": "Harrisburg, Pennsylvania",
+      "discipline": "Electrical",
+      "type": "Nuclear Plant",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-010",
+      "name": "Chernobyl Nuclear Disaster",
+      "year": 1986,
+      "location": "Chernobyl, Ukraine",
+      "discipline": "Electrical",
+      "type": "Nuclear Plant",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-011",
+      "name": "Kyshtym Disaster",
+      "year": 1957,
+      "location": "Mayak, Soviet Union",
+      "discipline": "Electrical",
+      "type": "Nuclear Facility",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-012",
+      "name": "Space Shuttle Columbia Disaster",
+      "year": 2003,
+      "location": "Over Texas and Louisiana",
+      "discipline": "Mechanical",
+      "type": "Spacecraft",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-013",
+      "name": "Apollo 1 Cabin Fire",
+      "year": 1967,
+      "location": "Cape Kennedy, Florida",
+      "discipline": "Mechanical",
+      "type": "Spacecraft",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-014",
+      "name": "Apollo 13 Oxygen Tank",
+      "year": 1970,
+      "location": "En route to Moon",
+      "discipline": "Mechanical",
+      "type": "Spacecraft",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-015",
+      "name": "Soyuz 1 Parachute Failure",
+      "year": 1967,
+      "location": "Soviet Union",
+      "discipline": "Mechanical",
+      "type": "Spacecraft",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-016",
+      "name": "Soyuz 11 Decompression",
+      "year": 1971,
+      "location": "Soviet Union",
+      "discipline": "Mechanical",
+      "type": "Spacecraft",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-017",
+      "name": "I-35W Bridge Collapse",
+      "year": 2007,
+      "location": "Minneapolis, Minnesota",
+      "discipline": "Civil",
+      "type": "Bridge",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-018",
+      "name": "Tay Bridge Disaster",
+      "year": 1879,
+      "location": "Dundee, Scotland",
+      "discipline": "Civil",
+      "type": "Bridge",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-019",
+      "name": "Quebec Bridge Collapse",
+      "year": 1907,
+      "location": "Quebec, Canada",
+      "discipline": "Civil",
+      "type": "Bridge",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-020",
+      "name": "Morandi Bridge Collapse",
+      "year": 2018,
+      "location": "Genoa, Italy",
+      "discipline": "Civil",
+      "type": "Bridge",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-021",
+      "name": "Ashtabula Railroad Bridge",
+      "year": 1876,
+      "location": "Ashtabula, Ohio",
+      "discipline": "Civil",
+      "type": "Bridge",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-022",
+      "name": "Silver Bridge Collapse",
+      "year": 1967,
+      "location": "Point Pleasant, West Virginia",
+      "discipline": "Civil",
+      "type": "Bridge",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-023",
+      "name": "Dee Bridge Disaster",
+      "year": 1847,
+      "location": "Chester, England",
+      "discipline": "Civil",
+      "type": "Bridge",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-024",
+      "name": "Sunshine Skyway Bridge",
+      "year": 1980,
+      "location": "Tampa Bay, Florida",
+      "discipline": "Civil",
+      "type": "Bridge",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-025",
+      "name": "Mianus River Bridge",
+      "year": 1983,
+      "location": "Greenwich, Connecticut",
+      "discipline": "Civil",
+      "type": "Bridge",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-026",
+      "name": "Schoharie Creek Bridge",
+      "year": 1987,
+      "location": "Schoharie County, New York",
+      "discipline": "Civil",
+      "type": "Bridge",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-027",
+      "name": "FIU Pedestrian Bridge",
+      "year": 2018,
+      "location": "Miami, Florida",
+      "discipline": "Civil",
+      "type": "Bridge",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-028",
+      "name": "Hyatt Regency Walkway",
+      "year": 1981,
+      "location": "Kansas City, Missouri",
+      "discipline": "Civil",
+      "type": "Building",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-029",
+      "name": "Knickerbocker Theater",
+      "year": 1922,
+      "location": "Washington D.C.",
+      "discipline": "Civil",
+      "type": "Building",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-030",
+      "name": "Pemberton Mill",
+      "year": 1860,
+      "location": "Lawrence, Massachusetts",
+      "discipline": "Civil",
+      "type": "Building",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-031",
+      "name": "Sampoong Department Store",
+      "year": 1995,
+      "location": "Seoul, South Korea",
+      "discipline": "Civil",
+      "type": "Building",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-032",
+      "name": "Rana Plaza Collapse",
+      "year": 2013,
+      "location": "Dhaka, Bangladesh",
+      "discipline": "Civil",
+      "type": "Building",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-033",
+      "name": "Champlain Towers South",
+      "year": 2021,
+      "location": "Surfside, Florida",
+      "discipline": "Civil",
+      "type": "Building",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-034",
+      "name": "Ronan Point Tower",
+      "year": 1968,
+      "location": "London, England",
+      "discipline": "Civil",
+      "type": "Building",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-035",
+      "name": "Johnstown Flood",
+      "year": 1889,
+      "location": "Johnstown, Pennsylvania",
+      "discipline": "Civil",
+      "type": "Dam",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-036",
+      "name": "St. Francis Dam",
+      "year": 1928,
+      "location": "Los Angeles, California",
+      "discipline": "Civil",
+      "type": "Dam",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-037",
+      "name": "Teton Dam Failure",
+      "year": 1976,
+      "location": "Idaho",
+      "discipline": "Civil",
+      "type": "Dam",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-038",
+      "name": "Banqiao Dam Failure",
+      "year": 1975,
+      "location": "Henan, China",
+      "discipline": "Civil",
+      "type": "Dam",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-039",
+      "name": "Vajont Dam Disaster",
+      "year": 1963,
+      "location": "Longarone, Italy",
+      "discipline": "Civil",
+      "type": "Dam",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-040",
+      "name": "New Orleans Levee Failures",
+      "year": 2005,
+      "location": "New Orleans, Louisiana",
+      "discipline": "Civil",
+      "type": "Levee",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-041",
+      "name": "Loma Prieta I-880 Overpass",
+      "year": 1989,
+      "location": "Oakland, California",
+      "discipline": "Civil",
+      "type": "Overpass",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-042",
+      "name": "Cypress Street Viaduct",
+      "year": 1989,
+      "location": "Oakland, California",
+      "discipline": "Civil",
+      "type": "Viaduct",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-043",
+      "name": "Big Dig Ceiling Collapse",
+      "year": 2006,
+      "location": "Boston, Massachusetts",
+      "discipline": "Civil",
+      "type": "Tunnel",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-044",
+      "name": "Sasago Tunnel Ceiling",
+      "year": 2012,
+      "location": "Yamanashi, Japan",
+      "discipline": "Civil",
+      "type": "Tunnel",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-045",
+      "name": "Apollo 1 Fire",
+      "year": 1967,
+      "location": "Cape Kennedy, Florida",
+      "discipline": "Mechanical",
+      "type": "Spacecraft",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-046",
+      "name": "Apollo 13 Mission",
+      "year": 1970,
+      "location": "En route to Moon",
+      "discipline": "Mechanical",
+      "type": "Spacecraft",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-047",
+      "name": "Soyuz 1 Crash",
+      "year": 1967,
+      "location": "Soviet Union",
+      "discipline": "Mechanical",
+      "type": "Spacecraft",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-048",
+      "name": "Titan Submersible",
+      "year": 2023,
+      "location": "North Atlantic Ocean",
+      "discipline": "Mechanical",
+      "type": "Submersible",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-049",
+      "name": "Ariane 5 Flight 501",
+      "year": 1996,
+      "location": "French Guiana",
+      "discipline": "Mechanical",
+      "type": "Rocket",
+      "cause": "# FILL OUT HERE"
+    },
+    {
+      "id": "FAIL-050",
+      "name": "Mars Climate Orbiter",
+      "year": 1999,
+      "location": "Mars Orbit",
+      "discipline": "Mechanical",
+      "type": "Spacecraft",
+      "cause": "# FILL OUT HERE"
+    }
+  ],
+  "metadata": {
+    "total_entries": 50,
+    "last_updated": "2026-03-30T09:34:40.564450",
+    "update_frequency": "Manual - Run scraper.py to update",
+    "source_websites": [
+      "https://en.wikipedia.org/wiki/Engineering_failures_in_the_U.S.",
+      "https://www.asme.org/topics-resources/content/ten-engineering-disasters-of-the-last-100-years",
+      "https://en.wikipedia.org/wiki/Engineering_disasters",
+      "https://en.wikipedia.org/wiki/List_of_bridge_failures",
+      "https://world-nuclear.org/information-library/safety-and-security/safety-of-plants/chernobyl-accident",
+      "https://www.britannica.com/story/7-accidents-and-disasters-in-spaceflight-history",
+      "https://en.wikipedia.org/wiki/Engineering_disasters"
+    ],
+    "disciplines": {
+      "Mechanical": 15,
+      "Civil": 29,
+      "Chemical": 2,
+      "Electrical": 4
+    }
+  }
+}

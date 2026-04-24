@@ -13,7 +13,7 @@ from services.rag_service import get_context
 logger = logging.getLogger(__name__)
 router = APIRouter()
 
-_default_path = Path(__file__).parent.parent.parent / "frontend" / "raw_failures.json"
+_default_path = Path(__file__).parent.parent / "raw_failures.json"
 _data_path = os.getenv("DATA_PATH", str(_default_path))
 
 try:

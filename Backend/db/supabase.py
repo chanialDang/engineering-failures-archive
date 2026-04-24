@@ -33,6 +33,14 @@ def save_setting(key: str, value: str) -> None:
     client.table("settings").upsert({"key": key, "value": value}).execute()
 
 
+def clear_documents() -> None:
+    client.table("documents").delete().neq("id", 0).execute()
+
+
+def insert_document(content: str, embedding: list[float]) -> None:
+    client.table("documents").insert({"content": content, "embedding": embedding}).execute()
+
+
 def search_documents(embedding: list[float], match_count: int = 5) -> list[str]:
     try:
         result = client.rpc(
