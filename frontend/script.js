@@ -358,8 +358,11 @@ initStatCountUp();
         input.value = '';
         send.disabled = true;
         appendMsg(msg, 'user');
-        const thinking = appendMsg('Thinking...', 'ai');
-        thinking.querySelector('p').classList.add('chat-msg-thinking');
+        const thinking = document.createElement('div');
+        thinking.className = 'chat-msg chat-msg-ai chat-msg-thinking';
+        thinking.innerHTML = '<span></span><span></span><span></span>';
+        messages.appendChild(thinking);
+        messages.scrollTop = messages.scrollHeight;
         try {
             const res  = await fetch(`${API_URL}/api/chat`, {
                 method: 'POST',
