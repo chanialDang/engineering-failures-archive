@@ -7,6 +7,7 @@
     const input    = document.getElementById('chatInput');
     const send     = document.getElementById('chatSend');
     let isOpen = false;
+    let history = [];
 
     function openChat()  { isOpen = true;  panel.classList.remove('chat-hidden'); input.focus(); }
     function closeChat() { isOpen = false; panel.classList.add('chat-hidden'); }
@@ -46,11 +47,13 @@
             const res  = await fetch(`${API_URL}/api/chat`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: msg }),
+                body: JSON.stringify({ message: msg, history }),
             });
             const data = await res.json();
             thinking.remove();
             appendMsg(data.response, 'ai');
+            history.push({ role: 'user', content: msg }, { role: 'assistant', content: data.response });
+            if (history.length > 10) history = history.slice(-10);
         } catch {
             thinking.remove();
             appendMsg('Could not reach the backend.', 'ai');
