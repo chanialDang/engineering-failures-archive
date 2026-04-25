@@ -1636,6 +1636,7 @@ body {
 }
 .chat-msg-thinking span:nth-child(2) { animation-delay: 0.2s; }
 .chat-msg-thinking span:nth-child(3) { animation-delay: 0.4s; }
+.chat-msg .katex-display { overflow-x: auto; margin: 0.5em 0; }
 .chat-widget-input-row {
     display: flex;
     border-top: 1px solid rgba(255,255,255,0.07);

@@ -346,7 +346,15 @@ initStatCountUp();
     function appendMsg(text, role) {
         const div = document.createElement('div');
         div.className = `chat-msg chat-msg-${role}`;
-        div.innerHTML = `<p>${text.replace(/\n/g, '<br>')}</p>`;
+        div.innerHTML = marked.parse(text);
+        renderMathInElement(div, {
+            delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '\\(', right: '\\)', display: false },
+                { left: '\\[', right: '\\]', display: true },
+            ],
+            throwOnError: false,
+        });
         messages.appendChild(div);
         messages.scrollTop = messages.scrollHeight;
         return div;
