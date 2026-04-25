@@ -15,12 +15,14 @@
     <!-- marked.js for markdown rendering -->
     <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
     <style>
+        html, body { height: 100%; overflow: hidden; }
         .chat-page {
-            min-height: 100vh;
+            height: 100vh;
             background: #0d0b09;
             padding-top: 64px;
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
 
         .chat-page-header {
@@ -61,6 +63,7 @@
             width: 100%;
             margin: 0 auto;
             padding: 0 1.5rem;
+            overflow: hidden;
         }
 
         .chat-page-messages {
@@ -70,7 +73,6 @@
             flex-direction: column;
             gap: 1.25rem;
             overflow-y: auto;
-            min-height: 300px;
         }
         .chat-page-messages::-webkit-scrollbar { width: 4px; }
         .chat-page-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
