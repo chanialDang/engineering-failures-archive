@@ -328,7 +328,7 @@ initStatCountUp();
 
 // ===== CHAT WIDGET =====
 (function () {
-    const API_URL = 'https://engineering-failures-archive.up.railway.app';
+    const API_URL = 'https://engineering-failures-archive-production.up.railway.app';
     const toggle   = document.getElementById('chatToggle');
     const panel    = document.getElementById('chatPanel');
     const closeBtn = document.getElementById('chatClose');
