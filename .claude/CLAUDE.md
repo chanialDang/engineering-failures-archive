@@ -105,3 +105,4 @@ backend/
 - Search: case-insensitive substring on name/location/type/year
 - Discipline counts: auto-calculated from JSON on load
 - Grid: CSS Grid, responsive via breakpoints in `styles.css`
+- Chat widget renders markdown + math: marked.js (markdown) + KaTeX (LaTeX equations) loaded via CDN in `index.html`, `disaster.html`, `chat.html`; `appendMsg()` uses `marked.parse()` then `renderMathInElement()`
