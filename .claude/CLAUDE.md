@@ -105,4 +105,6 @@ backend/
 - Search: case-insensitive substring on name/location/type/year
 - Discipline counts: auto-calculated from JSON on load
 - Grid: CSS Grid, responsive via breakpoints in `styles.css`
-- Chat widget renders markdown + math: marked.js (markdown) + KaTeX (LaTeX equations) loaded via CDN in `index.html`, `disaster.html`, `chat.html`; `appendMsg()` uses `marked.parse()` then `renderMathInElement()`
+- Chat widget is on every page: `index.html` (via `script.js`), `archive.html`, `disaster.html`, `why.html`, `sources.html` (via `chat-widget.js`). Same SVG speech-bubble icon on all pages.
+- Chat widget renders markdown + math: marked.js + KaTeX loaded via CDN on all pages; `appendMsg()` uses `marked.parse()` then `renderMathInElement()`
+- `chat-widget.js` — standalone IIFE with all chat widget logic; loaded by all pages except `index.html` (which uses `script.js`) and `chat.html` (full-page chat)
