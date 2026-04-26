@@ -18,6 +18,30 @@ Engineering Failures Archive — static site, 50+ disaster records (1847–2023)
 - Diagrams: `diagrams/5.svg` → FAIL-005 (no leading zero; supports svg/png/jpg/jpeg/webp)
 - Featured list: hardcoded array in `script.js`
 
+## Commands
+
+**Backend (run from `backend/`):**
+```bash
+# Install deps
+pip install -r requirements.txt
+
+# Start dev server (reads .env automatically)
+uvicorn main:app --reload --port 8000
+
+# Seed Supabase vector store (one-time; safe to re-run — clears first)
+python seed_supabase.py
+```
+
+**Frontend**: open any `.html` directly in a browser, or use `python -m http.server` from the project root. No build step.
+
+**Required env vars** (in `backend/.env`):
+```
+OPENAI_API_KEY=...
+SUPABASE_URL=...
+SUPABASE_KEY=...
+ALLOWED_ORIGINS=https://your-vercel-domain.vercel.app  # comma-separated; defaults to localhost:3000
+```
+
 ## Files
 | File | Purpose |
 |------|---------|
