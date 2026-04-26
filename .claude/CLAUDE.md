@@ -112,6 +112,13 @@ backend/
 └── requirements.txt            ← includes slowapi==0.1.9
 ```
 
+### RAG / Chat Data Flow
+1. `POST /api/chat` receives `{message, history}` (message ≤ 2000 chars)
+2. `rag_service.get_context()` embeds the message via OpenAI → vector search via Supabase RPC `match_documents`
+3. If vector search returns nothing (Supabase down or empty), falls back to keyword search over in-memory `DISASTERS` list
+4. Context + system prompt + history + user message → `openai_service.chat()` → GPT-4o-mini
+5. The `seed_supabase.py` script must be re-run whenever `raw_failures.json` changes to keep the vector store in sync
+
 ### Security Layers (outermost first)
 1. **middleware/cors.py** — blocks all origins except Vercel frontend; allows only GET/POST
 2. **limiter.py + SlowAPIMiddleware** — caps /chat at 20 requests/minute per IP (429 on excess)
