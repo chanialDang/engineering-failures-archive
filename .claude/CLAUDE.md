@@ -1,9 +1,11 @@
 # CLAUDE.md
 
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 ## Project
 Engineering Failures Archive — static site, 50+ disaster records (1847–2023). Filterable archive with detail pages.
 
-**Stack**: Vanilla HTML/CSS/JS + `raw_failures.json` + Python scraper. FastAPI (monolithic) + Supabase (Postgres + pgvector) + OpenAI (GPT-4o + embeddings) deployed on Railway.
+**Stack**: Vanilla HTML/CSS/JS + `raw_failures.json` + Python scraper. FastAPI (monolithic) + Supabase (Postgres + pgvector) + OpenAI (GPT-4o-mini chat + text-embedding-3-small) deployed on Railway.
 
 **Pages**:
 1. `index.html` + `script.js` — Landing: hero, stats, timeline, featured grid
