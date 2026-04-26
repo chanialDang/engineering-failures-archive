@@ -17,12 +17,20 @@ except KeyError as e:
 
 
 def ping() -> bool:
-    client.table("settings").select("key").limit(1).execute()
+    try:
+        client.table("settings").select("key").limit(1).execute()
+    except httpx.TimeoutException:
+        logger.error("Supabase ping timed out — database did not respond")
+        raise
     return True
 
 
 def get_setting(key: str) -> Optional[str]:
-    result = client.table("settings").select("value").eq("key", key).maybe_single().execute()
+    try:
+        result = client.table("settings").select("value").eq("key", key).maybe_single().execute()
+    except httpx.TimeoutException:
+        logger.error("Supabase timed out reading setting '%s'", key)
+        raise
     return result.data["value"] if result.data else None
 
 
@@ -31,7 +39,11 @@ def save_setting(key: str, value: str) -> None:
         raise ValueError("Settings key exceeds 256 characters")
     if len(value) > 4096:
         raise ValueError("Settings value exceeds 4096 characters")
-    client.table("settings").upsert({"key": key, "value": value}).execute()
+    try:
+        client.table("settings").upsert({"key": key, "value": value}).execute()
+    except httpx.TimeoutException:
+        logger.error("Supabase timed out saving setting '%s'", key)
+        raise
 
 
 def clear_documents() -> None:
@@ -42,6 +54,41 @@ def insert_document(content: str, embedding: list[float]) -> None:
     client.table("documents").insert({"content": content, "embedding": embedding}).execute()
 
 
+def update_document(
+    doc_id: int,
+    content: Optional[str] = None,
+    embedding: Optional[list[float]] = None,
+) -> dict:
+    if content is None and embedding is None:
+        raise ValueError("At least one of 'content' or 'embedding' must be provided")
+    if content is not None and not content.strip():
+        raise ValueError("'content' must not be empty")
+    if embedding is not None and not embedding:
+        raise ValueError("'embedding' must not be empty")
+
+    payload: dict = {}
+    if content is not None:
+        payload["content"] = content
+    if embedding is not None:
+        payload["embedding"] = embedding
+
+    try:
+        result = (
+            client.table("documents")
+            .update(payload)
+            .eq("id", doc_id)
+            .execute()
+        )
+    except httpx.TimeoutException:
+        logger.error("Supabase timed out updating document id=%s", doc_id)
+        raise
+
+    if not result.data:
+        raise LookupError(f"Document id={doc_id} not found")
+
+    return result.data[0]
+
+
 def search_documents(embedding: list[float], match_count: int = 5) -> list[str]:
     try:
         result = client.rpc(
@@ -49,6 +96,9 @@ def search_documents(embedding: list[float], match_count: int = 5) -> list[str]:
             {"query_embedding": embedding, "match_count": match_count},
         ).execute()
         return [row["content"] for row in result.data] if result.data else []
+    except httpx.TimeoutException:
+        logger.error("Supabase vector search timed out — match_documents RPC did not respond")
+        return []
     except httpx.HTTPError:
         logger.exception("Supabase network error during vector search")
         return []

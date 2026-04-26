@@ -21,6 +21,9 @@ def embed(text: str) -> list[float]:
     try:
         result = _client.embeddings.create(model="text-embedding-3-small", input=text)
         return result.data[0].embedding
+    except openai.APITimeoutError:
+        logger.error("OpenAI embedding request timed out after 30s")
+        raise
     except openai.OpenAIError:
         logger.exception("OpenAI embed API error")
         raise
@@ -30,6 +33,9 @@ def chat(messages: list[dict]) -> str:
     try:
         result = _client.chat.completions.create(model="gpt-4o-mini", messages=messages)
         return result.choices[0].message.content
+    except openai.APITimeoutError:
+        logger.error("OpenAI chat completion request timed out after 30s")
+        raise
     except openai.OpenAIError:
         logger.exception("OpenAI chat API error")
         raise

@@ -1,5 +1,6 @@
 import logging
 
+import httpx
 from fastapi import APIRouter, HTTPException
 
 from models.schemas import SettingsRequest, SettingsResponse
@@ -13,6 +14,9 @@ router = APIRouter()
 async def read_setting(key: str):
     try:
         value = get_setting(key)
+    except httpx.TimeoutException:
+        logger.error("Supabase timed out in GET /settings/%s", key)
+        raise HTTPException(status_code=504, detail="Database timed out reading the setting")
     except Exception:
         logger.exception("Failed to read setting: %s", key)
         raise HTTPException(status_code=500, detail="Failed to read setting")
@@ -27,6 +31,9 @@ async def write_setting(req: SettingsRequest):
         save_setting(req.key, req.value)
     except ValueError as e:
         raise HTTPException(status_code=422, detail=str(e))
+    except httpx.TimeoutException:
+        logger.error("Supabase timed out in POST /settings for key: %s", req.key)
+        raise HTTPException(status_code=504, detail="Database timed out saving the setting")
     except Exception:
         logger.exception("Failed to write setting: %s", req.key)
         raise HTTPException(status_code=500, detail="Failed to write setting")

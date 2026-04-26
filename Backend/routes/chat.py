@@ -75,6 +75,9 @@ async def chat(request: Request, req: ChatRequest):
             {"role": "user", "content": req.message},
         ]
         return ChatResponse(response=openai_chat(messages))
+    except openai.APITimeoutError:
+        logger.error("OpenAI timed out in /chat — no response after 30s")
+        return ChatResponse(response="The AI assistant timed out waiting for OpenAI to respond. Please try again.")
     except openai.OpenAIError:
         logger.exception("OpenAI API error in /chat")
         return ChatResponse(response="Something went wrong. Please try again.")
