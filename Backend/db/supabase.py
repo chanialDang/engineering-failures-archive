@@ -2,6 +2,7 @@ import logging
 import os
 from typing import Optional
 
+import httpx
 from supabase import create_client, Client
 
 logger = logging.getLogger(__name__)
@@ -48,6 +49,9 @@ def search_documents(embedding: list[float], match_count: int = 5) -> list[str]:
             {"query_embedding": embedding, "match_count": match_count},
         ).execute()
         return [row["content"] for row in result.data] if result.data else []
+    except httpx.HTTPError:
+        logger.exception("Supabase network error during vector search")
+        return []
     except Exception:
-        logger.exception("Supabase vector search failed")
+        logger.exception("Supabase vector search failed unexpectedly")
         return []

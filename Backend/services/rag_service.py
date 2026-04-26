@@ -1,5 +1,7 @@
 import logging
 
+import openai
+
 from db.supabase import search_documents
 from services.openai_service import embed
 
@@ -23,8 +25,8 @@ def keyword_search(message: str, disasters: list[dict]) -> list[str]:
 def get_context(message: str, disasters: list[dict]) -> str:
     try:
         chunks = search_documents(embed(message))
-    except Exception:
-        logger.exception("Vector search failed, falling back to keyword search")
+    except openai.OpenAIError:
+        logger.exception("Embedding failed, falling back to keyword search")
         chunks = []
 
     if not chunks:
