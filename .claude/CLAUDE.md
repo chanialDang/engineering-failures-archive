@@ -46,10 +46,11 @@ ALLOWED_ORIGINS=https://your-vercel-domain.vercel.app  # comma-separated; defaul
 | File | Purpose |
 |------|---------|
 | `raw_failures.json` | Source of truth — `disasters[]` with fields: `id`, `name`, `year`, `location`, `discipline`, `type`, `cause` |
-| `script.js` | Landing logic, `buildTimeline()`, featured array |
-| `archive.js` | Filter/sort/search, URL param parsing |
-| `disaster.js` | `?id=` parsing, `VIDEOS` object at top of file |
-| `styles.css` | Global styles |
+| `imagery.js` | `getImagery(disaster)` → `{hero, thumb, credit, alt}`. Per-disaster overrides + discipline/type fallbacks (Wikimedia archival + Unsplash thematic). Loaded before `script.js`/`archive.js`/`disaster.js` on every page that displays cards. |
+| `script.js` | Landing logic, `buildTimeline()`, featured array, `setHeroBackground()`, `initParallax()` |
+| `archive.js` | Filter/sort/search, URL param parsing, FLIP-style fade transitions on filter |
+| `disaster.js` | `?id=` parsing, `VIDEOS` object at top of file, `buildRelated()`, `initCinemaParallax()` |
+| `styles.css` | Global styles. V2 redesign block at end (~line 2050+): cinematic hero, editorial numerals, cinematic image cards, archive thumbnail+accent-bar cards, ds-cinema-hero, related-disasters strip |
 | `scraper.py` | Gathers/validates data → `raw_failures.json` |
 | `backend/main.py` | FastAPI app entry — mounts middleware + routes |
 | `backend/models/schemas.py` | Pydantic request/response models |
