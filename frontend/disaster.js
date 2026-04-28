@@ -99,7 +99,18 @@ async function init() {
     /* ── Page title ── */
     document.title = `${d.name} (${d.year}) — Engineering Failures`;
 
-    /* ── Hero ── */
+    /* ── Cinematic hero ── */
+    const img = window.getImagery ? window.getImagery(d) : null;
+    const cinemaBg = document.getElementById('dsCinemaHeroBg');
+    if (cinemaBg && img) cinemaBg.style.backgroundImage = `url('${img.hero}')`;
+    setText('dsCinemaTitle',      d.name);
+    setText('dsCinemaYear',       d.year);
+    setText('dsCinemaLocation',   d.location);
+    setText('dsCinemaDiscipline', `${d.discipline} · ${d.type}`);
+    setText('dsCinemaEyebrow',    `Case ${d.id}`);
+    if (img) setText('dsCinemaCredit', `Image: ${img.credit}`);
+
+    /* ── Hero strip (below cinematic hero) ── */
     setText('bcName',       d.name);
     setText('dsId',         d.id);
     setText('dsDiscipline', d.discipline);
@@ -127,6 +138,7 @@ async function init() {
     if (hasCause) {
         causeEl.textContent = d.cause;
         causeEl.classList.remove('cause-empty');
+        causeEl.classList.add('has-cause');
     } else {
         causeEl.textContent = 'Root cause analysis not yet available for this case study.';
         causeEl.classList.add('cause-empty');
@@ -205,8 +217,66 @@ async function init() {
         nextSpacer.style.display = 'block';
     }
 
+    /* ── Related disasters: same discipline, closest in year ── */
+    buildRelated(d, disasters);
+
+    /* ── Diagram entrance + cinematic hero parallax ── */
+    initDiagramReveal();
+    initCinemaParallax();
+
     /* ── Show content ── */
     showContent();
+}
+
+function buildRelated(current, all) {
+    const section = document.getElementById('relatedDisasters');
+    const grid    = document.getElementById('relatedGrid');
+    if (!section || !grid) return;
+    const candidates = all
+        .filter(x => x.id !== current.id && x.discipline === current.discipline)
+        .sort((a, b) => Math.abs(a.year - current.year) - Math.abs(b.year - current.year))
+        .slice(0, 3);
+    if (!candidates.length) return;
+    grid.innerHTML = candidates.map(d => {
+        const img = window.getImagery ? window.getImagery(d) : null;
+        const bg  = img ? `style="background-image:url('${img.hero}')"` : '';
+        return `
+        <a href="disaster.html?id=${d.id}" class="related-card" ${bg}>
+            <div class="related-year">${d.year} · ${d.type}</div>
+            <div class="related-name">${d.name}</div>
+        </a>`;
+    }).join('');
+    section.style.display = 'block';
+}
+
+function initDiagramReveal() {
+    const card = document.querySelector('.diagram-card');
+    if (!card) return;
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('in-view');
+                obs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.25 });
+    obs.observe(card);
+}
+
+function initCinemaParallax() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.innerWidth < 768) return;
+    const bg = document.getElementById('dsCinemaHeroBg');
+    if (!bg) return;
+    let ticking = false;
+    function update() {
+        const y = window.scrollY;
+        bg.style.transform = `translate3d(0, ${y * 0.4}px, 0)`;
+        ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
 }
 
 /* ── Helpers ── */

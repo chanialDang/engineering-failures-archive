@@ -444,7 +444,29 @@
     </div>
 
     <!-- Main content -->
-    <main id="stateContent" style="display:none; padding-top:80px;">
+    <main id="stateContent" style="display:none;">
+
+        <!-- Cinematic hero -->
+        <section class="ds-cinema-hero" id="dsCinemaHero">
+            <div class="ds-cinema-hero-bg" id="dsCinemaHeroBg"></div>
+            <div class="ds-cinema-hero-overlay"></div>
+            <div class="ds-cinema-hero-content">
+                <div class="ds-cinema-eyebrow">
+                    <span class="pip"></span>
+                    <span id="dsCinemaEyebrow">Case Study</span>
+                </div>
+                <h1 class="ds-cinema-title" id="dsCinemaTitle">—</h1>
+                <div class="ds-cinema-meta">
+                    <span class="year-big" id="dsCinemaYear">—</span>
+                    <span id="dsCinemaLocation">—</span>
+                    <span id="dsCinemaDiscipline">—</span>
+                </div>
+            </div>
+            <div class="ds-cinema-credit" id="dsCinemaCredit"></div>
+            <div class="ds-scroll-chevron">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+        </section>
 
         <div class="breadcrumb">
             <a href="index.html">Home</a>
@@ -558,6 +580,11 @@
             </div>
         </div>
 
+        <section class="related-disasters" id="relatedDisasters" style="display:none;">
+            <div class="related-disasters-header">Related Cases · Same Discipline</div>
+            <div class="related-grid" id="relatedGrid"></div>
+        </section>
+
         <div class="ds-nav">
             <a id="navPrev" href="#" class="ds-nav-btn" style="display:none;">← Previous</a>
             <div id="navPrevSpacer" class="ds-nav-ghost" style="display:none;"></div>
@@ -589,6 +616,7 @@
         </button>
     </div>
 
+    <script src="imagery.js"></script>
     <script src="disaster.js"></script>
 
     <script src="chat-widget.js"></script>

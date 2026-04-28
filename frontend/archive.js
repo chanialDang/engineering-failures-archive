@@ -76,24 +76,30 @@ function updateDisciplineCounts() {
     document.getElementById('count-chemical').textContent = counts.Chemical;
 }
 
-// Filter disasters
+// Filter disasters with smooth fade-out / fade-in transition
 function filterDisasters() {
     filteredDisasters = allDisasters.filter(disaster => {
-        const disciplineMatch = currentDiscipline === 'all' || 
+        const disciplineMatch = currentDiscipline === 'all' ||
                                disaster.discipline === currentDiscipline;
-        
-        const searchMatch = currentSearchTerm === '' || 
+
+        const searchMatch = currentSearchTerm === '' ||
             disaster.name.toLowerCase().includes(currentSearchTerm.toLowerCase()) ||
             disaster.location.toLowerCase().includes(currentSearchTerm.toLowerCase()) ||
             disaster.type.toLowerCase().includes(currentSearchTerm.toLowerCase()) ||
             disaster.year.toString().includes(currentSearchTerm);
-        
+
         return disciplineMatch && searchMatch;
     });
-    
+
     sortDisasters();
-    renderDisasters();
-    updateResultsCount();
+
+    // Brief fade-out before re-render
+    const cards = disastersGrid.querySelectorAll('.card');
+    cards.forEach(c => c.classList.add('fade-out'));
+    setTimeout(() => {
+        renderDisasters();
+        updateResultsCount();
+    }, 180);
 }
 
 // Sort disasters
@@ -125,8 +131,13 @@ function renderDisasters() {
     disastersGrid.style.display = 'grid';
     emptyState.style.display = 'none';
     
-    disastersGrid.innerHTML = filteredDisasters.map(disaster => `
-        <a href="disaster.html?id=${disaster.id}" class="card">
+    disastersGrid.innerHTML = filteredDisasters.map(disaster => {
+        const img = window.getImagery ? window.getImagery(disaster) : null;
+        const thumb = img ? `<div class="card-thumb" style="background-image:url('${img.thumb}')"></div>` : '';
+        return `
+        <a href="disaster.html?id=${disaster.id}" class="card fade-in" data-disc="${disaster.discipline}">
+            <span class="accent-bar"></span>
+            ${thumb}
             <div class="card-header">
                 <span class="card-id">${disaster.id}</span>
                 <span class="card-year">${disaster.year}</span>
@@ -137,8 +148,8 @@ function renderDisasters() {
                 <span class="badge badge-discipline">${disaster.discipline}</span>
                 <span class="badge badge-type">${disaster.type}</span>
             </div>
-        </a>
-    `).join('');
+        </a>`;
+    }).join('');
 }
 
 // Update results count

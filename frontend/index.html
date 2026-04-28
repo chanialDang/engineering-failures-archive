@@ -31,6 +31,8 @@
     <div id="section-home" class="page-section active">
 
         <section class="hero-landing">
+            <div class="hero-bg" id="heroBg"></div>
+            <div class="hero-bg-overlay"></div>
             <div class="hero-grain"></div>
             <div class="hero-spotlight" id="heroSpotlight"></div>
             <div class="hero-content">
@@ -86,7 +88,8 @@
         </section>
 
         <div class="editorial-sections">
-            <div class="editorial-block reveal">
+            <div class="editorial-block reveal" data-numeral="01">
+                <div class="editorial-numeral">01</div>
                 <div class="editorial-inner">
                     <div class="editorial-eyebrow">The Pattern</div>
                     <h2 class="editorial-title">"The engineers voted no.<br>Management launched anyway."</h2>
@@ -98,7 +101,8 @@
                 </div>
             </div>
 
-            <div class="editorial-block editorial-block-alt reveal">
+            <div class="editorial-block editorial-block-alt reveal" data-numeral="02">
+                <div class="editorial-numeral">02</div>
                 <div class="editorial-inner">
                     <div class="editorial-eyebrow">The Interval</div>
                     <h2 class="editorial-title">Seven years.<br>The average time between<br>a known defect and a collapse.</h2>
@@ -110,7 +114,8 @@
                 </div>
             </div>
 
-            <div class="editorial-block reveal">
+            <div class="editorial-block reveal" data-numeral="03">
+                <div class="editorial-numeral">03</div>
                 <div class="editorial-inner">
                     <div class="editorial-eyebrow">The Repetition</div>
                     <h2 class="editorial-title">The same failure has a<br>different name every decade.</h2>
@@ -185,22 +190,22 @@
                     <h2 class="section-title light">Every kind of failure.</h2>
                 </div>
                 <div class="categories-grid">
-                    <a href="archive.html?discipline=Civil" class="category-card reveal">
+                    <a href="archive.html?discipline=Civil" class="category-card cat-civil reveal">
                         <div class="category-label">Civil</div>
                         <div class="category-count" id="civilCount">— Disasters</div>
                         <div class="category-arrow">→</div>
                     </a>
-                    <a href="archive.html?discipline=Mechanical" class="category-card reveal">
+                    <a href="archive.html?discipline=Mechanical" class="category-card cat-mechanical reveal">
                         <div class="category-label">Mechanical</div>
                         <div class="category-count" id="mechanicalCount">— Disasters</div>
                         <div class="category-arrow">→</div>
                     </a>
-                    <a href="archive.html?discipline=Electrical" class="category-card reveal">
+                    <a href="archive.html?discipline=Electrical" class="category-card cat-electrical reveal">
                         <div class="category-label">Electrical</div>
                         <div class="category-count" id="electricalCount">— Disasters</div>
                         <div class="category-arrow">→</div>
                     </a>
-                    <a href="archive.html?discipline=Chemical" class="category-card reveal">
+                    <a href="archive.html?discipline=Chemical" class="category-card cat-chemical reveal">
                         <div class="category-label">Chemical</div>
                         <div class="category-count" id="chemicalCount">— Disasters</div>
                         <div class="category-arrow">→</div>
@@ -210,6 +215,8 @@
         </section>
 
         <section class="final-cta reveal">
+            <div class="final-cta-bg"></div>
+            <div class="final-cta-overlay"></div>
             <div class="cta-content">
                 <h2 class="cta-title">The past has a lot to teach.</h2>
                 <a href="archive.html" class="btn-primary large">Enter the Archive</a>
@@ -422,6 +429,7 @@
         </button>
     </div>
 
+    <script src="imagery.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

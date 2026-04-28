@@ -2043,3 +2043,586 @@ body {
     transform-style: preserve-3d;
     transition: box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
+/* ============================================================
+   ░░ V2 STUNNING REDESIGN — landing / archive / disaster ░░
+   ============================================================ */
+
+/* ---------- Cinematic hero background ---------- */
+.hero-landing { overflow: hidden; }
+.hero-bg {
+    position: absolute;
+    inset: -10%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    will-change: transform;
+    z-index: 0;
+    filter: saturate(0.85) contrast(1.05);
+    animation: kenBurns 28s ease-in-out infinite alternate;
+}
+.hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.78) 55%, rgba(0,0,0,0.95) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.85) 100%);
+    pointer-events: none;
+}
+.hero-content { position: relative; z-index: 3; }
+.hero-spotlight { z-index: 2; }
+
+@keyframes kenBurns {
+    0%   { transform: scale(1.05) translate(0, 0); }
+    100% { transform: scale(1.18) translate(-2%, -1%); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero-bg { animation: none; }
+}
+
+/* ---------- Editorial sections — sticky numerals ---------- */
+.editorial-block { position: relative; }
+.editorial-numeral {
+    position: absolute;
+    top: 3.5rem;
+    left: 3.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(80px, 14vw, 200px);
+    font-weight: 700;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    color: rgba(192, 57, 43, 0.14);
+    pointer-events: none;
+    z-index: 0;
+    user-select: none;
+}
+.editorial-block-alt .editorial-numeral { color: rgba(245, 245, 247, 0.06); }
+.editorial-block .editorial-inner { position: relative; z-index: 2; }
+
+@media (max-width: 768px) {
+    .editorial-numeral {
+        top: 1.5rem;
+        left: 1.5rem;
+        font-size: 70px;
+    }
+}
+
+/* ---------- Cinematic featured cards ---------- */
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.cinematic-card {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    background-color: #0a0907;
+    background-size: cover;
+    background-position: center;
+    border-radius: 18px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #f5f5f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    isolation: isolate;
+}
+.cinematic-card .cinematic-card-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.2) 55%, rgba(0,0,0,0.92) 100%);
+    transition: background 0.4s ease;
+}
+.cinematic-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.cinematic-card:hover { transform: translateY(-8px); box-shadow: 0 35px 70px rgba(0,0,0,0.3); }
+.cinematic-card:hover .cinematic-card-overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.4) 55%, rgba(0,0,0,0.95) 100%);
+}
+.cinematic-card-top, .cinematic-card-bottom {
+    position: relative;
+    z-index: 2;
+}
+.cinematic-card-top {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245,245,247,0.85);
+}
+.cinematic-card-top .card-id {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 4px 10px;
+    border-radius: 980px;
+}
+.cinematic-card-top .card-year { color: var(--accent-orange); font-weight: 700; }
+.cinematic-card-bottom .card-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    transition: transform 0.4s ease;
+}
+.cinematic-card:hover .cinematic-card-bottom .card-title { transform: translateY(-3px); }
+.cinematic-card-bottom .card-location {
+    font-size: 0.78rem;
+    color: rgba(245,245,247,0.7);
+    margin-bottom: 0.85rem;
+}
+.cinematic-card-bottom .card-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.cinematic-card-bottom .badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 980px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: rgba(245,245,247,0.95);
+}
+.cinematic-card-bottom .badge-discipline {
+    background: var(--accent-orange);
+    border-color: var(--accent-orange);
+    color: #fff;
+}
+
+/* Override magnetic-tilt pre-rule that targeted .featured-grid .card */
+.featured-grid .card { will-change: auto; }
+
+/* ---------- Scrolly timeline thumbnails ---------- */
+.scrolly-step-thumb {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 1.25rem;
+    filter: grayscale(100%) brightness(0.85);
+    transition: filter 0.4s ease, transform 0.4s ease;
+    border: 2px solid rgba(245,245,247,0.12);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+.scrolly-step.active .scrolly-step-thumb {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.08);
+    border-color: var(--accent-orange);
+}
+
+/* ---------- Dot-matrix glow ---------- */
+.disaster-dot {
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.disaster-dot:hover {
+    transform: scale(1.65);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 16px 2px currentColor;
+}
+.disaster-dot[data-disc="Civil"]:hover      { color: #e74c3c; }
+.disaster-dot[data-disc="Mechanical"]:hover { color: #4da6ff; }
+.disaster-dot[data-disc="Electrical"]:hover { color: #f39c12; }
+.disaster-dot[data-disc="Chemical"]:hover   { color: #2ecc71; }
+
+/* ---------- Discipline-tinted category cards ---------- */
+.category-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+.category-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.18;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.category-card:hover::before { opacity: 0.32; transform: scale(1.06); }
+.category-card.cat-civil::before {
+    background: radial-gradient(circle at 30% 20%, #e74c3c 0%, transparent 60%),
+                linear-gradient(135deg, #c0392b 0%, transparent 70%);
+}
+.category-card.cat-mechanical::before {
+    background: radial-gradient(circle at 30% 20%, #4da6ff 0%, transparent 60%),
+                linear-gradient(135deg, #2c3e50 0%, transparent 70%);
+}
+.category-card.cat-electrical::before {
+    background: radial-gradient(circle at 30% 20%, #f39c12 0%, transparent 60%),
+                linear-gradient(135deg, #b9770e 0%, transparent 70%);
+}
+.category-card.cat-chemical::before {
+    background: radial-gradient(circle at 30% 20%, #2ecc71 0%, transparent 60%),
+                linear-gradient(135deg, #196f3d 0%, transparent 70%);
+}
+.category-card > * { position: relative; z-index: 2; }
+
+/* ---------- Parallax CTA background ---------- */
+.final-cta {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+.final-cta-bg {
+    position: absolute;
+    inset: -25%;
+    background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&q=80&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) brightness(0.4) contrast(1.2);
+    will-change: transform;
+    z-index: 0;
+}
+.final-cta-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.92) 80%);
+    z-index: 1;
+}
+.final-cta .cta-content { position: relative; z-index: 2; }
+
+/* ---------- Reduced motion safety ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .hero-bg, .final-cta-bg { transform: none !important; }
+    .cinematic-card, .scrolly-step-thumb { transition: none; }
+}
+
+/* ---------- Mobile parallax disable ---------- */
+@media (max-width: 768px) {
+    .hero-bg { background-attachment: scroll; }
+    .final-cta-bg { background-attachment: scroll; }
+}
+
+/* ============================================================
+   ░░ ARCHIVE PAGE V2 ░░
+   ============================================================ */
+
+/* Mesh gradient header background */
+.archive-page .archive-header {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+.archive-page .archive-header::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(192,57,43,0.10) 0%, transparent 40%),
+        radial-gradient(circle at 80% 60%, rgba(77,166,255,0.08) 0%, transparent 45%),
+        radial-gradient(circle at 50% 90%, rgba(243,156,18,0.07) 0%, transparent 40%);
+    animation: meshDrift 22s ease-in-out infinite alternate;
+    will-change: transform;
+}
+@keyframes meshDrift {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(4%, -3%) rotate(8deg); }
+}
+
+/* Archive cards: thumbnail + accent bar */
+.archive-page .grid .card {
+    position: relative;
+    overflow: hidden;
+    padding-left: 1.5rem;
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.archive-page .grid .card .card-thumb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 38%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.18;
+    filter: grayscale(60%) saturate(0.9);
+    transition: opacity 0.4s ease, filter 0.4s ease, transform 0.6s ease;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 60%);
+            mask-image: linear-gradient(90deg, transparent 0%, #000 60%);
+}
+.archive-page .grid .card:hover .card-thumb {
+    opacity: 0.55;
+    filter: grayscale(0%) saturate(1.1);
+    transform: scale(1.05);
+}
+.archive-page .grid .card .accent-bar {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    transition: width 0.3s ease;
+}
+.archive-page .grid .card:hover .accent-bar { width: 8px; }
+.archive-page .grid .card[data-disc="Civil"]      .accent-bar { background: #e74c3c; }
+.archive-page .grid .card[data-disc="Mechanical"] .accent-bar { background: #4da6ff; }
+.archive-page .grid .card[data-disc="Electrical"] .accent-bar { background: #f39c12; }
+.archive-page .grid .card[data-disc="Chemical"]   .accent-bar { background: #2ecc71; }
+
+/* FLIP-style filter transitions */
+.archive-page .grid .card.fade-out {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+    pointer-events: none;
+}
+.archive-page .grid .card.fade-in {
+    animation: cardFadeIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes cardFadeIn {
+    from { opacity: 0; transform: scale(0.96) translateY(12px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ============================================================
+   ░░ DISASTER PAGE V2 ░░
+   ============================================================ */
+
+.ds-cinema-hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 420px;
+    overflow: hidden;
+    background: #0a0907;
+    isolation: isolate;
+}
+.ds-cinema-hero-bg {
+    position: absolute;
+    inset: -10%;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+    filter: saturate(0.85) contrast(1.08);
+    animation: kenBurns 32s ease-in-out infinite alternate;
+}
+.ds-cinema-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.95) 100%),
+        radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+}
+.ds-cinema-hero-content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 3rem 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    color: #f5f5f7;
+}
+.ds-cinema-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(245,245,247,0.7);
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.ds-cinema-eyebrow .pip {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent-orange);
+    box-shadow: 0 0 12px var(--accent-orange);
+}
+.ds-cinema-title {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(2.2rem, 6vw, 5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+    color: #fff;
+}
+.ds-cinema-meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: rgba(245,245,247,0.75);
+}
+.ds-cinema-meta .year-big {
+    font-weight: 700;
+    color: var(--accent-orange);
+    font-size: 1rem;
+}
+.ds-cinema-credit {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 1.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245,245,247,0.35);
+    z-index: 3;
+}
+.ds-scroll-chevron {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(245,245,247,0.5);
+    animation: chevBounce 2s ease-in-out infinite;
+    z-index: 3;
+    pointer-events: none;
+}
+@keyframes chevBounce {
+    0%, 100% { transform: translate(-50%, 0); opacity: 0.5; }
+    50%      { transform: translate(-50%, 8px); opacity: 0.85; }
+}
+
+/* Drop-cap on root cause */
+.disaster-page #causeContent.has-cause::first-letter {
+    font-family: 'Space Mono', monospace;
+    font-size: 3.4rem;
+    font-weight: 700;
+    color: var(--accent-orange);
+    float: left;
+    line-height: 0.95;
+    padding: 0.2rem 0.55rem 0 0;
+    margin-top: 0.15rem;
+}
+
+/* Stats strip — animated count-up styling */
+.disaster-page .stats-strip .stat-item-value {
+    transition: color 0.3s ease;
+}
+.disaster-page .stats-strip .stat-item.glow .stat-item-value {
+    color: var(--accent-orange);
+}
+
+/* Diagram entrance animation */
+.disaster-page .diagram-card {
+    transition: box-shadow 0.6s ease, transform 0.6s ease;
+}
+.disaster-page .diagram-card.in-view {
+    box-shadow: 0 0 0 1px rgba(192,57,43,0.15), 0 30px 60px rgba(26,24,20,0.12);
+}
+
+/* Improved missing-diagram state */
+.disaster-page .diagram-area.no-diagram {
+    background:
+        linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg-card) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.disaster-page .diagram-area.no-diagram::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(192,57,43,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(192,57,43,0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    animation: gridShift 18s linear infinite;
+    opacity: 0.7;
+    pointer-events: none;
+}
+@keyframes gridShift {
+    from { background-position: 0 0; }
+    to   { background-position: 32px 32px; }
+}
+.disaster-page .diagram-area.no-diagram .diagram-placeholder-icon {
+    animation: floatSlow 4s ease-in-out infinite;
+}
+@keyframes floatSlow {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+}
+
+/* Related disasters strip */
+.related-disasters {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 1rem;
+    border-top: 1px solid var(--border);
+}
+.related-disasters-header {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+}
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+}
+.related-card {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background-color: #0a0907;
+    background-size: cover;
+    background-position: center;
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #f5f5f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem 1.1rem;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    isolation: isolate;
+}
+.related-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 100%);
+}
+.related-card:hover { transform: translateY(-4px); box-shadow: 0 18px 35px rgba(0,0,0,0.25); }
+.related-card > * { position: relative; z-index: 2; }
+.related-card .related-year {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    color: var(--accent-orange);
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+}
+.related-card .related-name {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+    .ds-cinema-hero { height: 48vh; min-height: 320px; }
+    .ds-cinema-hero-content { padding: 2rem 1.25rem; }
+    .ds-cinema-hero-bg { animation: none; }
+    .related-disasters { padding: 2rem 1.25rem 1rem; }
+}
