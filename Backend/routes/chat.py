@@ -6,10 +6,10 @@ from pathlib import Path
 import openai
 from fastapi import APIRouter, Request
 
-from limiter import limiter
-from models.schemas import ChatRequest, ChatResponse
-from services.openai_service import chat as openai_chat
-from services.rag_service import get_context
+from ..limiter import limiter
+from ..models.schemas import ChatRequest, ChatResponse
+from ..services.openai_service import chat as openai_chat
+from ..services.rag_service import get_context
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
