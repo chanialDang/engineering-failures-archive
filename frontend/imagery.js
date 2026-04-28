@@ -10,26 +10,24 @@
   All URLs are remote; no local hosting required.
 */
 
-const UNSPLASH = (id, w = 1600) => `https://images.unsplash.com/${id}?w=${w}&q=80&auto=format&fit=crop`;
-
-// Generic thematic fallbacks per discipline / type
+// Generic fallbacks per discipline / type — using Wikipedia for general, relevant imagery
 const THEME = {
-    civilBridge:   UNSPLASH('photo-1505761671935-60b3a7427bad'),       // suspension bridge silhouette
-    civilDam:      UNSPLASH('photo-1545153996-5f30e58a01d4'),          // concrete dam
-    civilBuilding: UNSPLASH('photo-1486325212027-8081e485255e'),       // skyscraper construction
-    civilTunnel:   UNSPLASH('photo-1485827404703-89b55fcc595e'),       // tunnel arch
-    civilLevee:    UNSPLASH('photo-1547683905-f686c993aae5'),          // flooded waterway
-    mechanical:    UNSPLASH('photo-1518709268805-4e9042af2176'),       // welding sparks
-    mechanicalShip:UNSPLASH('photo-1494412651409-8963ce7935a7'),       // ship at sea
-    mechanicalSpace:UNSPLASH('photo-1446776811953-b23d57bd21aa'),      // rocket launch
-    mechanicalRig: UNSPLASH('photo-1518709268805-4e9042af2176'),       // industrial steel
-    mechanicalSub: UNSPLASH('photo-1505075106905-fb052892c116'),       // deep ocean
-    electrical:    UNSPLASH('photo-1473341304170-971dccb5ac1e'),       // power lines
-    electricalNuclear: UNSPLASH('photo-1542621334-a254cf47733d'),      // cooling towers
-    chemical:      UNSPLASH('photo-1519999482648-25049ddd37b1'),       // oil refinery at dusk
-    chemicalRig:   UNSPLASH('photo-1497435334941-8c899ee9e8e9'),       // offshore platform
-    abstractSmoke: UNSPLASH('photo-1494522358652-f30e61a60313'),       // smoke plume
-    abstractSteel: UNSPLASH('photo-1517649763962-0c623066013b'),       // steel beams
+    civilBridge:   'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Golden_gate_bridge_by_diego_delgado.jpg/1280px-Golden_gate_bridge_by_diego_delgado.jpg',
+    civilDam:      'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Hoover_dam.jpg/1280px-Hoover_dam.jpg',
+    civilBuilding: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Southwest_corner_of_Central_Park%2C_NYC.jpg/1280px-Southwest_corner_of_Central_Park%2C_NYC.jpg',
+    civilTunnel:   'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Gotthard_Base_Tunnel_-_Erstdurchstich_2.jpg/1280px-Gotthard_Base_Tunnel_-_Erstdurchstich_2.jpg',
+    civilLevee:    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/New_Orleans_Flood_LC.jpg/1280px-New_Orleans_Flood_LC.jpg',
+    mechanical:    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Camponotus_flavomarginatus_ant.jpg/1280px-Camponotus_flavomarginatus_ant.jpg',
+    mechanicalShip:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/QM2_Bow.jpg/1280px-QM2_Bow.jpg',
+    mechanicalSpace:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/STS120LaunchHiRes.jpg/1280px-STS120LaunchHiRes.jpg',
+    mechanicalRig: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Offshore_drilling.jpg/1280px-Offshore_drilling.jpg',
+    mechanicalSub: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Alvin_DSV-4500_2013.JPG/1280px-Alvin_DSV-4500_2013.JPG',
+    electrical:    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Power_lines.jpg/1280px-Power_lines.jpg',
+    electricalNuclear: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Cattenom_power_plant.jpg/1280px-Cattenom_power_plant.jpg',
+    chemical:      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Petrochemistry.jpg/1280px-Petrochemistry.jpg',
+    chemicalRig:   'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Offshore_drilling.jpg/1280px-Offshore_drilling.jpg',
+    abstractSmoke: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Explosion.jpg/1280px-Explosion.jpg',
+    abstractSteel: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Girder_bridge.svg/1280px-Girder_bridge.svg.png',
 };
 
 // Per-disaster overrides — iconic archival photos where available
@@ -84,11 +82,6 @@ const PER_DISASTER = {
         credit: 'Kevin Rofidal / Public Domain',
         alt: 'Collapsed I-35W bridge over the Mississippi River',
     },
-    'FAIL-033': { // Champlain Towers
-        hero: UNSPLASH('photo-1486325212027-8081e485255e'),
-        credit: 'Unsplash',
-        alt: 'Residential tower silhouette',
-    },
     'FAIL-040': { // New Orleans Levees
         hero: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/FEMA_-_15021_-_Photograph_by_Jocelyn_Augustino_taken_on_08-30-2005_in_Louisiana.jpg',
         credit: 'FEMA / Public Domain',
@@ -98,21 +91,6 @@ const PER_DISASTER = {
         hero: 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Apollo_13_Service_Module_Damage.jpg',
         credit: 'NASA / Public Domain',
         alt: 'Apollo 13 service module damage',
-    },
-    'FAIL-048': { // Titan Submersible
-        hero: UNSPLASH('photo-1505075106905-fb052892c116'),
-        credit: 'Unsplash',
-        alt: 'Deep ocean abyss',
-    },
-    'FAIL-049': { // Ariane 5 Flight 501
-        hero: UNSPLASH('photo-1446776811953-b23d57bd21aa'),
-        credit: 'Unsplash',
-        alt: 'Rocket launch silhouette',
-    },
-    'FAIL-050': { // Mars Climate Orbiter
-        hero: UNSPLASH('photo-1614728894747-a83421e2b9c9'),
-        credit: 'Unsplash',
-        alt: 'Mars surface',
     },
 };
 
