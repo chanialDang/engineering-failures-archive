@@ -7,7 +7,7 @@
       "location": "Cape Canaveral, Florida",
       "discipline": "Mechanical",
       "type": "Spacecraft",
-      "cause": "# FILL OUT HERE"
+      "cause": "O-ring seals on the right solid rocket booster failed at 28°F launch temperature — far below their tested resilience limit of 53°F — because the elastomer's shear modulus G increased sharply with cold, preventing the ring from expanding fast enough to seal the ignition-pressure surge. Hot combustion gases (~5,800°F) escaped through the unsealed joint, burned through the external tank, and destabilized the vehicle 73 seconds after launch. The Rogers Commission found that engineers at Thiokol had flagged the low-temperature O-ring erosion data the night before launch but were overruled by management under schedule pressure."
     },
     {
       "id": "FAIL-002",
@@ -16,7 +16,7 @@
       "location": "Lakehurst, New Jersey",
       "discipline": "Mechanical",
       "type": "Airship",
-      "cause": "# FILL OUT HERE"
+      "cause": "The outer skin of the Hindenburg was coated with cellulose acetate butyrate doped with aluminum powder and iron oxide — a highly incendiary mixture — which ignited from a static discharge as the mooring lines contacted the damp ground, creating a grounding path for accumulated charge. The 7 million cubic feet of hydrogen lift gas (flammability range 4–75% in air) then provided sustained fuel for the 34-second inferno. NASA engineer Addison Bain's analysis showed the skin's burn signature and rapid flame propagation matched thermite-like combustion of the coating rather than hydrogen ignition alone."
     },
     {
       "id": "FAIL-003",
@@ -25,7 +25,7 @@
       "location": "Tacoma, Washington",
       "discipline": "Civil",
       "type": "Bridge",
-      "cause": "# FILL OUT HERE"
+      "cause": "The bridge's shallow plate-girder deck acted as a solid rectangular bluff body, generating periodic vortex shedding at a Strouhal frequency f_s = St·V/D where St ≈ 0.11; at 42 mph winds, f_s matched the deck's torsional natural frequency (~0.2 Hz), causing resonant aeroelastic flutter. The deck's unprecedented slenderness ratio (L/b ≈ 72) and lack of open-truss stiffening left aerodynamic damping essentially zero, allowing oscillation amplitudes to grow until the deck failed in tension at the midspan hangers. Post-collapse wind-tunnel work by von Kármán established that flutter occurs when aerodynamic energy input per cycle exceeds structural damping energy — a criterion now standard in bridge aerodynamics."
     },
     {
       "id": "FAIL-004",
@@ -34,7 +34,7 @@
       "location": "North Sea, United Kingdom",
       "discipline": "Chemical",
       "type": "Offshore",
-      "cause": "# FILL OUT HERE"
+      "cause": "A condensate pump was taken offline for maintenance and its pressure safety valve removed; the permit-to-work (PTW) system failed to communicate this to the night shift, who restarted the pump — condensate leaked through the open flange and ignited, triggering an initial explosion that disabled the firewater deluge system. Because neighboring platforms had no authority to stop pumping without explicit orders from Piper Alpha, gas and oil continued flowing into the burning structure, leading to two massive riser explosions that destroyed the platform. The Cullen Inquiry found 167 fatalities were the result of systemic failure: no integrated emergency command, no automatic platform shutdown, and inadequate firewall ratings between modules."
     },
     {
       "id": "FAIL-005",
@@ -43,7 +43,7 @@
       "location": "Atlantic Ocean",
       "discipline": "Mechanical",
       "type": "Maritime",
-      "cause": "# FILL OUT HERE"
+      "cause": "Striking an iceberg at 22.5 knots opened a ~91-meter gash that breached five of sixteen watertight compartments; the ship's buoyancy reserve F_b = ρ_water·g·V_submerged could sustain any four flooded compartments, but five caused progressive sinking by the bow as water overtopped each successive bulkhead. The ship's steel, high in sulfur relative to manganese (Mn/S ratio ~2.5 vs. modern ≥10), had a ductile-to-brittle transition temperature above 0°C, so riveted plates fractured in a brittle mode on contact with near-freezing water rather than deforming plastically. Additionally, the bridge received six iceberg warnings that day but maintained near-maximum speed, reflecting a safety culture that prioritized schedule over risk."
     },
     {
       "id": "FAIL-006",
@@ -52,7 +52,7 @@
       "location": "Bhopal, India",
       "discipline": "Chemical",
       "type": "Chemical Plant",
-      "cause": "# FILL OUT HERE"
+      "cause": "Water entered Tank 610 containing ~40 tonnes of methyl isocyanate (MIC), triggering an exothermic hydrolysis reaction (CH₃NCO + H₂O → CH₃NH₂ + CO₂, ΔH ≈ −106 kJ/mol) that drove tank temperature above MIC's boiling point (39.1°C), rapidly pressurizing and rupturing the tank. All three safety barriers — the refrigeration unit keeping MIC cold, the scrubber with caustic soda to neutralize escaping gas, and the flare tower to burn off vapor — were either offline or incapacitated at the time of the failure. The resulting toxic cloud of MIC and reaction byproducts killed an estimated 3,700–16,000 people in Bhopal's densely populated surrounding shanty towns, making it the deadliest industrial accident in history."
     },
     {
       "id": "FAIL-007",
@@ -61,7 +61,7 @@
       "location": "Gulf of Mexico",
       "discipline": "Mechanical",
       "type": "Oil Rig",
-      "cause": "# FILL OUT HERE"
+      "cause": "A negative-pressure test on the Macondo well (1,544 m water depth, reservoir pressure ~13,000 psi) was misinterpreted as a successful integrity test, masking gas influx that migrated up the riser; the nitrogen-foamed cement job had failed to seal the wellbore annulus. When methane reached the drill floor it ignited, killing 11 workers, and the blowout preventer's blind shear rams failed to fully close — a battery defect and a buckled drill pipe prevented complete sealing, leaving the well uncontrolled for 87 days and releasing ~4.9 million barrels of oil. Presidential Commission findings pointed to a culture of prioritizing schedule and cost over well control, with BP, Halliburton, and Transocean each deferring safety decisions to the others."
     },
     {
       "id": "FAIL-008",
@@ -70,7 +70,7 @@
       "location": "Fukushima, Japan",
       "discipline": "Electrical",
       "type": "Nuclear Plant",
-      "cause": "# FILL OUT HERE"
+      "cause": "A 9.0 Mw earthquake and subsequent 14-meter tsunami — nearly 2.5× the plant's 5.7 m design flood height — inundated and destroyed all emergency diesel generators, eliminating the decay-heat cooling for Reactors 1, 2, and 3. Without coolant circulation, decay heat P_decay ≈ P₀ × 0.066 × t^(−0.2) progressively uncovered fuel rods; zirconium cladding reacted with steam (Zr + 2H₂O → ZrO₂ + 2H₂), producing hydrogen that exploded in three reactor buildings. The single-site shared-infrastructure layout — all backup generators on the same low-lying floor — meant one external event could simultaneously disable cooling for multiple reactors, a systemic design vulnerability the IAEA later identified as violation of defense-in-depth principles."
     },
     {
       "id": "FAIL-009",
@@ -79,7 +79,7 @@
       "location": "Harrisburg, Pennsylvania",
       "discipline": "Electrical",
       "type": "Nuclear Plant",
-      "cause": "# FILL OUT HERE"
+      "cause": "A pilot-operated relief valve (PORV) opened to relieve a pressure transient and then stuck open, while its indicator light falsely showed it had reseated — coolant drained unseen for over two hours as operators, confident in the misleading display, actually reduced emergency core cooling water injections believing the reactor was overfull. Without adequate coolant, the ~200 MW of initial decay heat uncovered about half the core, melting ~45% of the fuel and releasing fission products into the coolant; the damaged core released a hydrogen bubble that threatened containment integrity for days. The NRC's subsequent investigation found TMI's instrumentation provided operators no direct measure of coolant level in the core, a design deficiency corrected industry-wide after the accident."
     },
     {
       "id": "FAIL-010",
@@ -88,7 +88,7 @@
       "location": "Chernobyl, Ukraine",
       "discipline": "Electrical",
       "type": "Nuclear Plant",
-      "cause": "# FILL OUT HERE"
+      "cause": "Operators deliberately disabled automatic safety systems to complete a turbine rundown test at dangerously low power (200 MW vs. design 3,200 MW), while xenon poisoning left the reactor marginally stable; the RBMK design's positive void coefficient meant that increasing steam voids raised reactivity (Δk/Δvoid > 0), opposite to the safety behavior of modern reactors. When emergency shutdown (SCRAM) was initiated, control rods fitted with graphite displacer tips first caused a brief reactivity surge in the lower core before absorbing neutrons, triggering a prompt-critical power excursion estimated at ~30,000 MW in 3 seconds — roughly 10× design thermal limit. The resulting steam explosion and graphite fire released ~400× the radioactivity of the Hiroshima bomb and required the evacuation of 350,000 people."
     },
     {
       "id": "FAIL-011",
@@ -97,7 +97,7 @@
       "location": "Mayak, Soviet Union",
       "discipline": "Electrical",
       "type": "Nuclear Facility",
-      "cause": "# FILL OUT HERE"
+      "cause": "A cooling system failure at the Mayak Production Association caused high-level radioactive waste in Tank C-11 — a mixture of dried nitrate and acetate salts — to overheat beyond the ignition temperature of the evaporated nitrate compounds, triggering a chemical explosion estimated at 70–80 tons TNT equivalent. The blast dispersed ~20 MCi of radioactivity in a plume 1,000 km long and 30–50 km wide, which became known as the East-Ural Radioactive Trace and required the evacuation of 272,000 people from 23 villages. The facility had no redundant cooling, no adequate containment around high-activity waste tanks, and the Soviet government kept the accident classified until 1989 — preventing international safety reforms for three decades."
     },
     {
       "id": "FAIL-012",
@@ -106,7 +106,7 @@
       "location": "Over Texas and Louisiana",
       "discipline": "Mechanical",
       "type": "Spacecraft",
-      "cause": "# FILL OUT HERE"
+      "cause": "During ascent, a ~0.75 kg foam piece shed from the bipod ramp of the external tank struck the leading edge of the left wing's reinforced carbon-carbon (RCC) tiles at ~26.9 m/s relative velocity, creating an approximately 25 cm breach in the RCC panel. On re-entry, plasma at ~1,650°C entered the breach and melted the wing's aluminum substructure; temperature sensors failed sequentially outward from the left wing root in a pattern consistent with progressive aerodynamic heating through the hole. The Columbia Accident Investigation Board found NASA had normalized foam shedding as an acceptable risk despite 79 prior missions showing tile damage, and had no on-orbit repair capability — systemic organizational failure mirroring Challenger's pre-launch decision-making."
     },
     {
       "id": "FAIL-013",
@@ -115,7 +115,7 @@
       "location": "Cape Kennedy, Florida",
       "discipline": "Mechanical",
       "type": "Spacecraft",
-      "cause": "# FILL OUT HERE"
+      "cause": "The Command Module cabin was pressurized with 100% oxygen at 16.7 psi — above ambient — which reduced ignition energy thresholds to millijoules and drove flame spread velocity roughly 3× faster than in air; an electrical arc from chafed wire bundles beneath the crew couch ignited Velcro, nylon netting, and foam padding that lined the interior. Cabin pressure from the fire rose faster than the crew could operate the six-step inward-opening hatch (which required differential pressure ≤2 psi to open), trapping all three astronauts and killing them within 17 seconds of the first alarm. Post-accident redesign replaced the pure-O₂ atmosphere with a 60/40 O₂/N₂ launch atmosphere, eliminated most flammable materials, and replaced the hatch with an outward-opening version openable in under 10 seconds."
     },
     {
       "id": "FAIL-014",
@@ -124,7 +124,7 @@
       "location": "En route to Moon",
       "discipline": "Mechanical",
       "type": "Spacecraft",
-      "cause": "# FILL OUT HERE"
+      "cause": "Oxygen Tank 2 in the Service Module had its thermostat switch fused shut years earlier during a draining test at 65 V DC (rated for 28 V), leaving bare wires inside the pressurized tank; during a routine in-flight stir command, arcing ignited Teflon insulation and rapidly pressurized the tank beyond its ~1,000 psi design limit until it ruptured. The explosion severed oxygen and power connections to two of three fuel cells, leaving the Command Module without primary electrical power some 321,000 km from Earth. The crew improvised a lunar module lifeboat return — adapting incompatible CO₂ scrubber canisters with cardboard and duct tape (lithium hydroxide canister adapter) and navigating via star sights — bringing all three astronauts home safely after 87 hours."
     },
     {
       "id": "FAIL-015",
@@ -133,7 +133,7 @@
       "location": "Soviet Union",
       "discipline": "Mechanical",
       "type": "Spacecraft",
-      "cause": "# FILL OUT HERE"
+      "cause": "One of Soyuz 1's two solar panel arrays failed to deploy, halving available power and forcing mission termination after 16 orbits; during descent, the main 10-meter drogue parachute failed to extract the 55-square-meter main canopy because the parachute container geometry had been narrowed — under weight-reduction pressures — to a diameter that caused the canopy to jam against the walls. The reserve parachute then tangled with the still-deployed drogue, and the descent module impacted at approximately 140 mph without any functioning parachute, killing cosmonaut Vladimir Komarov. A Soviet investigative commission found over 200 pre-flight quality deficiency reports had been filed on Soyuz 1 but launch proceeded under pressure to beat the U.S. Gemini program's milestones."
     },
     {
       "id": "FAIL-016",
@@ -142,7 +142,7 @@
       "location": "Soviet Union",
       "discipline": "Mechanical",
       "type": "Spacecraft",
-      "cause": "# FILL OUT HERE"
+      "cause": "A pressure equalization valve between the descent module and orbital module was jolted open during explosive bolt firing at spacecraft separation (168 km altitude, ambient pressure ≈ 0 Pa), venting the 101 kPa cabin atmosphere completely in approximately 115 seconds. The three cosmonauts wore no pressure suits — the suits had been removed to accommodate a third crewmember in the cramped cabin — and lost consciousness within 15–20 seconds; all three died of hypoxia and decompression before reaching any atmospheric density. The accident led to an immediate redesign mandating pressure suits during launch, docking, and reentry and reducing Soyuz crew capacity from three to two until life-support upgrades were implemented."
     },
     {
       "id": "FAIL-017",
@@ -151,7 +151,7 @@
       "location": "Minneapolis, Minnesota",
       "discipline": "Civil",
       "type": "Bridge",
-      "cause": "# FILL OUT HERE"
+      "cause": "The original 1961 design had undersized gusset plates (½ inch thick at node U10W) connecting the main truss; NTSB calculations showed the plates were already overstressed under the original dead load — carrying shear stresses near their ultimate capacity — before any live load was applied, a design error that went uncaught for 46 years. On August 1, 2007, approximately 578,000 lb of construction equipment and concrete aggregate staged directly over the critical panel point pushed stresses past the plate's yield limit, initiating fracture. The bridge had been rated \"structurally deficient\" for 17 consecutive years, but inspections assessed only visible corrosion and not the original design adequacy of gusset plates hidden beneath paint."
     },
     {
       "id": "FAIL-018",
@@ -160,7 +160,7 @@
       "location": "Dundee, Scotland",
       "discipline": "Civil",
       "type": "Bridge",
-      "cause": "# FILL OUT HERE"
+      "cause": "The 85 high-girder navigation spans rested on cast-iron columns with tensile strength σ_t ≈ 170 MPa — roughly one-third the compressive strength — and virtually no ductility; foundry investigations after the collapse revealed widespread internal voids, cold shuts, and misaligned bolt holes that reduced actual column cross-sections far below nominal design values. During the Tay rail disaster storm of December 28, 1879, winds estimated at 140 km/h generated lateral dynamic forces on the enclosed girder spans that the under-designed columns could not carry in combined bending and tension, triggering a brittle fracture cascade. The subsequent Court of Inquiry found designer Thomas Bouch had made no allowance for wind load in the column design — a fundamental omission that was not standard practice at the time — and Bouch was stripped of his knighthood."
     },
     {
       "id": "FAIL-019",
@@ -169,7 +169,7 @@
       "location": "Quebec, Canada",
       "discipline": "Civil",
       "type": "Bridge",
-      "cause": "# FILL OUT HERE"
+      "cause": "When the design span was increased from 480 m to 549 m without recomputing dead loads, actual stresses in the anchor-arm compression chords exceeded Theodore Cooper's own allowable of ~48.3 MPa (7,000 psi) by approximately 9% — an error confirmed only after the collapse. On August 29, 1907, field supervisor Norman McLure observed visible lateral buckling in chord A9L and telegraphed Cooper for guidance; Cooper ordered a halt, but the message arrived after the chords buckled catastrophically under Euler column failure: P_cr = π²EI/(KL)² was exceeded as the effective unsupported length L exceeded design assumptions. The collapse, killing 75 workers, directly motivated the founding of the Canadian engineering Professional Engineer licensing system and the Iron Ring tradition."
     },
     {
       "id": "FAIL-020",
@@ -178,7 +178,7 @@
       "location": "Genoa, Italy",
       "discipline": "Civil",
       "type": "Bridge",
-      "cause": "# FILL OUT HERE"
+      "cause": "Riccardo Morandi's 1967 design enclosed the stay cables in concrete sheaths — ostensibly to protect the high-strength steel tendons — but this prevented any visual inspection or electrochemical monitoring of the cables within; over five decades, chloride diffusion driven by coastal humidity and de-icing salts (per Fick's second law, C(x,t) = C_s·erfc(x/2√Dt)) penetrated the concrete cover and initiated corrosion that progressively reduced tendon area. Load redistributed from corroded stays to intact ones, monotonically increasing stress in the surviving tendons until Section 9's stay system reached its capacity under normal traffic loading on August 14, 2018. Italy's government had been warned in multiple structural assessments that the concrete-encased cable design was inherently unmonitorable, but remediation was repeatedly deferred."
     },
     {
       "id": "FAIL-021",
@@ -187,7 +187,7 @@
       "location": "Ashtabula, Ohio",
       "discipline": "Civil",
       "type": "Bridge",
-      "cause": "# FILL OUT HERE"
+      "cause": "The Howe truss bridge used cast-iron lower chord eye-bars that post-collapse fracture analysis showed to be riddled with internal voids, blow holes, and cold shuts — foundry defects that reduced effective section area well below nominal design values. On December 29, 1876, a heavily laden passenger train traversing the 75-meter span during a blizzard (ΔT ≈ −30°C from design ambient) added thermal stress to the already overstressed cast iron, fracturing a chord eye-bar and triggering a cascade collapse that killed 92 people. The disaster became a catalyst for U.S. railroad bridge safety reform, including standardized material testing requirements and the eventual prohibition of cast iron as a primary structural member in bridge construction."
     },
     {
       "id": "FAIL-022",
@@ -196,7 +196,7 @@
       "location": "Point Pleasant, West Virginia",
       "discipline": "Civil",
       "type": "Bridge",
-      "cause": "# FILL OUT HERE"
+      "cause": "The eyebar chain suspension system had no structural redundancy — each link was a single critical load path — and a manufacturing pit corrosion defect in eyebar 330 of the north anchor chain had grown by stress-corrosion fatigue over 40 years according to Paris' law: da/dN = C·(ΔK)^m, until the crack reached critical size K_Ic. On December 15, 1967, moderate holiday traffic provided the final cyclic load increment that pushed the stress intensity factor K above K_Ic, causing brittle fracture and instantaneous total collapse that killed 46 people. The disaster directly motivated the National Bridge Inspection Standards (NBIS) of 1970, mandating biennial inspections of all federal-aid highway bridges and creating the first national bridge inventory."
     },
     {
       "id": "FAIL-023",
@@ -205,7 +205,7 @@
       "location": "Chester, England",
       "discipline": "Civil",
       "type": "Bridge",
-      "cause": "# FILL OUT HERE"
+      "cause": "Robert Stephenson reinforced cast-iron girders with pre-tensioned wrought-iron tie rods to compensate for deflection, but the rod tensioning shifted the neutral axis upward, unknowingly increasing tensile stress in the bottom flange of the cast-iron beam beyond its brittle tensile capacity (~130 MPa) under combined bending and pre-stress. When a locomotive crossed on May 24, 1847, the girder failed in bending — fracturing suddenly through the bottom flange — and the train fell into the River Dee, killing five people. The Commissioners of Railways inquiry found that cast iron's low and unreliable tensile strength made it unsuitable as a primary railway bridge member, directly leading to parliamentary regulations that effectively ended the use of cast iron in main-line railway bridges."
     },
     {
       "id": "FAIL-024",
@@ -214,7 +214,7 @@
       "location": "Tampa Bay, Florida",
       "discipline": "Civil",
       "type": "Bridge",
-      "cause": "# FILL OUT HERE"
+      "cause": "The freighter MV Summit Venture was navigating Tampa Bay in near-zero visibility fog when radar operator John Lerro lost positional certainty relative to the bridge span; the 35,000-ton vessel struck the southbound Sunshine Skyway's support column, generating a lateral impact force estimated at ~17 MN — over 15 times the bridge pier's design vessel impact resistance under AASHTO standards of the era. The blow collapsed a 366-meter section of the bridge; 35 people on vehicles already on the span fell into Tampa Bay and died. The disaster became the principal motivation for AASHTO's vessel collision design standards (Guide Specification, 1991), which for the first time required bridges to be designed or protected against ship impact forces commensurate with vessel traffic risk."
     },
     {
       "id": "FAIL-025",
@@ -223,7 +223,7 @@
       "location": "Greenwich, Connecticut",
       "discipline": "Civil",
       "type": "Bridge",
-      "cause": "# FILL OUT HERE"
+      "cause": "The bridge's non-redundant pin-and-hanger assembly — a single skew-back pin connecting a suspended span to the cantilever arms — had become encrusted with road-salt-laden debris that blocked drainage holes, creating a perpetually wet corrosive environment around the pin and the hanger's upper eye. The main pin fractured in shear due to corrosion-reduced cross-section, and with no alternative load path, the suspended span dropped onto I-95 at 1:30 AM on June 28, 1983, killing three people. The Federal Highway Administration subsequently mandated nationwide inspection of all pin-and-hanger assemblies, revealing that similar corrosion-induced vulnerability was pervasive across U.S. bridges of this structural type."
     },
     {
       "id": "FAIL-026",
@@ -232,7 +232,7 @@
       "location": "Schoharie County, New York",
       "discipline": "Civil",
       "type": "Bridge",
-      "cause": "# FILL OUT HERE"
+      "cause": "Pier 3's spread footing foundation — built on alluvial soil rather than bedrock — was vulnerable to scour; decades of flood flows had progressively eroded the bed material beneath and around the footing without any scour monitoring. During an April 1987 flood, streambed shear stress τ = ρgRS (R = hydraulic radius, S = energy slope) exceeded the critical shear resistance of the granular soils, rapidly deepening the scour hole until the footing lost bearing support, causing Pier 3 to tilt and the spans to collapse, killing 10 people. The NTSB found the bridge's 1954 design included no scour analysis and that 33 years of inspections had never evaluated foundation vulnerability — findings that directly produced the FHWA's national scour evaluation program (HEC-18, 1988)."
     },
     {
       "id": "FAIL-027",
@@ -241,7 +241,7 @@
       "location": "Miami, Florida",
       "discipline": "Civil",
       "type": "Bridge",
-      "cause": "# FILL OUT HERE"
+      "cause": "The accelerated-bridge-construction truss had been set on temporary supports, then moved to its final position using self-propelled modular transporters (SPMTs) — leaving it in an unsupported, statically determinate condition — while crews attempted to re-tension diagonal member 11, which was carrying compressive load (~1,007 kips per post-collapse analysis) that far exceeded its capacity in the temporary configuration. Structural engineers from FIGG Bridge Engineers had identified and discussed cracking at member 11's node the day before but did not issue an emergency stop-work order or close traffic below the structure. The over-stressed member buckled on March 15, 2018, initiating a progressive collapse that killed six people; OSHA and the NTSB found the engineers failed to recognize that their own calculations flagged the member as critically overstressed."
     },
     {
       "id": "FAIL-028",
@@ -250,7 +250,7 @@
       "location": "Kansas City, Missouri",
       "discipline": "Civil",
       "type": "Building",
-      "cause": "# FILL OUT HERE"
+      "cause": "A seemingly minor change during shop drawing review altered the hanging-rod connection from a single continuous rod (carrying only the load of one walkway at each upper nut) to two separate rods, which forced the upper connection nut to carry both the fourth-floor walkway load W and the second-floor walkway load 2W simultaneously — doubling the demand on the box-beam weld. The weld's capacity F_u · throat area was designed for W, not 2W; when approximately 2,000 people gathered on the suspended walkways during a tea dance on July 17, 1981, the upper fourth-floor connection failed in shear-punching, dropping both walkways and killing 114 people in the deadliest U.S. structural failure to that date. Post-investigation showed the change was made without a licensed engineer formally checking the revised load path — a case now canonical in engineering ethics education."
     },
     {
       "id": "FAIL-029",
@@ -259,7 +259,7 @@
       "location": "Washington D.C.",
       "discipline": "Civil",
       "type": "Building",
-      "cause": "# FILL OUT HERE"
+      "cause": "A record snowfall of ~28 inches (71 cm) — the heaviest single storm in Washington D.C. history to that point — applied an estimated 60 lbs/ft² (2.9 kPa) uniformly distributed load on the flat concrete roof, roughly three times the ~20 lbs/ft² design live load capacity. The reinforced concrete roof slab lacked adequate shear reinforcement at the bearing wall connections; punching shear capacity V_c = 2√f'c · b_o · d was insufficient for the actual tributary load, causing a sudden pull-away failure of the roof-to-wall connection. The pancake collapse killed 98 patrons in the theater below and became a catalyst for stricter U.S. building code provisions governing roof snow load design and minimum concrete shear reinforcement."
     },
     {
       "id": "FAIL-030",
@@ -268,7 +268,7 @@
       "location": "Lawrence, Massachusetts",
       "discipline": "Civil",
       "type": "Building",
-      "cause": "# FILL OUT HERE"
+      "cause": "Post-collapse fracture analysis of the five-story mill's cast-iron columns revealed severe internal defects — voids, cold shuts, and misalignment — that reduced effective cross-sectional area well below nominal; eccentric loading from heavy mill machinery introduced bending moments that violated the interaction equation P/P_cr + M/M_u > 1.0, causing combined axial-flexural buckling failure. When a column on the first floor failed on January 10, 1860, progressive load redistribution overloaded adjacent columns in milliseconds, pancaking all five floors onto the ~700 workers inside. The subsequent fire from overturned oil lamps killed many survivors still trapped in the rubble, bringing the total death toll to 88 — one of the worst industrial disasters in New England history."
     },
     {
       "id": "FAIL-031",
@@ -277,7 +277,7 @@
       "location": "Seoul, South Korea",
       "discipline": "Civil",
       "type": "Building",
-      "cause": "# FILL OUT HERE"
+      "cause": "The building was designed as an office block with flat-plate concrete slabs sized for ~250 kg/m² occupancy load, but the developer unilaterally converted the fifth floor to a restaurant and added heavy rooftop HVAC units and a swimming pool — multiplying the design column loads by roughly four — without structural engineering review. The flat-plate columns lacked adequate shear head reinforcement, and punching shear demand V_u = q·A_tributary around column perimeters exceeded capacity φ·V_c, with visible cracks developing and widening over the preceding days. Management refused to close the store despite warnings, and on June 29, 1995, cascading punching shear failures across multiple floors killed 502 people in one of the deadliest non-seismic structural collapses in history."
     },
     {
       "id": "FAIL-032",
@@ -286,7 +286,7 @@
       "location": "Dhaka, Bangladesh",
       "discipline": "Civil",
       "type": "Building",
-      "cause": "# FILL OUT HERE"
+      "cause": "The building was illegally expanded from a permitted five to eight stories, using substandard concrete on a soft former-pond foundation with poor bearing capacity; upper floors housed industrial sewing machines and diesel generators whose combined mass and vibration loads far exceeded the structural design capacity of the flat-plate reinforced concrete frame. The morning of April 24, 2013, simultaneous startup of rooftop generators added several tonnes of dynamic shock load to a structure already exhibiting major crack propagation observed the previous day, triggering progressive punching shear failures across multiple slab-column connections. The collapse killed 1,134 garment workers and injured 2,500 more, making it the deadliest garment-factory accident in history and exposing systemic failures in Bangladeshi construction oversight and global supply-chain accountability."
     },
     {
       "id": "FAIL-033",
@@ -295,7 +295,7 @@
       "location": "Surfside, Florida",
       "discipline": "Civil",
       "type": "Building",
-      "cause": "# FILL OUT HERE"
+      "cause": "A 2018 structural engineering report documented severe concrete degradation in the below-grade pool deck — spalling, delamination, and extensive rebar corrosion caused by decades of chloride-laden groundwater and pool water infiltration — with repair costs estimated at $9.1 million that the condo association repeatedly deferred. Rebar corrosion products expand to approximately 2.5 times the original volume, generating internal bursting stresses that accelerated crack propagation in the slab-column connections; the degraded concrete reduced effective column cross-sections, concentrating flexural and shear demands at already-weakened zones. On June 24, 2021, punching shear failure at the pool deck level initiated a top-down progressive collapse that destroyed 12 of the 13 stories in the tower's northeast section, killing 98 people."
     },
     {
       "id": "FAIL-034",
@@ -304,7 +304,7 @@
       "location": "London, England",
       "discipline": "Civil",
       "type": "Building",
-      "cause": "# FILL OUT HERE"
+      "cause": "A gas explosion in an 18th-floor corner flat blew out a precast concrete load-bearing wall panel; the large-panel system relied on each panel to carry the floors above, with minimal structural ties between adjacent panels, so the removal of one corner panel instantly transferred its tributary load to the remaining structure — loads far above the other connections' capacities. The floor above fell onto the floor below (impact load ≈ 2 × static), cascading progressively downward through all 22 stories in the SW corner in a classic \"house of cards\" disproportionate collapse, killing four people. The disaster introduced progressive collapse and disproportionate collapse as formal design concepts, leading to UK Building Regulations requiring minimum horizontal tying forces (H_tie ≥ 1% of maximum factored column load) to ensure alternate load paths."
     },
     {
       "id": "FAIL-035",
@@ -313,7 +313,7 @@
       "location": "Johnstown, Pennsylvania",
       "discipline": "Civil",
       "type": "Dam",
-      "cause": "# FILL OUT HERE"
+      "cause": "Previous owners had modified the South Fork Dam's spillway, raising the crest, narrowing the channel, and adding fish screens that collectively reduced discharge capacity to roughly one-third of the original design; when the Conemaugh valley received ~150 mm of rainfall in 24 hours on an already-saturated watershed, flood routing analysis Q = CIA showed inflow substantially exceeded the dam's maximum outflow capacity. Reservoir level rose until overtopping occurred; without riprap or concrete protection on the downstream face, the earthen embankment eroded rapidly — overtopping erosion rate scales as approximately V^3 — and the 22-m-high dam breached in under an hour. The resulting 20-million-ton flood wave traveling at ~25 km/h annihilated the city of Johnstown and killed 2,209 people, prompting the first American Red Cross major disaster response."
     },
     {
       "id": "FAIL-036",
@@ -322,7 +322,7 @@
       "location": "Los Angeles, California",
       "discipline": "Civil",
       "type": "Dam",
-      "cause": "# FILL OUT HERE"
+      "cause": "The left abutment of the concrete gravity dam was founded on a formation of water-soluble conglomerate cemented by calcium carbonate and gypsum; reservoir seepage dissolved the cementing minerals, progressively reducing shear strength and undermining the abutment's sliding stability — sliding safety factor F_s = (W·tan φ + c·A) / H degrades toward 1.0 as both φ and c approach zero. The right abutment additionally rested on an ancient paleolithic landslide plane that engineer William Mulholland had not identified during siting. Mulholland inspected the leaking dam the morning of March 12, 1928, declared it safe, and the dam failed 12 hours later, releasing 12.4 billion gallons that killed approximately 431 people — the second-deadliest civil engineering failure in U.S. history."
     },
     {
       "id": "FAIL-037",
@@ -331,7 +331,7 @@
       "location": "Idaho",
       "discipline": "Civil",
       "type": "Dam",
-      "cause": "# FILL OUT HERE"
+      "cause": "The earthfill dam's core was keyed into highly permeable, fractured rhyolite abutment rock; despite a grouting program, seepage paths persisted along the interface between the compacted clay core and the irregular rock surface. As the reservoir filled for the first time in 1976, hydraulic gradient i at the key trench contact approached and locally exceeded the critical gradient i_c = (G_s − 1)/(1 + e) for the silty fill material, initiating internal erosion (piping) that excavated an expanding conduit through the core. The dam breached on June 5, 1976 while the reservoir was still filling — releasing 288,000 acre-feet of water and causing ~$2 billion in damages — and the Interior Department's investigation concluded the piping failure was predictable from the known geology."
     },
     {
       "id": "FAIL-038",
@@ -340,7 +340,7 @@
       "location": "Henan, China",
       "discipline": "Civil",
       "type": "Dam",
-      "cause": "# FILL OUT HERE"
+      "cause": "Typhoon Nina stalled over the Huai River basin and delivered approximately 1,060 mm of rain in 24 hours — over three times the design storm of 300 mm/24 hr — to a watershed already near field capacity from preceding rains. Reservoir inflow peaked at ~13,000 m³/s while the dam's spillway and sluice gates could discharge only ~1,742 m³/s, causing rapid overtopping; the unprotected earthen downstream face eroded catastrophically under the overflow. Banqiao's breach triggered a cascade failure of 61 additional dams, releasing a combined wave that inundated 12,000 km² and killed an estimated 85,600–240,000 people — the deadliest dam failure in recorded history — with the Communist government suppressing information about the disaster for decades."
     },
     {
       "id": "FAIL-039",
@@ -349,7 +349,7 @@
       "location": "Longarone, Italy",
       "discipline": "Civil",
       "type": "Dam",
-      "cause": "# FILL OUT HERE"
+      "cause": "The left bank of Monte Toc above the reservoir contained a pre-existing geological slip plane of clay-filled limestone; repeated reservoir filling and drawdown cycles increased pore-water pressure along the clay layer, reducing effective normal stress σ'_n and, by Mohr-Coulomb failure criterion τ_f = c' + σ'_n tan φ', degrading residual friction angle φ' toward the clay's residual value of ~8°. On October 9, 1963, approximately 260 million m³ of rock suddenly slid into the reservoir at ~30 m/s; the displaced water generated a wave (Δh ≈ 235 m above reservoir level) that overtopped the 262-m arch dam by ~250 m — the dam itself survived the loading intact, but the wave destroyed eight villages downstream and killed 1,917 people. Geologists Leopold Müller and Giorgio Dal Piaz had warned of the slope instability for years, but engineers and project owners dismissed their concerns."
     },
     {
       "id": "FAIL-040",
@@ -358,7 +358,7 @@
       "location": "New Orleans, Louisiana",
       "discipline": "Civil",
       "type": "Levee",
-      "cause": "# FILL OUT HERE"
+      "cause": "Hurricane Katrina's storm surge (3–5.5 m at key locations) overtopped some levees, but the catastrophic flooding of central New Orleans resulted primarily from sheet pile walls at the 17th Street and London Avenue canals that were too short — penetrating only into soft organic clay rather than the underlying competent soils — allowing underseepage and foundation piping failure as hydraulic gradient exceeded i_c of the foundation material. The Army Corps of Engineers' IPET investigation found that the I-walls failed at water levels 0.6–0.9 m below design freeboard, due to incorrect soil strength assumptions in designs dating to the 1970s. Over 1,800 people died; the IPET called it \"a system in name only\" — built to a non-uniform standard by multiple agencies over decades with no unified risk framework."
     },
     {
       "id": "FAIL-041",
@@ -367,7 +367,7 @@
       "location": "Oakland, California",
       "discipline": "Civil",
       "type": "Overpass",
-      "cause": "# FILL OUT HERE"
+      "cause": "The two-level Cypress Street Viaduct was designed to 1960s Caltrans seismic standards, which specified a base shear coefficient of only ~0.06g — far below the ~0.3g peak ground acceleration recorded at the soft Bay mud site during the 6.9 Mw Loma Prieta earthquake. Insufficient transverse shear reinforcement (widely spaced #4 ties at ~18 inch spacing vs. closely spaced confinement required by modern codes) allowed diagonal tension cracks to form in the columns: V_u exceeded V_n = V_c + V_s, and once concrete shear capacity was exhausted the columns lost both moment and axial capacity simultaneously. Progressive column failures caused 50 upper-deck bays to collapse onto the lower deck, killing 42 of the 67 fatalities in the entire earthquake and accelerating California's mandatory seismic retrofit program."
     },
     {
       "id": "FAIL-042",
@@ -376,7 +376,7 @@
       "location": "Oakland, California",
       "discipline": "Civil",
       "type": "Viaduct",
-      "cause": "# FILL OUT HERE"
+      "cause": "The Cypress Viaduct's non-ductile concrete columns lacked the confinement reinforcement needed to sustain inelastic deformation; the volumetric confinement ratio ρ_s was far below the 0.12 f'c/f_yh requirement introduced by post-1971 codes, meaning once concrete cover spalled the unconfined core disintegrated under combined shear and axial load. The double-deck structure had no strong-column/weak-beam hierarchy — columns were weaker than girders — so once columns failed the upper deck had no alternative load path and fell onto the lower deck in a sudden cascade. The failure also reflected a soil amplification problem: soft Bay mud significantly amplified long-period ground motion relative to the bedrock design spectrum used when the structure was designed in 1953."
     },
     {
       "id": "FAIL-043",
@@ -385,7 +385,7 @@
       "location": "Boston, Massachusetts",
       "discipline": "Civil",
       "type": "Tunnel",
-      "cause": "# FILL OUT HERE"
+      "cause": "Approximately twelve-ton concrete ceiling panels in the I-90 connector tunnel were suspended from the concrete soffit by Powers Rawl epoxy anchor bolts that were subjected to sustained tensile loads well in excess of the adhesive's rated creep resistance; epoxy creep compliance J(t) = J_0 + C·ln(t) caused slow elongation of the anchor embedment zone, reducing clamp force over six years of service. NTSB investigation found the contractor had used a fast-setting \"spring setting\" epoxy specified only for short-term loading conditions rather than the slow-setting adhesive rated for sustained overhead tensile forces, and project oversight had not verified anchor type conformance against the specification. On July 10, 2006, approximately 26 tons of ceiling panels pulled free of their anchors and fell onto a vehicle traveling below, killing one person and injuring another."
     },
     {
       "id": "FAIL-044",
@@ -394,7 +394,7 @@
       "location": "Yamanashi, Japan",
       "discipline": "Civil",
       "type": "Tunnel",
-      "cause": "# FILL OUT HERE"
+      "cause": "The Sasago Tunnel's suspended concrete ceiling panels (each ~1.2 tonnes, installed in 1976) were held by 9 mm diameter suspension bolts anchored into the concrete crown; over 36 years of service, vehicle exhaust humidity and chemical attack corrosion progressively reduced the bolt cross-sections, while fatigue cycling from traffic vibrations degraded the bolt-anchor interface — degradation never revealed by visual-only inspections that had not included load testing since installation. On December 2, 2012, approximately 140 meters of ceiling panels collapsed onto vehicles in the active travel lane, killing nine people and trapping others for hours. The disaster prompted Japan's government to mandate physical load testing of aging tunnel suspension hardware nationally and accelerated a broader infrastructure inspection reform program across the country's aging highway network."
     },
     {
       "id": "FAIL-045",
@@ -403,7 +403,7 @@
       "location": "Cape Kennedy, Florida",
       "discipline": "Mechanical",
       "type": "Spacecraft",
-      "cause": "# FILL OUT HERE"
+      "cause": "The Command Module's 100% oxygen atmosphere at 16.7 psi created conditions where ignition energy thresholds dropped to millijoule levels and flame speeds increased roughly three-fold compared to normal air; an arc from chafed wiring under the crew couch ignited Velcro, nylon netting, and foam padding with near-explosive speed. Cabin pressure from the fire exceeded the maximum 2 psi differential needed to operate the inward-opening hatch before crew members could complete the six-step hatch sequence, trapping Gus Grissom, Ed White, and Roger Chaffee inside — all three perished within 17 seconds of the fire's detection. The accident revealed systemic NASA quality-control failures: over 20,000 wiring discrepancies had been logged on the Command Module, and the pure-oxygen ground atmosphere protocol — more hazardous than the space environment — had never been formally risk-assessed."
     },
     {
       "id": "FAIL-046",
@@ -412,7 +412,7 @@
       "location": "En route to Moon",
       "discipline": "Mechanical",
       "type": "Spacecraft",
-      "cause": "# FILL OUT HERE"
+      "cause": "Oxygen Tank 2's thermostat switch had been welded shut during a 1968 overheating incident when 65 V DC was applied across a component rated for 28 V, leaving bare Teflon-insulated wires inside the tank; a routine in-flight stir at mission hour 55.9 produced an arc that ignited the insulation and ruptured the tank at ~1,000 psi, severing oxygen and power from two of three fuel cells. The explosion crippled the Command Module's electrical and oxygen systems ~321,000 km from Earth, forcing the crew to use the Lunar Module as a lifeboat — a vehicle sized for two people and 45 hours on a 90-hour return trajectory. The crew improvised a CO₂ scrubber adapter using cardboard, hose, and duct tape to make Command Module lithium hydroxide canisters compatible with the Lunar Module's square-fitting scrubbers, successfully returning all three astronauts safely."
     },
     {
       "id": "FAIL-047",
@@ -421,7 +421,7 @@
       "location": "Soviet Union",
       "discipline": "Mechanical",
       "type": "Spacecraft",
-      "cause": "# FILL OUT HERE"
+      "cause": "The Soyuz 1 spacecraft was launched under intense political pressure despite over 200 documented pre-flight quality deficiencies; a solar panel failed to deploy (halving electrical power) and mission planners understood the spacecraft was too faulty to safely complete its planned dual-mission rendezvous. During descent, the main 10-meter drogue parachute failed to extract the primary canopy because the container walls had been narrowed during a weight-reduction redesign to a diameter that caused the tightly packed canopy to jam against the walls under aerodynamic loads. The reserve parachute tangled with the deployed drogue, and cosmonaut Vladimir Komarov — the first person to fly a spacecraft twice — died on impact at ~140 mph, with classified Soviet accounts suggesting he was aware the spacecraft was critically flawed before launch."
     },
     {
       "id": "FAIL-048",
@@ -430,7 +430,7 @@
       "location": "North Atlantic Ocean",
       "discipline": "Mechanical",
       "type": "Submersible",
-      "cause": "# FILL OUT HERE"
+      "cause": "The Titan's 6.7 cm (2.5 inch) thick carbon fiber cylindrical pressure hull was subjected to cyclic hydrostatic compression during repeated test and operational dives — a loading regime that initiates delamination fatigue in composite laminates at stress amplitudes well below the static ultimate strength, typically characterized by a fiber-matrix interface crack growth rate da/dN proportional to (ΔG/G_c)^m. OceanGate rejected conventional titanium or steel pressure hull designs and declined independent third-party certification from agencies such as the Marine Technology Society, eliminating the external safety checks that would have required cyclic fatigue testing and inspection protocols. At approximately 3,800 m depth (ambient pressure ~38 MPa), the hull imploded catastrophically — the rapid pressure equalization producing a shockwave detectable by hydrophones — killing all five aboard."
     },
     {
       "id": "FAIL-049",
@@ -439,7 +439,7 @@
       "location": "French Guiana",
       "discipline": "Mechanical",
       "type": "Rocket",
-      "cause": "# FILL OUT HERE"
+      "cause": "Software reused directly from Ariane 4's inertial reference system (IRS) attempted to store a 64-bit floating-point horizontal velocity value (BH ≈ 32,768 m/s in Ariane 5's faster trajectory) into a 16-bit signed integer field without overflow protection, producing an unhandled operand exception; the same error occurred in the backup IRS 72 ms later, and the onboard flight computer interpreted the IRS diagnostic error codes as navigation data. The spurious \"attitude\" data commanded a nozzle deflection of ~180°, generating aerodynamic forces that exceeded structural limits and disintegrated the rocket 37 seconds after liftoff at maximum dynamic pressure (q = ½ρV² ≈ peak). The $500 million payload was lost because safety-critical IRS software proven on Ariane 4 had been reused on Ariane 5 without validating that its operating range covered the new, higher-velocity flight profile — a textbook software reuse failure."
     },
     {
       "id": "FAIL-050",
@@ -448,12 +448,12 @@
       "location": "Mars Orbit",
       "discipline": "Mechanical",
       "type": "Spacecraft",
-      "cause": "# FILL OUT HERE"
+      "cause": "Lockheed Martin's navigation ground software output thruster angular momentum data in pound-force-seconds (lbf·s), while NASA's Jet Propulsion Laboratory trajectory software expected SI units (newton-seconds) — a factor-of-4.448 discrepancy (1 lbf·s = 4.448 N·s) that was never caught because the interface specification was ambiguous and no cross-check on the unit system was implemented. Over nine months of interplanetary cruise, each trajectory correction maneuver was calculated with systematically wrong force magnitudes, accumulating a navigation error that placed the spacecraft on an entry trajectory 57 km below the planned 150 km periapsis. At that altitude, aerodynamic drag forces F_drag = ½ρV²C_D A destroyed the $327.6 million spacecraft; the Mars Climate Orbiter became the canonical engineering case study for unit-system verification and interface control document rigor in interplanetary mission design."
     }
   ],
   "metadata": {
     "total_entries": 50,
-    "last_updated": "2026-03-30T09:34:40.564450",
+    "last_updated": "2026-04-29T00:00:00.000000",
     "update_frequency": "Manual - Run scraper.py to update",
     "source_websites": [
       "https://en.wikipedia.org/wiki/Engineering_failures_in_the_U.S.",
