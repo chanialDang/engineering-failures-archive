@@ -683,5 +683,26 @@
     })();
     </script>
 
+    <!-- ===== CHAT WIDGET ===== -->
+    <div id="chatWidget">
+        <div id="chatPanel" class="chat-hidden">
+            <div class="chat-widget-header">
+                <div class="chat-widget-dot"></div>
+                <span class="chat-widget-label">Archive Guide</span>
+                <button class="chat-widget-close" id="chatClose">✕</button>
+            </div>
+            <div class="chat-widget-messages" id="chatMessages">
+                <div class="chat-msg chat-msg-ai">I'm your guide through 50 engineering disasters. Ask me about any failure, or type a discipline — Civil, Mechanical, Electrical, Chemical — to explore the archive.</div>
+            </div>
+            <div class="chat-widget-input-row">
+                <input type="text" class="chat-widget-input" id="chatInput" placeholder="Ask about any disaster..." maxlength="500" autocomplete="off">
+                <button class="chat-widget-send" id="chatSend">→</button>
+            </div>
+        </div>
+        <button id="chatToggle" title="Ask the Archive">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </button>
+    </div>
+    <script src="chat-widget.js"></script>
 </body>
 </html>
