@@ -20,7 +20,7 @@ Engineering Failures Archive — static site, 50+ disaster records (1847–2023)
 
 ## Commands
 
-**Backend (run from `backend/`):**
+**Backend (run from `Backend/`):**
 ```bash
 # Install deps
 pip install -r requirements.txt
@@ -34,7 +34,7 @@ python seed_supabase.py
 
 **Frontend**: open any `.html` directly in a browser, or use `python -m http.server` from the project root. No build step.
 
-**Required env vars** (in `backend/.env`):
+**Required env vars** (in `Backend/.env`):
 ```
 OPENAI_API_KEY=...
 SUPABASE_URL=...
@@ -52,12 +52,12 @@ ALLOWED_ORIGINS=https://your-vercel-domain.vercel.app  # comma-separated; defaul
 | `disaster.js` | `?id=` parsing, `VIDEOS` object at top of file, `buildRelated()`, `initCinemaParallax()` |
 | `styles.css` | Global styles. V2 redesign block at end (~line 2050+): cinematic hero, editorial numerals, cinematic image cards, archive thumbnail+accent-bar cards, ds-cinema-hero, related-disasters strip |
 | `scraper.py` | Gathers/validates data → `raw_failures.json` |
-| `backend/main.py` | FastAPI app entry — mounts middleware + routes |
-| `backend/models/schemas.py` | Pydantic request/response models |
-| `backend/db/supabase.py` | Only file that touches Supabase — never import supabase elsewhere |
-| `backend/services/openai_service.py` | All OpenAI API calls — the only layer allowed to call OpenAI |
-| `backend/services/rag_service.py` | Vector search + context injection |
-| `backend/requirements.txt` | Python dependencies — fastapi, uvicorn, openai, supabase, python-dotenv, pydantic |
+| `Backend/main.py` | FastAPI app entry — mounts middleware + routes |
+| `Backend/models/schemas.py` | Pydantic request/response models |
+| `Backend/db/supabase.py` | Only file that touches Supabase — never import supabase elsewhere |
+| `Backend/services/openai_service.py` | All OpenAI API calls — the only layer allowed to call OpenAI |
+| `Backend/services/rag_service.py` | Vector search + context injection |
+| `Backend/requirements.txt` | Python dependencies — fastapi, uvicorn, openai, supabase, python-dotenv, pydantic |
 | `.env` | `OPENAI_API_KEY`, `SUPABASE_URL`, `SUPABASE_KEY` — never commit |
 
 Unused: `landing.js` (legacy — ignore)
@@ -98,7 +98,7 @@ Unused: `landing.js` (legacy — ignore)
 
 ### Folder Structure
 ```
-backend/
+Backend/
 ├── main.py                    ← app entry, mounts middleware + routes + rate limiter
 ├── limiter.py                  ← slowapi Limiter instance (imported by main + routes)
 ├── middleware/cors.py          ← CORS: allow only Vercel frontend domain (GET/POST only)
