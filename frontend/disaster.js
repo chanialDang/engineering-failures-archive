@@ -160,11 +160,14 @@ async function init() {
         }
         buildTabs(panels, diagramArea);
     } else {
-        // 2. Fall back to single file: 46.svg / 46.png / etc.
+        // 2. Fall back to single file: 46.svg / 46.png / FAIL-005.svg / etc.
         const extensions = ['svg', 'png', 'jpg', 'jpeg', 'webp'];
+        // Try plain numeric names first, then the prefixed form (FAIL-005.svg)
+        const candidates = [];
+        for (const ext of extensions) candidates.push(`diagrams/${num}.${ext}`);
+        for (const ext of extensions) candidates.push(`diagrams/${id}.${ext}`);
         let diagramFound = false;
-        for (const ext of extensions) {
-            const path = `diagrams/${num}.${ext}`;
+        for (const path of candidates) {
             if (await fileExists(path)) {
                 loadPanel(path, diagramArea);
                 diagramFound = true;

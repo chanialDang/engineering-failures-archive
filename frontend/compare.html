@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Disasters - Engineering Failures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+    <style>
+        body.compare-page { background: var(--bg-page, #f7f4ef); }
+        .compare-shell { max-width: 1400px; margin: 0 auto; padding: 110px 2.5rem 4rem; }
+        .compare-eyebrow {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        .compare-title {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(2rem, 4.5vw, 3.4rem);
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            margin-bottom: 0.5rem;
+        }
+        .compare-sub { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 2rem; }
+
+        .compare-pickbar {
+            display: flex; flex-wrap: wrap; gap: 0.5rem;
+            padding: 1rem 1.25rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            margin-bottom: 1.5rem;
+            align-items: center;
+        }
+        .compare-pickbar select {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.78rem;
+            padding: 0.55rem 0.85rem;
+            border-radius: 980px;
+            border: 1.5px solid var(--border);
+            background: #fff;
+            min-width: 240px;
+        }
+        .compare-pickbar .pb-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-right: 0.5rem;
+        }
+        .compare-pickbar button.pb-clear {
+            margin-left: auto;
+            padding: 0.55rem 1rem;
+            border-radius: 980px;
+            border: 1.5px solid var(--border);
+            background: transparent;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+        }
+        .compare-pickbar button.pb-clear:hover { border-color: var(--text-primary); }
+
+        .compare-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+        .cmp-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex; flex-direction: column;
+            transition: transform 0.18s, box-shadow 0.18s;
+        }
+        .cmp-card:hover { transform: translateY(-6px); box-shadow: 0 18px 38px rgba(29,29,31,0.12); }
+        .cmp-thumb {
+            aspect-ratio: 16/10;
+            background-size: cover; background-position: center;
+            background-color: #1a1814;
+            position: relative;
+        }
+        .cmp-thumb::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.55));
+        }
+        .cmp-thumb-label {
+            position: absolute; bottom: 0.75rem; left: 0.9rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+            color: #fff; z-index: 1;
+        }
+        .cmp-body { padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+        .cmp-row { display: flex; gap: 0.75rem; align-items: baseline; flex-wrap: wrap; }
+        .cmp-id {
+            font-family: 'Space Mono', monospace; font-size: 0.65rem;
+            color: var(--text-muted); letter-spacing: 0.1em;
+            background: var(--bg-elevated, #f0ece4); padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+        .cmp-name {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.05rem; font-weight: 700;
+            line-height: 1.25; letter-spacing: -0.01em;
+        }
+        .cmp-meta {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+        .cmp-cause {
+            font-size: 0.85rem; line-height: 1.7;
+            color: var(--text-secondary);
+            display: -webkit-box;
+            -webkit-line-clamp: 8;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .cmp-actions {
+            margin-top: auto;
+            display: flex; justify-content: space-between; align-items: center;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border);
+        }
+        .cmp-link {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--text-primary); text-decoration: none;
+            border-bottom: 1.5px solid var(--text-primary);
+            padding-bottom: 2px;
+        }
+        .cmp-remove {
+            border: none; background: transparent;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem; letter-spacing: 0.1em;
+            color: var(--text-muted); cursor: pointer;
+        }
+        .cmp-remove:hover { color: #c0392b; }
+
+        .compare-empty {
+            padding: 3rem 1.5rem; text-align: center;
+            border: 2px dashed var(--border);
+            border-radius: 18px;
+            color: var(--text-muted);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        .compare-deltas {
+            margin-top: 2rem;
+            background: #fff; border: 1px solid var(--border); border-radius: 18px;
+            padding: 1.5rem;
+        }
+        .compare-deltas h2 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--text-muted); margin-bottom: 1rem;
+        }
+        .delta-table {
+            width: 100%; border-collapse: collapse;
+            font-family: 'Space Mono', monospace; font-size: 0.82rem;
+        }
+        .delta-table th, .delta-table td {
+            text-align: left; padding: 0.65rem 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .delta-table th {
+            font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--text-muted); font-weight: 700;
+        }
+        .delta-table td:first-child {
+            font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--text-muted); width: 110px;
+        }
+    </style>
+</head>
+<body class="compare-page">
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">EFA</a>
+        <div class="nav-links">
+            <a href="archive.html" class="nav-link">Archive</a>
+            <a href="compare.html" class="nav-link">Compare</a>
+            <a href="chat.html" class="nav-link">Chat</a>
+            <a href="sources.html" class="nav-link">Sources</a>
+            <a href="why.html" class="nav-link">Why I Made This</a>
+        </div>
+    </nav>
+
+    <main class="compare-shell">
+        <div class="compare-eyebrow">Side-by-Side</div>
+        <h1 class="compare-title">Compare Disasters</h1>
+        <p class="compare-sub">Pick up to three failures and view them in parallel — same discipline, different eras, different root causes.</p>
+
+        <div class="compare-pickbar" id="pickbar">
+            <span class="pb-label">Add Disaster</span>
+            <select id="pickerSelect"><option value="">— select —</option></select>
+            <button class="pb-clear" id="clearBtn">Clear</button>
+        </div>
+
+        <div id="compareArea">
+            <div class="compare-empty" id="emptyState">
+                Use the picker above or open this page with <code>?ids=FAIL-001,FAIL-005</code> to compare cases.
+            </div>
+            <div class="compare-grid" id="cmpGrid" style="display:none;"></div>
+            <div class="compare-deltas" id="cmpDeltas" style="display:none;">
+                <h2>At-a-Glance</h2>
+                <table class="delta-table" id="deltaTable"></table>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== CHAT WIDGET ===== -->
+    <div id="chatWidget">
+        <div id="chatPanel" class="chat-hidden">
+            <div class="chat-widget-header">
+                <div class="chat-widget-dot"></div>
+                <span class="chat-widget-label">Archive Guide</span>
+                <button class="chat-widget-close" id="chatClose">✕</button>
+            </div>
+            <div class="chat-widget-messages" id="chatMessages">
+                <div class="chat-msg chat-msg-ai">Compare two or three disasters and ask me what they share — common root causes, era patterns, regulatory aftermath.</div>
+            </div>
+            <div class="chat-widget-input-row">
+                <input type="text" class="chat-widget-input" id="chatInput" placeholder="Ask about these cases..." maxlength="500" autocomplete="off">
+                <button class="chat-widget-send" id="chatSend">→</button>
+            </div>
+        </div>
+        <button id="chatToggle" title="Ask the Archive">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </button>
+    </div>
+
+    <script src="imagery.js"></script>
+    <script src="compare.js"></script>
+    <script src="chat-widget.js"></script>
+</body>
+</html>
